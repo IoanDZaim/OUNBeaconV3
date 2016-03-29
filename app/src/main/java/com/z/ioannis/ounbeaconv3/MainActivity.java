@@ -43,6 +43,7 @@ public class MainActivity extends Activity {
     private Context context;
     private String[] temp;
     private String[] temp1;
+    private String BeacName;
 
 
     @Override
@@ -186,21 +187,39 @@ public class MainActivity extends Activity {
         beaconManager.stopRanging(welten);
         mCards = new ArrayList<>();
         Iterator<Rooms> itr = listb.iterator();
+        Iterator<Beacons> itr2 = lista.iterator();
         CardCreator cc;
+
+        int maj = BconArray[0].getMajor();
+        int min = BconArray[0].getMinor();
+        while (itr2.hasNext()) {
+            Beacons check = itr2.next();
+            int majcheck = check.getMajor();
+            int mincheck = check.getMinor();
+            if ((majcheck == maj) && (mincheck == min)) {
+                BeacName= check.getBName();
+                break;
+            }//if
+        }//while
 
         while (itr.hasNext()) {
             Rooms check = itr.next();
-            String[] keimeno;
-            keimeno = check.getLssTitles();
-            String babis;
-            cc = new CardCreator(check.getWelcMsg(), check.getRoomID());
-            mCards.add(cc);
-            for (int i=0; i < check.getNumOfLss(); i++){
-               babis = keimeno[i];
-                cc = new CardCreator(babis,check.getRoomName());
+            String RBname = check.getBcName();
+            if (RBname.equals(BeacName)) {
+                String[] keimeno;
+                keimeno = check.getLssTitles();
+                String babis;
+                cc = new CardCreator(check.getWelcMsg(), check.getRoomID());
+                mCards.add(cc);
+                for (int i = 0; i < check.getNumOfLss(); i++) {
+                    babis = keimeno[i];
+                    cc = new CardCreator(babis, check.getRoomName());
+                    mCards.add(cc);
+                }
+            } else{
+                cc = new CardCreator((R.string.No_match+BeacName),BeacName);
                 mCards.add(cc);
             }
-
 
         }
     }
