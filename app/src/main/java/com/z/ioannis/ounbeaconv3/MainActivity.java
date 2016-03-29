@@ -114,10 +114,10 @@ public class MainActivity extends Activity {
 
                             temp1 = new String[nlss];
                             for (int k = 0; k < nlss; k++){
-                                String ltittle = jsonObject.getString("LssTitles");
+                                String ltittle = jsonObject.getString("LssTitle "+k);
+                                temp1[k]=ltittle;
                             }
-                            String ltittle = jsonObject.getString("LssTitles");
-                            rooms.setLssTitles(ltittle);
+                            rooms.setLssTitles(temp1);
 
                             listb.add(rooms);
                         }//for 2
@@ -191,9 +191,11 @@ public class MainActivity extends Activity {
         while (itr.hasNext()) {
             Rooms check = itr.next();
             String[] keimeno;
-            keimeno = check.getSlides();
+            keimeno = check.getLssTitles();
             String babis;
-            for (int i=0; i < check.getnSlides(); i++){
+            cc = new CardCreator(check.getWelcMsg(), check.getRoomID());
+            mCards.add(cc);
+            for (int i=0; i < check.getNumOfLss(); i++){
                babis = keimeno[i];
                 cc = new CardCreator(babis,check.getRoomName());
                 mCards.add(cc);

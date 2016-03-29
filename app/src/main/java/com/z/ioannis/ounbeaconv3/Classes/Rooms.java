@@ -1,11 +1,13 @@
 package com.z.ioannis.ounbeaconv3.Classes;
 
+import java.util.Arrays;
+
 /**
  * Created by Ioannis.D on 14-Mar-16.
  */
 public class Rooms{
 
-    public Rooms(String roomID, String BcName, String roomName, String welcMsg, int numOfLss, String lssTitles) {
+    public Rooms(String roomID, String BcName, String roomName, String welcMsg, int numOfLss, String[] lssTitles) {
 
         this.RoomID = roomID;
         this.BcName= BcName;
@@ -58,11 +60,11 @@ public class Rooms{
         NumOfLss = numOfLss;
     }
 
-    public String getLssTitles() {
+    public String[] getLssTitles() {
         return LssTitles;
     }
 
-    public void setLssTitles(String lssTitles) {
+    public void setLssTitles(String[] lssTitles) {
         LssTitles = lssTitles;
     }
 
@@ -71,7 +73,7 @@ public class Rooms{
     private String RoomName;
     private String WelcMsg;
     private int NumOfLss;
-    private String LssTitles;
+    private String[] LssTitles;
 
     @Override
     public String toString() {
@@ -81,8 +83,7 @@ public class Rooms{
                 ", RoomName='" + RoomName + '\'' +
                 ", WelcMsg='" + WelcMsg + '\'' +
                 ", NumOfLss=" + NumOfLss +
-                ", LssTitles=" + LssTitles +
+                ", LssTitles=" + Arrays.toString(LssTitles) +
                 '}';
     }
-
 }
