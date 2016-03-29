@@ -37,6 +37,7 @@ public class CreatedCardsAdapter extends CardScrollAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         Card card = new Card(context);
+
         CardCreator cc = mCards.get(position);
         if (cc.getText() != null)
             card.setText(cc.getText());
@@ -44,6 +45,7 @@ public class CreatedCardsAdapter extends CardScrollAdapter {
         // Card footer note
         if (cc.getFooter() != null)
             card.setFootnote(cc.getFooter());
+
 
         return card.getView();
     }

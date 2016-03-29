@@ -54,6 +54,90 @@ public class MainActivity extends Activity {
         welten = new Region("Welten Region", null, null, null);
         beaconManager = new BeaconManager(getApplicationContext());
 
+        try {
+            if (jsonInfo ==null) {
+                jsonInfo = new JSONObject(loadInfoJSON());
+                JSONArray jsonArray = jsonInfo.optJSONArray("beacons");
+                JSONArray jsonArray2 = jsonInfo.optJSONArray("rooms");
+                JSONArray jsonArray3 = jsonInfo.optJSONArray("lessons");
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    bcon = new Beacons();
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                    String name = jsonObject.getString("name");
+                    bcon.setBName(name);
+
+                    String uuid = jsonObject.getString("uuid");
+                    bcon.setUuid(uuid);
+
+                    int Major = jsonObject.getInt("Major");
+                    bcon.setMajor(Major);
+
+                    int Minor = jsonObject.getInt("Minor");
+                    bcon.setMinor(Minor);
+
+                    String Mac = jsonObject.getString("Mac");
+                    bcon.setMac(Mac);
+
+                    String Colour = jsonObject.getString("Colour");
+                    bcon.setColour(Colour);
+
+                    lista.add(bcon);
+                }//for 1
+                for (int i = 0; i < jsonArray2.length(); i++) {
+                    rooms = new Rooms();
+                    JSONObject jsonObject = jsonArray2.getJSONObject(i);
+
+                    String roomid = jsonObject.getString("RoomID");
+                    rooms.setRoomID(roomid);
+
+                    String bcname = jsonObject.getString("BcName");
+                    rooms.setBcName(bcname);
+
+                    String roomName = jsonObject.getString("RoomName");
+                    rooms.setRoomName(roomName);
+
+                    String wlcmsg = jsonObject.getString("WelcMsg");
+                    rooms.setWelcMsg(wlcmsg);
+
+                    int nlss = jsonObject.getInt("NumOfLss");
+                    rooms.setNumOfLss(nlss);
+
+                    temp1 = new String[nlss];
+                    for (int k = 0; k < nlss; k++){
+                        String ltittle = jsonObject.getString("LssTitle "+k);
+                        temp1[k]=ltittle;
+                    }
+                    rooms.setLssTitles(temp1);
+
+                    listb.add(rooms);
+                }//for 2
+                for (int i = 0; i < jsonArray3.length(); i++){
+                    lesson = new Lessons();
+                    JSONObject jsonObject = jsonArray3.getJSONObject(i);
+
+                    String lname = jsonObject.getString("name");
+                    lesson.setLname(lname);
+
+                    String rName = jsonObject.getString("roomname");
+                    lesson.setRoomName(rName);
+
+                    int nSlides = jsonObject.getInt("NumOfSlides");
+                    lesson.setnSlides(nSlides);
+
+                    temp = new String[nSlides];
+                    for (int k = 0; k < nSlides; k++){
+                        String slide = jsonObject.getString("Slide " + k);
+                        temp[k]=slide;
+                    }//for in for3
+                    lesson.setSlides(temp);
+                    listc.add(lesson);
+                }//for 3
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         beaconManager.setRangingListener(new BeaconManager.RangingListener(){
             @Override
             public void onBeaconsDiscovered(Region region, List<Beacon> list) {
@@ -64,89 +148,7 @@ public class MainActivity extends Activity {
                     j++;
                 }
 //*/
-                try {
-                    if (jsonInfo ==null) {
-                        jsonInfo = new JSONObject(loadInfoJSON());
-                        JSONArray jsonArray = jsonInfo.optJSONArray("beacons");
-                        JSONArray jsonArray2 = jsonInfo.optJSONArray("rooms");
-                        JSONArray jsonArray3 = jsonInfo.optJSONArray("lessons");
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            bcon = new Beacons();
-                            JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                            String name = jsonObject.getString("name");
-                            bcon.setBName(name);
-
-                            String uuid = jsonObject.getString("uuid");
-                            bcon.setUuid(uuid);
-
-                            int Major = jsonObject.getInt("Major");
-                            bcon.setMajor(Major);
-
-                            int Minor = jsonObject.getInt("Minor");
-                            bcon.setMinor(Minor);
-
-                            String Mac = jsonObject.getString("Mac");
-                            bcon.setMac(Mac);
-
-                            String Colour = jsonObject.getString("Colour");
-                            bcon.setColour(Colour);
-
-                            lista.add(bcon);
-                        }//for 1
-                        for (int i = 0; i < jsonArray2.length(); i++) {
-                            rooms = new Rooms();
-                            JSONObject jsonObject = jsonArray2.getJSONObject(i);
-
-                            String roomid = jsonObject.getString("RoomID");
-                            rooms.setRoomID(roomid);
-
-                            String bcname = jsonObject.getString("BcName");
-                            rooms.setBcName(bcname);
-
-                            String roomName = jsonObject.getString("RoomName");
-                            rooms.setRoomName(roomName);
-
-                            String wlcmsg = jsonObject.getString("WelcMsg");
-                            rooms.setWelcMsg(wlcmsg);
-
-                            int nlss = jsonObject.getInt("NumOfLss");
-                            rooms.setNumOfLss(nlss);
-
-                            temp1 = new String[nlss];
-                            for (int k = 0; k < nlss; k++){
-                                String ltittle = jsonObject.getString("LssTitle "+k);
-                                temp1[k]=ltittle;
-                            }
-                            rooms.setLssTitles(temp1);
-
-                            listb.add(rooms);
-                        }//for 2
-                        for (int i = 0; i < jsonArray3.length(); i++){
-                            lesson = new Lessons();
-                            JSONObject jsonObject = jsonArray3.getJSONObject(i);
-
-                            String lname = jsonObject.getString("name");
-                            lesson.setLname(lname);
-
-                            String rName = jsonObject.getString("roomname");
-                            lesson.setRoomName(rName);
-
-                            int nSlides = jsonObject.getInt("NumOfSlides");
-                            lesson.setnSlides(nSlides);
-
-                            temp = new String[nSlides];
-                            for (int k = 0; k < nSlides; k++){
-                                String slide = jsonObject.getString("Slide " + k);
-                                temp[k]=slide;
-                            }//for in for3
-                            lesson.setSlides(temp);
-                            listc.add(lesson);
-                        }//for 3
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
                 PrepareCards();
                 mCardScroller = new CardScrollView(MainActivity.this);
                 CreatedCardsAdapter adapter = new CreatedCardsAdapter(mCards, context);
@@ -216,9 +218,6 @@ public class MainActivity extends Activity {
                     cc = new CardCreator(babis, check.getRoomName());
                     mCards.add(cc);
                 }
-            } else{
-                cc = new CardCreator((R.string.No_match+BeacName),BeacName);
-                mCards.add(cc);
             }
 
         }
