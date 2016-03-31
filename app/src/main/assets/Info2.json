@@ -1,17 +1,28 @@
 {
   "lessons": [
     {
-      "name": "Lesson 1 - connect with the hdmi",
+      "name": "Lesson 1 - Beamer HDMI connection",
       "roomname": "Winter",
       "NumOfSlides": "4",
       "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
       "ImageUrl1": null,
-      "Slide 1": "Look at this image. LOOK AT IT!",
+      "Slide 1": "Take the HDMI cable of the beamer",
       "ImageUrl2": "http://treha_gireve",
-      "Slide 2": "what about this image?",
+      "Slide 2": "Connect it to the HDMI port of your laptop",
       "ImageUrl3": "http://vargiemai_na_skefto",
-      "Slide 3": "what about this image?",
+      "Slide 3": "And that's it! Congratulation!",
       "ImageUrl4": null
+    },
+    {
+      "name": "Lesson 2 - Beamer VGA connection",
+      "roomname": "Winter",
+      "NumOfSlides": "3",
+      "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
+      "ImageUrl 0": null,
+      "Slide 1": "Look at this image. LOOK AT IT!",
+      "ImageUrl 1": "http://treha_gireve",
+      "Slide 2": "what about this image?",
+      "ImageUrl 2": "http://vargiemai_na_skefto"
     },
     {
       "name": "Lesson 1 - connect with the hdmi",
@@ -71,10 +82,10 @@
       "RoomName": "Winter",
       "WelcMsg": "It seems you are in room Winter! Slide to the right to see the classes available here!",
       "NumOfLss": "4",
-      "LssTitle 0": "Connect to the beamer through HDMI cable",
-      "LssTitle 1": "Connect to the beamer through VGA cable",
-      "LssTitle 2": "Multiple Input",
-      "LssTitle 3": "Operate the lights"
+      "LssTitle 0": "Lesson 1 - Beamer HDMI connection",
+      "LssTitle 1": "Lesson 2 - Beamer VGA connection",
+      "LssTitle 2": "Lesson 3 - Multiple Input",
+      "LssTitle 3": "Lesson 4 - Operate the lights"
     },
     {
       "RoomID": "1,43",
@@ -82,9 +93,9 @@
       "RoomName": "Zomer",
       "WelcMsg": "It seems you are in room Zomer! Slide to the right to see the classes available here!",
       "NumOfLss": "3",
-      "LssTitle 0": "Connect to the beamer through HDMI cable",
-      "LssTitle 1": "Connect to the beamer through VGA cable",
-      "LssTitle 2": "Multiple Input"
+      "LssTitle 0": "Lesson 1 - Beamer HDMI connection",
+      "LssTitle 1": "Lesson 2 - Beamer VGA connection",
+      "LssTitle 2": "Lesson 3 - Multiple Input"
     }
   ]
 }

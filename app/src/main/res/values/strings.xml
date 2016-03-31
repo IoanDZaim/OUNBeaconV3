@@ -3,4 +3,6 @@
     <string name="title_activity_main">OUN Beacon v3</string>
     <string name="hello_world">Hello world!</string>
     <string name="No_match">No Room found with this beacon. Beacon name:  </string>
+    <string name="Welcome">Hello! Welcome to the Welten institute!Please wait while the glass scans for nearby beacons</string>
+    <string name="WFootnote">Welten Institute</string>
 </resources>

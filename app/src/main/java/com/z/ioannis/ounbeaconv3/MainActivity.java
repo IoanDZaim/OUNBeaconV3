@@ -1,3 +1,23 @@
+/**
+ * ****************************************************************************
+ * Copyright (C) 2016 Open Universiteit Nederland
+ *
+ * This library is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Contributors: Ioannis D. Zaimidis
+ * ****************************************************************************
+ */
 package com.z.ioannis.ounbeaconv3;
 
 import android.app.Activity;
@@ -30,6 +50,7 @@ public class MainActivity extends Activity {
 
 
     private CardScrollView mCardScroller;
+    private CardScrollView mCardScroller1;
     private BeaconManager beaconManager;
     private Region welten;
     private Beacon[] BconArray;
@@ -46,15 +67,22 @@ public class MainActivity extends Activity {
     private String[] temp1;
     private String BeacName;
     private ArrayList<CardBuilder> cards;
+    private ArrayList<CardBuilder> cards2;
 
 
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         context=this;
-
+        cards = new ArrayList<>();
+        cards2 = new ArrayList<>();
         welten = new Region("Welten Region", null, null, null);
         beaconManager = new BeaconManager(getApplicationContext());
+
+        cards2.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
+                .setText(R.string.Welcome)
+                .setFootnote(R.string.WFootnote));
+
 
         try {
             if (jsonInfo ==null) {
@@ -140,6 +168,12 @@ public class MainActivity extends Activity {
             e.printStackTrace();
         }
 
+        mCardScroller1 = new CardScrollView(this);
+        CreatedCardsAdapter adapter1 = new CreatedCardsAdapter(cards2, context);
+        mCardScroller1.setAdapter(adapter1);
+        mCardScroller1.activate();
+        setContentView(mCardScroller1);
+
         beaconManager.setRangingListener(new BeaconManager.RangingListener(){
             @Override
             public void onBeaconsDiscovered(Region region, List<Beacon> list) {
@@ -149,9 +183,8 @@ public class MainActivity extends Activity {
                     BconArray[j]=beacon;
                     j++;
                 }
-//*/
-
                 PrepareCards();
+                mCardScroller1.deactivate();
                 mCardScroller = new CardScrollView(MainActivity.this);
                 CreatedCardsAdapter adapter = new CreatedCardsAdapter(cards, context);
                 mCardScroller.setAdapter(adapter);
@@ -159,11 +192,10 @@ public class MainActivity extends Activity {
                 setContentView(mCardScroller);//*/
 
             }
-
-
-
             }
         );//ranginglistener
+
+
 
 
 
@@ -184,6 +216,7 @@ public class MainActivity extends Activity {
         });*/
        // setContentView(mCardScroller);
 //*/
+
     }
 
     private void PrepareCards(){
@@ -193,7 +226,7 @@ public class MainActivity extends Activity {
         Iterator<Rooms> itr = listb.iterator();
         Iterator<Beacons> itr2 = lista.iterator();
         CardCreator cc;
-        cards = new ArrayList<>();
+        //cards = new ArrayList<>();
         int maj = BconArray[0].getMajor();
         int min = BconArray[0].getMinor();
         while (itr2.hasNext()) {
@@ -210,26 +243,26 @@ public class MainActivity extends Activity {
             Rooms check = itr.next();
             String RBname = check.getBcName();
             if (RBname.equals(BeacName)) {
-                String[] keimeno;
-                keimeno = check.getLssTitles();
-                String babis;
+                String[] LessonTitles;
+                LessonTitles = check.getLssTitles();
+                String cardText;
                 //cc = new CardCreator(check.getWelcMsg(), check.getRoomID());
                 //mCards.add(cc);
                 cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
-                   .setText(check.getWelcMsg())
+                    .setText(check.getWelcMsg())
                     .setFootnote(check.getRoomName()));
                 for (int i = 0; i < check.getNumOfLss(); i++) {
-                    babis = keimeno[i];
-                    //cc = new CardCreator(babis, check.getRoomName());
-                    cards.add(new CardBuilder(context, CardBuilder.Layout.MENU)
-                        .setText(babis)
-                        .setFootnote(check.getRoomName()));
+                    cardText = LessonTitles[i];
+                    //cc = new CardCreator(cardText, check.getRoomName());
                     //mCards.add(cc);
-                }
-            }
+                    cards.add(new CardBuilder(context, CardBuilder.Layout.MENU)
+                        .setText(cardText)
+                        .setFootnote(check.getRoomName()));
+                }//for
+            }//if
 
-        }
-    }
+        }//2nd while
+    }//PrepareCards
 
     @Override
     protected void onResume() {
