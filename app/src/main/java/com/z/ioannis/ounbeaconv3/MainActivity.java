@@ -7,12 +7,13 @@ import android.os.Bundle;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
+import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
 import com.z.ioannis.ounbeaconv3.Cards.CardCreator;
-import com.z.ioannis.ounbeaconv3.Cards.CreatedCardsAdapter;
 import com.z.ioannis.ounbeaconv3.Classes.Beacons;
 import com.z.ioannis.ounbeaconv3.Classes.Lessons;
 import com.z.ioannis.ounbeaconv3.Classes.Rooms;
+import com.z.ioannis.ounbeaconv3.Cards.CreatedCardsAdapter;
 
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
@@ -44,6 +45,7 @@ public class MainActivity extends Activity {
     private String[] temp;
     private String[] temp1;
     private String BeacName;
+    private ArrayList<CardBuilder> cards;
 
 
     @Override
@@ -151,7 +153,7 @@ public class MainActivity extends Activity {
 
                 PrepareCards();
                 mCardScroller = new CardScrollView(MainActivity.this);
-                CreatedCardsAdapter adapter = new CreatedCardsAdapter(mCards, context);
+                CreatedCardsAdapter adapter = new CreatedCardsAdapter(cards, context);
                 mCardScroller.setAdapter(adapter);
                 mCardScroller.activate();
                 setContentView(mCardScroller);//*/
@@ -191,7 +193,7 @@ public class MainActivity extends Activity {
         Iterator<Rooms> itr = listb.iterator();
         Iterator<Beacons> itr2 = lista.iterator();
         CardCreator cc;
-
+        cards = new ArrayList<>();
         int maj = BconArray[0].getMajor();
         int min = BconArray[0].getMinor();
         while (itr2.hasNext()) {
@@ -211,12 +213,18 @@ public class MainActivity extends Activity {
                 String[] keimeno;
                 keimeno = check.getLssTitles();
                 String babis;
-                cc = new CardCreator(check.getWelcMsg(), check.getRoomID());
-                mCards.add(cc);
+                //cc = new CardCreator(check.getWelcMsg(), check.getRoomID());
+                //mCards.add(cc);
+                cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
+                   .setText(check.getWelcMsg())
+                    .setFootnote(check.getRoomName()));
                 for (int i = 0; i < check.getNumOfLss(); i++) {
                     babis = keimeno[i];
-                    cc = new CardCreator(babis, check.getRoomName());
-                    mCards.add(cc);
+                    //cc = new CardCreator(babis, check.getRoomName());
+                    cards.add(new CardBuilder(context, CardBuilder.Layout.MENU)
+                        .setText(babis)
+                        .setFootnote(check.getRoomName()));
+                    //mCards.add(cc);
                 }
             }
 
@@ -243,7 +251,7 @@ public class MainActivity extends Activity {
     }
 
     public String loadInfoJSON() {
-        String json = null;
+        String json;
         try {
             InputStream is = getAssets().open("Info2.json");
             int size = is.available();

@@ -4,19 +4,19 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.glass.app.Card;
+import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollAdapter;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by Ioannis.D on 21-Mar-16.
  */
 public class CreatedCardsAdapter extends CardScrollAdapter {
 
-    private List<CardCreator> mCards;
+    private ArrayList<CardBuilder> mCards;
 
-    public CreatedCardsAdapter(List<CardCreator> mCards, Context context) {
+    public CreatedCardsAdapter(ArrayList<CardBuilder> mCards, Context context) {
         this.mCards = mCards;
         this.context = context;
     }
@@ -36,9 +36,10 @@ public class CreatedCardsAdapter extends CardScrollAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        Card card = new Card(context);
 
-        CardCreator cc = mCards.get(position);
+       /** Card card = new Card(context);
+
+        CardBuilder cc = mCards.get(position);
         if (cc.getText() != null)
             card.setText(cc.getText());
 
@@ -47,7 +48,8 @@ public class CreatedCardsAdapter extends CardScrollAdapter {
             card.setFootnote(cc.getFooter());
 
 
-        return card.getView();
+        return card.getView();//*/
+        return mCards.get(position).getView(view, viewGroup);
     }
 
     @Override
