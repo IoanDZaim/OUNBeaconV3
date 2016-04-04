@@ -22,18 +22,21 @@ package com.z.ioannis.ounbeaconv3;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.AudioManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
+import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
-import com.z.ioannis.ounbeaconv3.Cards.CardCreator;
+import com.z.ioannis.ounbeaconv3.Cards.CreatedCardsAdapter;
 import com.z.ioannis.ounbeaconv3.Classes.Beacons;
 import com.z.ioannis.ounbeaconv3.Classes.Lessons;
 import com.z.ioannis.ounbeaconv3.Classes.Rooms;
-import com.z.ioannis.ounbeaconv3.Cards.CreatedCardsAdapter;
 
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
@@ -57,15 +60,14 @@ public class MainActivity extends Activity {
     private Beacons bcon;
     private Rooms rooms;
     private Lessons lesson;
-    private List<Beacons> lista = new ArrayList<>();
-    private List<Rooms> listb = new ArrayList<>();
-    private List<Lessons> listc = new ArrayList<>();
+    private List<Beacons> BconsList = new ArrayList<>();
+    private List<Rooms> RoomsList = new ArrayList<>();
+    private List<Lessons> LessList = new ArrayList<>();
     private JSONObject jsonInfo;
-    private List<CardCreator> mCards;
     private Context context;
-    private String[] temp;
-    private String[] temp1;
-    private String BeacName;
+    private String[] SlidesTxts;
+    private String[] TtlStrings;
+    private String ClosestBconName;
     private ArrayList<CardBuilder> cards;
     private ArrayList<CardBuilder> cards2;
 
@@ -112,7 +114,7 @@ public class MainActivity extends Activity {
                     String Colour = jsonObject.getString("Colour");
                     bcon.setColour(Colour);
 
-                    lista.add(bcon);
+                    BconsList.add(bcon);
                 }//for 1
                 for (int i = 0; i < jsonArray2.length(); i++) {
                     rooms = new Rooms();
@@ -133,14 +135,14 @@ public class MainActivity extends Activity {
                     int nlss = jsonObject.getInt("NumOfLss");
                     rooms.setNumOfLss(nlss);
 
-                    temp1 = new String[nlss];
+                    TtlStrings = new String[nlss];
                     for (int k = 0; k < nlss; k++){
                         String ltittle = jsonObject.getString("LssTitle "+k);
-                        temp1[k]=ltittle;
+                        TtlStrings[k]=ltittle;
                     }
-                    rooms.setLssTitles(temp1);
+                    rooms.setLssTitles(TtlStrings);
 
-                    listb.add(rooms);
+                    RoomsList.add(rooms);
                 }//for 2
                 for (int i = 0; i < jsonArray3.length(); i++){
                     lesson = new Lessons();
@@ -155,13 +157,13 @@ public class MainActivity extends Activity {
                     int nSlides = jsonObject.getInt("NumOfSlides");
                     lesson.setnSlides(nSlides);
 
-                    temp = new String[nSlides];
+                    SlidesTxts = new String[nSlides];
                     for (int k = 0; k < nSlides; k++){
                         String slide = jsonObject.getString("Slide " + k);
-                        temp[k]=slide;
+                        SlidesTxts[k]=slide;
                     }//for in for3
-                    lesson.setSlides(temp);
-                    listc.add(lesson);
+                    lesson.setSlides(SlidesTxts);
+                    LessList.add(lesson);
                 }//for 3
             }
         } catch (JSONException e) {
@@ -189,6 +191,16 @@ public class MainActivity extends Activity {
                 CreatedCardsAdapter adapter = new CreatedCardsAdapter(cards, context);
                 mCardScroller.setAdapter(adapter);
                 mCardScroller.activate();
+                mCardScroller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        // Plays disallowed sound to indicate that TAP actions are not supported.
+                        AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+                        am.playSoundEffect(Sounds.TAP);
+                        //mCardScroller1.activate();
+                        //setContentView(mCardScroller1);
+                    }
+                });
                 setContentView(mCardScroller);//*/
 
             }
@@ -196,15 +208,7 @@ public class MainActivity extends Activity {
         );//ranginglistener
 
 
-
-
-
-        //PrepareCards();
-    /**    mCardScroller = new CardScrollView(this);
-        CreatedCardsAdapter adapter = new CreatedCardsAdapter(mCards, context);
-        mCardScroller.setAdapter(adapter);
-        mCardScroller.activate();
-
+/**
         // Handle the TAP event.
         mCardScroller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -213,8 +217,8 @@ public class MainActivity extends Activity {
                 AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
                 am.playSoundEffect(Sounds.DISALLOWED);
             }
-        });*/
-       // setContentView(mCardScroller);
+        });
+
 //*/
 
     }
@@ -222,11 +226,9 @@ public class MainActivity extends Activity {
     private void PrepareCards(){
 
         beaconManager.stopRanging(welten);
-        mCards = new ArrayList<>();
-        Iterator<Rooms> itr = listb.iterator();
-        Iterator<Beacons> itr2 = lista.iterator();
-        CardCreator cc;
-        //cards = new ArrayList<>();
+        Iterator<Rooms> itr = RoomsList.iterator();
+        Iterator<Beacons> itr2 = BconsList.iterator();
+        Iterator<Lessons> itr3 = LessList.iterator();
         int maj = BconArray[0].getMajor();
         int min = BconArray[0].getMinor();
         while (itr2.hasNext()) {
@@ -234,7 +236,7 @@ public class MainActivity extends Activity {
             int majcheck = check.getMajor();
             int mincheck = check.getMinor();
             if ((majcheck == maj) && (mincheck == min)) {
-                BeacName= check.getBName();
+                ClosestBconName = check.getBName();
                 break;
             }//if
         }//while
@@ -242,26 +244,33 @@ public class MainActivity extends Activity {
         while (itr.hasNext()) {
             Rooms check = itr.next();
             String RBname = check.getBcName();
-            if (RBname.equals(BeacName)) {
+            if (RBname.equals(ClosestBconName)) {
                 String[] LessonTitles;
                 LessonTitles = check.getLssTitles();
                 String cardText;
-                //cc = new CardCreator(check.getWelcMsg(), check.getRoomID());
-                //mCards.add(cc);
                 cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                     .setText(check.getWelcMsg())
                     .setFootnote(check.getRoomName()));
                 for (int i = 0; i < check.getNumOfLss(); i++) {
                     cardText = LessonTitles[i];
-                    //cc = new CardCreator(cardText, check.getRoomName());
-                    //mCards.add(cc);
                     cards.add(new CardBuilder(context, CardBuilder.Layout.MENU)
                         .setText(cardText)
                         .setFootnote(check.getRoomName()));
                 }//for
             }//if
-
         }//2nd while
+        while (itr3.hasNext()){
+            Lessons check = itr3.next();
+            String[] LessonSlides=check.getSlides();
+            String CardText;
+            for (int i =0; i < check.getnSlides(); i++){
+                CardText = LessonSlides[i];
+                cards2.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
+                    .setText(CardText)
+                    .setFootnote(check.getLname())
+                );
+            }
+        }
     }//PrepareCards
 
     @Override
@@ -272,14 +281,12 @@ public class MainActivity extends Activity {
             public void onServiceReady() {
                 beaconManager.startRanging(welten);
             }
-        });  //*/
-      //  mCardScroller.activate();
+        });
     }
 
     @Override
     protected void onPause() {
         beaconManager.stopRanging(welten);
-       // mCardScroller.deactivate();
         super.onPause();
     }
 

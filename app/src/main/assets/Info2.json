@@ -1,52 +1,52 @@
 {
   "lessons": [
     {
-      "name": "Lesson 1 - Beamer HDMI connection",
+      "name": "L1 - Beamer HDMI connection",
       "roomname": "Winter",
       "NumOfSlides": "4",
       "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
-      "ImageUrl1": null,
+      "ImageUrl 0": null,
       "Slide 1": "Take the HDMI cable of the beamer",
-      "ImageUrl2": "http://treha_gireve",
+      "ImageUrl 1": null,
       "Slide 2": "Connect it to the HDMI port of your laptop",
-      "ImageUrl3": "http://vargiemai_na_skefto",
+      "ImageUrl 2": null,
       "Slide 3": "And that's it! Congratulation!",
-      "ImageUrl4": null
+      "ImageUrl 3": null
     },
     {
-      "name": "Lesson 2 - Beamer VGA connection",
+      "name": "L2 - Beamer VGA connection",
       "roomname": "Winter",
       "NumOfSlides": "3",
       "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
       "ImageUrl 0": null,
       "Slide 1": "Look at this image. LOOK AT IT!",
-      "ImageUrl 1": "http://treha_gireve",
+      "ImageUrl 1": null,
       "Slide 2": "what about this image?",
-      "ImageUrl 2": "http://vargiemai_na_skefto"
+      "ImageUrl 2": null
     },
     {
-      "name": "Lesson 1 - connect with the hdmi",
+      "name": "L1 - connect with the hdmi",
       "roomname": "Summer",
       "NumOfSlides": "2",
       "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
-      "ImageUrl1": null,
+      "ImageUrl 0": null,
       "Slide 1": "Look at this image. LOOK AT IT!",
-      "ImageUrl2": null
+      "ImageUrl 1": null
     },
     {
-      "name": "Lesson 2 - connect with the vga",
+      "name": "L2 - connect with the vga",
       "roomname": "Summer",
       "NumOfSlides": "5",
       "Slide 0": "Hello governer, let's see how to connect this thing, eh?",
-      "ImageUrl1": null,
+      "ImageUrl 0": null,
       "Slide 1": "Look at this. LOOK AT IT!",
-      "ImageUrl2": "http://treha_gireve",
+      "ImageUrl 1": null,
       "Slide 2": "what about this image?",
-      "ImageUrl3": "http://vargiemai_na_skefto",
+      "ImageUrl 2": null,
       "Slide 3": "what about this image 3?",
-      "ImageUrl4": null,
+      "ImageUrl 3": null,
       "Slide 4": "what about this image 563?",
-      "ImageUrl5": null
+      "ImageUrl 4": null
     }
   ],
   "beacons": [
@@ -82,10 +82,10 @@
       "RoomName": "Winter",
       "WelcMsg": "It seems you are in room Winter! Slide to the right to see the classes available here!",
       "NumOfLss": "4",
-      "LssTitle 0": "Lesson 1 - Beamer HDMI connection",
-      "LssTitle 1": "Lesson 2 - Beamer VGA connection",
-      "LssTitle 2": "Lesson 3 - Multiple Input",
-      "LssTitle 3": "Lesson 4 - Operate the lights"
+      "LssTitle 0": "L1 - Beamer HDMI connection",
+      "LssTitle 1": "L2 - Beamer VGA connection",
+      "LssTitle 2": "L3 - Multiple Input",
+      "LssTitle 3": "L4 - Operate the lights"
     },
     {
       "RoomID": "1,43",
@@ -93,9 +93,9 @@
       "RoomName": "Zomer",
       "WelcMsg": "It seems you are in room Zomer! Slide to the right to see the classes available here!",
       "NumOfLss": "3",
-      "LssTitle 0": "Lesson 1 - Beamer HDMI connection",
-      "LssTitle 1": "Lesson 2 - Beamer VGA connection",
-      "LssTitle 2": "Lesson 3 - Multiple Input"
+      "LssTitle 0": "L1 - Beamer HDMI connection",
+      "LssTitle 1": "L2 - Beamer VGA connection",
+      "LssTitle 2": "L3 - Multiple Input"
     }
   ]
 }
