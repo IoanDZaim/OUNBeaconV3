@@ -196,13 +196,12 @@ public class MainActivity extends Activity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         // Plays disallowed sound to indicate that TAP actions are not supported.
                         AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-                        am.playSoundEffect(Sounds.TAP);
-                        //mCardScroller1.activate();
-                        //setContentView(mCardScroller1);
+                        am.playSoundEffect(Sounds.TAP);;
+                        mCardScroller1.activate();
+                        setContentView(mCardScroller1);
                     }
                 });
                 setContentView(mCardScroller);//*/
-
             }
             }
         );//ranginglistener
@@ -267,7 +266,7 @@ public class MainActivity extends Activity {
                 CardText = LessonSlides[i];
                 cards2.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                     .setText(CardText)
-                    .setFootnote(check.getLname())
+                    .setFootnote(check.getRoomName()+ ": " +check.getLname())
                 );
             }
         }
