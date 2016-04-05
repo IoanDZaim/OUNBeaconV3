@@ -7,12 +7,14 @@ import java.util.Arrays;
  */
 public class Lessons {
 
+    private int LesNum;
     private String Lname;
     private String roomName;
     private int nSlides;
     private String[] slides;
 
-    public Lessons(String lname, String roomName, int nSlides, String[] slides) {
+    public Lessons(int lesNum, String lname, String roomName, int nSlides, String[] slides) {
+        LesNum = lesNum;
         Lname = lname;
         this.roomName = roomName;
         this.nSlides = nSlides;
@@ -21,6 +23,25 @@ public class Lessons {
 
     public Lessons() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "Lessons{" +
+                "LesNum=" + LesNum +
+                ", Lname='" + Lname + '\'' +
+                ", roomName='" + roomName + '\'' +
+                ", nSlides=" + nSlides +
+                ", slides=" + Arrays.toString(slides) +
+                '}';
+    }
+
+    public int getLesNum() {
+        return LesNum;
+    }
+
+    public void setLesNum(int lesNum) {
+        LesNum = lesNum;
     }
 
     public String getLname() {
@@ -55,13 +76,5 @@ public class Lessons {
         this.slides = slides;
     }
 
-    @Override
-    public String toString() {
-        return "Lessons{" +
-                "Lname='" + Lname + '\'' +
-                ", roomName='" + roomName + '\'' +
-                ", nSlides=" + nSlides +
-                ", slides=" + Arrays.toString(slides) +
-                '}';
-    }
+
 }

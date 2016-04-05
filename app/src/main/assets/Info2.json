@@ -1,7 +1,8 @@
 {
   "lessons": [
     {
-      "name": "L1 - Beamer HDMI connection",
+      "num" : "1",
+      "name": "Beamer HDMI connection",
       "roomname": "Winter",
       "NumOfSlides": "4",
       "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
@@ -14,7 +15,8 @@
       "ImageUrl 3": null
     },
     {
-      "name": "L2 - Beamer VGA connection",
+      "num" : "2",
+      "name": "Beamer VGA connection",
       "roomname": "Winter",
       "NumOfSlides": "3",
       "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
@@ -25,8 +27,9 @@
       "ImageUrl 2": null
     },
     {
-      "name": "L1 - connect with the hdmi",
-      "roomname": "Summer",
+      "num" : "1",
+      "name": "Connect with the hdmi",
+      "roomname": "Zomer",
       "NumOfSlides": "2",
       "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
       "ImageUrl 0": null,
@@ -34,8 +37,9 @@
       "ImageUrl 1": null
     },
     {
-      "name": "L2 - connect with the vga",
-      "roomname": "Summer",
+      "num" : "2",
+      "name": "Connect with the vga",
+      "roomname": "Zomer",
       "NumOfSlides": "5",
       "Slide 0": "Hello governer, let's see how to connect this thing, eh?",
       "ImageUrl 0": null,

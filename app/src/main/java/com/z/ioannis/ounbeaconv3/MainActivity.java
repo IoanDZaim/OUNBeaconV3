@@ -72,6 +72,7 @@ public class MainActivity extends Activity {
     private ArrayList<CardBuilder> cards;
     private ArrayList<CardBuilder> cards2;
     private int cPosition;
+    private String CRname;
 
 
     @Override
@@ -149,6 +150,9 @@ public class MainActivity extends Activity {
                     lesson = new Lessons();
                     JSONObject jsonObject = jsonArray3.getJSONObject(i);
 
+                    int lnum = jsonObject.getInt("num");
+                    lesson.setLesNum(lnum);
+
                     String lname = jsonObject.getString("name");
                     lesson.setLname(lname);
 
@@ -201,8 +205,7 @@ public class MainActivity extends Activity {
                             am.playSoundEffect(Sounds.TAP);
                             cPosition = mCardScroller.getSelectedItemPosition();
                             Log.e("Item position", String.valueOf(cPosition));
-                            //mCardScroller1.activate();
-                            //setContentView(mCardScroller1);
+                            PrepareLessons();
                         }
                     });
                     setContentView(mCardScroller);//*/
@@ -233,7 +236,6 @@ public class MainActivity extends Activity {
         beaconManager.stopRanging(welten);
         Iterator<Rooms> itr = RoomsList.iterator();
         Iterator<Beacons> itr2 = BconsList.iterator();
-        Iterator<Lessons> itr3 = LessList.iterator();
         int maj = BconArray[0].getMajor();
         int min = BconArray[0].getMinor();
         while (itr2.hasNext()) {
@@ -251,6 +253,7 @@ public class MainActivity extends Activity {
             String RBname = check.getBcName();
             if (RBname.equals(ClosestBconName)) {
                 String[] LessonTitles;
+                CRname = check.getRoomName();
                 LessonTitles = check.getLssTitles();
                 String cardText;
                 cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
@@ -264,19 +267,31 @@ public class MainActivity extends Activity {
                 }//for
             }//if
         }//2nd while
-        while (itr3.hasNext()){
-            Lessons check = itr3.next();
+    }//PrepareCards
+
+    private void PrepareLessons(){
+
+        Iterator<Lessons> itr = LessList.iterator();
+
+        while (itr.hasNext()){
+            Lessons check = itr.next();
+            String Rname = check.getRoomName();
+            int Lnum = check.getLesNum();
             String[] LessonSlides=check.getSlides();
             String CardText;
-            for (int i =0; i < check.getnSlides(); i++){
-                CardText = LessonSlides[i];
-                cards2.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
-                    .setText(CardText)
-                    .setFootnote(check.getRoomName()+ ": " +check.getLname())
-                );
-            }
+            if ((Rname.equals(CRname))&&(Lnum == cPosition)){
+                for (int i =0; i < check.getnSlides(); i++){
+                    CardText = LessonSlides[i];
+                    cards2.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
+                                    .setText(CardText)
+                                    .setFootnote(check.getRoomName()+ ": " +check.getLname())
+                    );
+                }//for
+                mCardScroller1.activate();
+                setContentView(mCardScroller1);
+            }//if
         }//3rd while*/
-    }//PrepareCards
+    }
 
     @Override
     protected void onResume() {
