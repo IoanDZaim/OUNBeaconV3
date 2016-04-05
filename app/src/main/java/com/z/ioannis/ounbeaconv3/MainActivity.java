@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -70,6 +71,7 @@ public class MainActivity extends Activity {
     private String ClosestBconName;
     private ArrayList<CardBuilder> cards;
     private ArrayList<CardBuilder> cards2;
+    private int cPosition;
 
 
     @Override
@@ -84,7 +86,6 @@ public class MainActivity extends Activity {
         cards2.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                 .setText(R.string.Welcome)
                 .setFootnote(R.string.WFootnote));
-
 
         try {
             if (jsonInfo ==null) {
@@ -198,6 +199,8 @@ public class MainActivity extends Activity {
                             // Plays disallowed sound to indicate that TAP actions are not supported.
                             AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
                             am.playSoundEffect(Sounds.TAP);
+                            cPosition = mCardScroller.getSelectedItemPosition();
+                            Log.e("Item position", String.valueOf(cPosition));
                             //mCardScroller1.activate();
                             //setContentView(mCardScroller1);
                         }
