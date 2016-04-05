@@ -173,7 +173,7 @@ public class MainActivity extends Activity {
         mCardScroller1 = new CardScrollView(this);
         CreatedCardsAdapter adapter1 = new CreatedCardsAdapter(cards2, context);
         mCardScroller1.setAdapter(adapter1);
-        mCardScroller1.activate();
+        //mCardScroller1.activate();
         setContentView(mCardScroller1);
 
         beaconManager.setRangingListener(new BeaconManager.RangingListener(){
@@ -185,23 +185,26 @@ public class MainActivity extends Activity {
                     BconArray[j]=beacon;
                     j++;
                 }
-                PrepareCards();
-                mCardScroller1.deactivate();
-                mCardScroller = new CardScrollView(MainActivity.this);
-                CreatedCardsAdapter adapter = new CreatedCardsAdapter(cards, context);
-                mCardScroller.setAdapter(adapter);
-                mCardScroller.activate();
-                mCardScroller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        // Plays disallowed sound to indicate that TAP actions are not supported.
-                        AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-                        am.playSoundEffect(Sounds.TAP);;
-                        mCardScroller1.activate();
-                        setContentView(mCardScroller1);
-                    }
-                });
-                setContentView(mCardScroller);//*/
+                if ((BconArray.length )!= 0){
+                    PrepareCards();
+                    mCardScroller1.deactivate();
+                    mCardScroller = new CardScrollView(MainActivity.this);
+                    CreatedCardsAdapter adapter = new CreatedCardsAdapter(cards, context);
+                    mCardScroller.setAdapter(adapter);
+                    mCardScroller.activate();
+                    mCardScroller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            // Plays disallowed sound to indicate that TAP actions are not supported.
+                            AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+                            am.playSoundEffect(Sounds.TAP);
+                            //mCardScroller1.activate();
+                            //setContentView(mCardScroller1);
+                        }
+                    });
+                    setContentView(mCardScroller);//*/
+                }//if
+
             }
             }
         );//ranginglistener
@@ -269,12 +272,13 @@ public class MainActivity extends Activity {
                     .setFootnote(check.getRoomName()+ ": " +check.getLname())
                 );
             }
-        }
+        }//3rd while*/
     }//PrepareCards
 
     @Override
     protected void onResume() {
         super.onResume();
+        mCardScroller1.activate();
         beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
             @Override
             public void onServiceReady() {
@@ -287,6 +291,7 @@ public class MainActivity extends Activity {
     protected void onPause() {
         beaconManager.stopRanging(welten);
         super.onPause();
+        mCardScroller1.deactivate();
     }
 
     public String loadInfoJSON() {
