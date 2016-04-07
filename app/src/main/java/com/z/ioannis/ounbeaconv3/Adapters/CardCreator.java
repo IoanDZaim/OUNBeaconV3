@@ -1,4 +1,4 @@
-package com.z.ioannis.ounbeaconv3.Cards;
+package com.z.ioannis.ounbeaconv3.Adapters;
 
 /**
  * Created by Ioannis.D on 21-Mar-16.

@@ -1,4 +1,4 @@
-package com.z.ioannis.ounbeaconv3.Classes;
+package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
 
 /**

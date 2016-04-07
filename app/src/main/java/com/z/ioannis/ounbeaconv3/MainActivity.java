@@ -34,10 +34,10 @@ import com.estimote.sdk.Region;
 import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
-import com.z.ioannis.ounbeaconv3.Cards.CreatedCardsAdapter;
-import com.z.ioannis.ounbeaconv3.Classes.Beacons;
-import com.z.ioannis.ounbeaconv3.Classes.Lessons;
-import com.z.ioannis.ounbeaconv3.Classes.Rooms;
+import com.z.ioannis.ounbeaconv3.Adapters.CreatedCardsAdapter;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
 
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
@@ -89,7 +89,7 @@ public class MainActivity extends Activity {
                 .setFootnote(R.string.WFootnote));
 
         try {
-            if (jsonInfo ==null) {
+            if (jsonInfo == null) {
                 jsonInfo = new JSONObject(loadInfoJSON());
                 JSONArray jsonArray = jsonInfo.optJSONArray("beacons");
                 JSONArray jsonArray2 = jsonInfo.optJSONArray("rooms");
@@ -214,20 +214,6 @@ public class MainActivity extends Activity {
             }
             }
         );//ranginglistener
-
-
-/**
-        // Handle the TAP event.
-        mCardScroller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Plays disallowed sound to indicate that TAP actions are not supported.
-                AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-                am.playSoundEffect(Sounds.DISALLOWED);
-            }
-        });
-
-//*/
 
     }
 

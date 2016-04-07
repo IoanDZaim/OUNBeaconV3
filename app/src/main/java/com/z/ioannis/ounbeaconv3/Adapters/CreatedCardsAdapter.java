@@ -1,4 +1,4 @@
-package com.z.ioannis.ounbeaconv3.Cards;
+package com.z.ioannis.ounbeaconv3.Adapters;
 
 import android.content.Context;
 import android.view.View;
@@ -37,18 +37,7 @@ public class CreatedCardsAdapter extends CardScrollAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
 
-       /** Card card = new Card(context);
 
-        CardBuilder cc = mCards.get(position);
-        if (cc.getText() != null)
-            card.setText(cc.getText());
-
-        // Card footer note
-        if (cc.getFooter() != null)
-            card.setFootnote(cc.getFooter());
-
-
-        return card.getView();//*/
         return mCards.get(position).getView(view, viewGroup);
     }
 
