@@ -26,6 +26,7 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 
 import com.estimote.sdk.Beacon;
@@ -35,13 +36,8 @@ import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
 import com.z.ioannis.ounbeaconv3.Adapters.CreatedCardsAdapter;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
-
-import org.codehaus.jettison.json.JSONArray;
-import org.codehaus.jettison.json.JSONException;
-import org.codehaus.jettison.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,22 +54,12 @@ public class MainActivity extends Activity {
     private BeaconManager beaconManager;
     private Region welten;
     private Beacon[] BconArray;
-    private Beacons bcon;
-    private Rooms rooms;
-    private Lessons lesson;
-    private List<Beacons> BconsList = new ArrayList<>();
-    private List<Rooms> RoomsList = new ArrayList<>();
+    private Rooms currentRoom;
     private List<Lessons> LessList = new ArrayList<>();
-    private JSONObject jsonInfo;
     private Context context;
-    private String[] SlidesTxts;
-    private String[] TtlStrings;
-    private String ClosestBconName;
     private ArrayList<CardBuilder> cards;
     private ArrayList<CardBuilder> cards2;
     private int cPosition;
-    private String CRname;
-
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -88,92 +74,8 @@ public class MainActivity extends Activity {
                 .setText(R.string.Welcome)
                 .setFootnote(R.string.WFootnote));
 
-        try {
-            if (jsonInfo == null) {
-                jsonInfo = new JSONObject(loadInfoJSON());
-                JSONArray jsonArray = jsonInfo.optJSONArray("beacons");
-                JSONArray jsonArray2 = jsonInfo.optJSONArray("rooms");
-                JSONArray jsonArray3 = jsonInfo.optJSONArray("lessons");
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    bcon = new Beacons();
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                    String name = jsonObject.getString("name");
-                    bcon.setBName(name);
-
-                    String uuid = jsonObject.getString("uuid");
-                    bcon.setUuid(uuid);
-
-                    int Major = jsonObject.getInt("Major");
-                    bcon.setMajor(Major);
-
-                    int Minor = jsonObject.getInt("Minor");
-                    bcon.setMinor(Minor);
-
-                    String Mac = jsonObject.getString("Mac");
-                    bcon.setMac(Mac);
-
-                    String Colour = jsonObject.getString("Colour");
-                    bcon.setColour(Colour);
-
-                    BconsList.add(bcon);
-                }//for 1
-                for (int i = 0; i < jsonArray2.length(); i++) {
-                    rooms = new Rooms();
-                    JSONObject jsonObject = jsonArray2.getJSONObject(i);
-
-                    String roomid = jsonObject.getString("RoomID");
-                    rooms.setRoomID(roomid);
-
-                    String bcname = jsonObject.getString("BcName");
-                    rooms.setBcName(bcname);
-
-                    String roomName = jsonObject.getString("RoomName");
-                    rooms.setRoomName(roomName);
-
-                    String wlcmsg = jsonObject.getString("WelcMsg");
-                    rooms.setWelcMsg(wlcmsg);
-
-                    int nlss = jsonObject.getInt("NumOfLss");
-                    rooms.setNumOfLss(nlss);
-
-                    TtlStrings = new String[nlss];
-                    for (int k = 0; k < nlss; k++){
-                        String ltittle = jsonObject.getString("LssTitle "+k);
-                        TtlStrings[k]=ltittle;
-                    }
-                    rooms.setLssTitles(TtlStrings);
-
-                    RoomsList.add(rooms);
-                }//for 2
-                for (int i = 0; i < jsonArray3.length(); i++){
-                    lesson = new Lessons();
-                    JSONObject jsonObject = jsonArray3.getJSONObject(i);
-
-                    int lnum = jsonObject.getInt("num");
-                    lesson.setLesNum(lnum);
-
-                    String lname = jsonObject.getString("name");
-                    lesson.setLname(lname);
-
-                    String rName = jsonObject.getString("roomname");
-                    lesson.setRoomName(rName);
-
-                    int nSlides = jsonObject.getInt("NumOfSlides");
-                    lesson.setnSlides(nSlides);
-
-                    SlidesTxts = new String[nSlides];
-                    for (int k = 0; k < nSlides; k++){
-                        String slide = jsonObject.getString("Slide " + k);
-                        SlidesTxts[k]=slide;
-                    }//for in for3
-                    lesson.setSlides(SlidesTxts);
-                    LessList.add(lesson);
-                }//for 3
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         mCardScroller1 = new CardScrollView(this);
         CreatedCardsAdapter adapter1 = new CreatedCardsAdapter(cards2, context);
@@ -190,6 +92,10 @@ public class MainActivity extends Activity {
                     BconArray[j]=beacon;
                     j++;
                 }
+                int maj = BconArray[0].getMajor();
+                int min = BconArray[0].getMinor();
+                new jsonLoader(loadInfoJSON(), maj, min);
+
                 if ((BconArray.length )!= 0){
                     PrepareCards();
                     mCardScroller1.deactivate();
@@ -220,43 +126,27 @@ public class MainActivity extends Activity {
     private void PrepareCards(){
 
         beaconManager.stopRanging(welten);
-        Iterator<Rooms> itr = RoomsList.iterator();
-        Iterator<Beacons> itr2 = BconsList.iterator();
-        int maj = BconArray[0].getMajor();
-        int min = BconArray[0].getMinor();
-        while (itr2.hasNext()) {
-            Beacons check = itr2.next();
-            int majcheck = check.getMajor();
-            int mincheck = check.getMinor();
-            if ((majcheck == maj) && (mincheck == min)) {
-                ClosestBconName = check.getBName();
-                break;
-            }//if
-        }//while
+        currentRoom = jsonLoader.getCurrentRoom();
 
-        while (itr.hasNext()) {
-            Rooms check = itr.next();
-            String RBname = check.getBcName();
-            if (RBname.equals(ClosestBconName)) {
+
                 String[] LessonTitles;
-                CRname = check.getRoomName();
-                LessonTitles = check.getLssTitles();
+                LessonTitles = currentRoom.getLssTitles();
                 String cardText;
                 cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
-                    .setText(check.getWelcMsg())
-                    .setFootnote(check.getRoomName()));
-                for (int i = 0; i < check.getNumOfLss(); i++) {
+                    .setText(currentRoom.getWelcMsg())
+                    .setFootnote(currentRoom.getRoomName()));
+                for (int i = 0; i < currentRoom.getNumOfLss(); i++) {
                     cardText = LessonTitles[i];
                     cards.add(new CardBuilder(context, CardBuilder.Layout.MENU)
                         .setText(cardText)
-                        .setFootnote(check.getRoomName()));
+                        .setFootnote(currentRoom.getRoomName()));
                 }//for
-            }//if
-        }//2nd while
+
     }//PrepareCards
 
     private void PrepareLessons(){
 
+        LessList = jsonLoader.getLessList();
         Iterator<Lessons> itr = LessList.iterator();
 
         while (itr.hasNext()){
@@ -265,7 +155,7 @@ public class MainActivity extends Activity {
             int Lnum = check.getLesNum();
             String[] LessonSlides=check.getSlides();
             String CardText;
-            if ((Rname.equals(CRname))&&(Lnum == cPosition)){
+            if ((Lnum == cPosition)){
                 for (int i =0; i < check.getnSlides(); i++){
                     CardText = LessonSlides[i];
                     cards2.add(new CardBuilder(context, CardBuilder.Layout.TEXT)

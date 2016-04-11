@@ -37,7 +37,6 @@ public class CreatedCardsAdapter extends CardScrollAdapter {
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
 
-
         return mCards.get(position).getView(view, viewGroup);
     }
 
