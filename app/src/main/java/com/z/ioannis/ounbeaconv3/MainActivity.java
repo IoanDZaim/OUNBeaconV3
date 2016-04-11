@@ -22,17 +22,13 @@ package com.z.ioannis.ounbeaconv3;
 
 import android.app.Activity;
 import android.content.Context;
-import android.media.AudioManager;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
-import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
 import com.z.ioannis.ounbeaconv3.Adapters.CreatedCardsAdapter;
@@ -60,11 +56,12 @@ public class MainActivity extends Activity {
     private ArrayList<CardBuilder> cards;
     private ArrayList<CardBuilder> cards2;
     private int cPosition;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        context=this;
+        context = this;
         cards = new ArrayList<>();
         cards2 = new ArrayList<>();
         welten = new Region("Welten Region", null, null, null);
@@ -77,10 +74,12 @@ public class MainActivity extends Activity {
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+        intent = new Intent(this,RoomsActivity.class);
+
         mCardScroller1 = new CardScrollView(this);
         CreatedCardsAdapter adapter1 = new CreatedCardsAdapter(cards2, context);
         mCardScroller1.setAdapter(adapter1);
-        //mCardScroller1.activate();
+        mCardScroller1.activate();
         setContentView(mCardScroller1);
 
         beaconManager.setRangingListener(new BeaconManager.RangingListener(){
@@ -96,8 +95,11 @@ public class MainActivity extends Activity {
                 int min = BconArray[0].getMinor();
                 new jsonLoader(loadInfoJSON(), maj, min);
 
+
                 if ((BconArray.length )!= 0){
-                    PrepareCards();
+
+                    startActivity(intent);
+                   /** PrepareCards();
                     mCardScroller1.deactivate();
                     mCardScroller = new CardScrollView(MainActivity.this);
                     CreatedCardsAdapter adapter = new CreatedCardsAdapter(cards, context);
@@ -121,27 +123,25 @@ public class MainActivity extends Activity {
             }
         );//ranginglistener
 
-    }
+    }//onCreate
 
     private void PrepareCards(){
 
         beaconManager.stopRanging(welten);
         currentRoom = jsonLoader.getCurrentRoom();
 
-
-                String[] LessonTitles;
-                LessonTitles = currentRoom.getLssTitles();
-                String cardText;
-                cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
-                    .setText(currentRoom.getWelcMsg())
+        String[] LessonTitles;
+        LessonTitles = currentRoom.getLssTitles();
+        String cardText;
+        cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
+                .setText(currentRoom.getWelcMsg())
+                .setFootnote(currentRoom.getRoomName()));
+        for (int i = 0; i < currentRoom.getNumOfLss(); i++) {
+            cardText = LessonTitles[i];
+            cards.add(new CardBuilder(context, CardBuilder.Layout.MENU)
+                    .setText(cardText)
                     .setFootnote(currentRoom.getRoomName()));
-                for (int i = 0; i < currentRoom.getNumOfLss(); i++) {
-                    cardText = LessonTitles[i];
-                    cards.add(new CardBuilder(context, CardBuilder.Layout.MENU)
-                        .setText(cardText)
-                        .setFootnote(currentRoom.getRoomName()));
-                }//for
-
+        }//for
     }//PrepareCards
 
     private void PrepareLessons(){
