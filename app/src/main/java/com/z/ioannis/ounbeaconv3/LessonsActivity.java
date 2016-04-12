@@ -21,19 +21,20 @@ public class LessonsActivity extends Activity {
     private ArrayList<CardBuilder> cards;
     private CardScrollView mCardScroller;
     private Context context;
-    private int cPossition;
+    private int cPoss;
 
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
         context = this;
         cards = new ArrayList<>();
         LessList = jsonLoader.getLessList();
+        cPoss = getIntent().getIntExtra("CURRENT_CARD",cPoss);
 
         for (Lessons lesson : LessList){
             int Lnum = lesson.getLesNum();
             String[] LessonSlides = lesson.getSlides();
             String cardText;
-            if (Lnum == cPossition){
+            if (Lnum == cPoss){
                 for (int i =0; i < lesson.getnSlides(); i++){
                     cardText = LessonSlides[i];
                     cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
@@ -41,8 +42,6 @@ public class LessonsActivity extends Activity {
                             .setFootnote(lesson.getRoomName()+ ": " +lesson.getLname())
                     );
                 }//for
-                mCardScroller.activate();
-                setContentView(mCardScroller);
             }//if
         }//for
 

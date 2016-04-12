@@ -32,12 +32,10 @@ import com.estimote.sdk.Region;
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
 import com.z.ioannis.ounbeaconv3.Adapters.CreatedCardsAdapter;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -48,18 +46,14 @@ public class MainActivity extends Activity {
     private BeaconManager beaconManager;
     private Region welten;
     private Beacon[] BconArray;
-    private List<Lessons> LessList = new ArrayList<>();
     private Context context;
-    private ArrayList<CardBuilder> cards;
     private ArrayList<CardBuilder> cards2;
-    private int cPosition;
     private Intent intent;
 
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         context = this;
-        cards = new ArrayList<>();
         cards2 = new ArrayList<>();
         welten = new Region("Welten Region", null, null, null);
         beaconManager = new BeaconManager(getApplicationContext());
@@ -67,7 +61,6 @@ public class MainActivity extends Activity {
         cards2.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                 .setText(R.string.Welcome)
                 .setFootnote(R.string.WFootnote));
-
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
@@ -88,13 +81,12 @@ public class MainActivity extends Activity {
                     BconArray[j]=beacon;
                     j++;
                 }
-                int maj = BconArray[0].getMajor();
-                int min = BconArray[0].getMinor();
-                new jsonLoader(loadInfoJSON(), maj, min);
-
 
                 if ((BconArray.length )!= 0){
-
+                    int maj = BconArray[0].getMajor();
+                    int min = BconArray[0].getMinor();
+                    new jsonLoader(loadInfoJSON(), maj, min);
+                    beaconManager.stopRanging(welten);
                     startActivity(intent);
                 }//if
 
@@ -105,30 +97,6 @@ public class MainActivity extends Activity {
     }//onCreate
 
 
-    private void PrepareLessons(){
-
-        LessList = jsonLoader.getLessList();
-        Iterator<Lessons> itr = LessList.iterator();
-
-        while (itr.hasNext()){
-            Lessons check = itr.next();
-            String Rname = check.getRoomName();
-            int Lnum = check.getLesNum();
-            String[] LessonSlides=check.getSlides();
-            String CardText;
-            if ((Lnum == cPosition)){
-                for (int i =0; i < check.getnSlides(); i++){
-                    CardText = LessonSlides[i];
-                    cards2.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
-                                    .setText(CardText)
-                                    .setFootnote(check.getRoomName()+ ": " +check.getLname())
-                    );
-                }//for
-                mCardScroller1.activate();
-                setContentView(mCardScroller1);
-            }//if
-        }//3rd while*/
-    }
 
     @Override
     protected void onResume() {
@@ -145,8 +113,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause() {
         beaconManager.stopRanging(welten);
-        super.onPause();
         mCardScroller1.deactivate();
+        super.onPause();
     }
 
     public String loadInfoJSON() {

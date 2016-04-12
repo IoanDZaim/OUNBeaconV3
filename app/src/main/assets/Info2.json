@@ -27,6 +27,30 @@
       "ImageUrl 2": null
     },
     {
+      "num" : "3",
+      "name": "Multiple Input",
+      "roomname": "Winter",
+      "NumOfSlides": "3",
+      "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
+      "ImageUrl 0": null,
+      "Slide 1": "Look at this image. LOOK AT IT!",
+      "ImageUrl 1": null,
+      "Slide 2": "what about this image?",
+      "ImageUrl 2": null
+    },
+    {
+      "num" : "4",
+      "name": "Operate the lights",
+      "roomname": "Winter",
+      "NumOfSlides": "3",
+      "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
+      "ImageUrl 0": null,
+      "Slide 1": "Look at this image. LOOK AT IT!",
+      "ImageUrl 1": null,
+      "Slide 2": "what about this image?",
+      "ImageUrl 2": null
+    },
+    {
       "num" : "1",
       "name": "Connect with the hdmi",
       "roomname": "Zomer",
@@ -51,6 +75,42 @@
       "ImageUrl 3": null,
       "Slide 4": "what about this image 563?",
       "ImageUrl 4": null
+    },
+    {
+      "num" : "3",
+      "name": "Multiple Input",
+      "roomname": "Zomer",
+      "NumOfSlides": "3",
+      "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
+      "ImageUrl 0": null,
+      "Slide 1": "Look at this image. LOOK AT IT!",
+      "ImageUrl 1": null,
+      "Slide 2": "what about this image?",
+      "ImageUrl 2": null
+    },
+    {
+      "num" : "1",
+      "name": "Multiple Input",
+      "roomname": "Common",
+      "NumOfSlides": "3",
+      "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
+      "ImageUrl 0": null,
+      "Slide 1": "Look at this image. LOOK AT IT!",
+      "ImageUrl 1": null,
+      "Slide 2": "what about this image?",
+      "ImageUrl 2": null
+    },
+    {
+      "num" : "2",
+      "name": "Operate the lights",
+      "roomname": "Common",
+      "NumOfSlides": "3",
+      "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
+      "ImageUrl 0": null,
+      "Slide 1": "Look at this image. LOOK AT IT!",
+      "ImageUrl 1": null,
+      "Slide 2": "what about this image?",
+      "ImageUrl 2": null
     }
   ],
   "beacons": [
@@ -86,10 +146,10 @@
       "RoomName": "Winter",
       "WelcMsg": "It seems you are in room Winter! Slide to the right to see the classes available here!",
       "NumOfLss": "4",
-      "LssTitle 0": "L1 Beamer HDMI connection",
-      "LssTitle 1": "L2 - Beamer VGA connection",
-      "LssTitle 2": "L3 - Multiple Input",
-      "LssTitle 3": "L4 - Operate the lights"
+      "LssTitle 0": "Beamer HDMI connection",
+      "LssTitle 1": "Beamer VGA connection",
+      "LssTitle 2": "Multiple Input",
+      "LssTitle 3": "Operate the lights"
     },
     {
       "RoomID": "1,26",
@@ -97,8 +157,8 @@
       "RoomName": "Activities Room",
       "WelcMsg": "It seems you are in the Activities Room! This room is used mainly for relaxation during the lunch break.",
       "NumOfLss": "2",
-      "LssTitle 0": "L1 - Multiple Input",
-      "LssTitle 1": "L2 - Operate the lights"
+      "LssTitle 0": "Multiple Input",
+      "LssTitle 1": "Operate the lights"
     },
     {
       "RoomID": "1,43",
@@ -106,9 +166,9 @@
       "RoomName": "Zomer",
       "WelcMsg": "It seems you are in room Zomer! Slide to the right to see the classes available here!",
       "NumOfLss": "3",
-      "LssTitle 0": "L1 - Beamer HDMI connection",
-      "LssTitle 1": "L2 - Beamer VGA connection",
-      "LssTitle 2": "L3 - Multiple Input"
+      "LssTitle 0": "Beamer HDMI connection",
+      "LssTitle 1": "Beamer VGA connection",
+      "LssTitle 2": "Multiple Input"
     }
   ]
 }
