@@ -25,8 +25,10 @@ public class RoomsActivity extends Activity {
     public void onCreate (Bundle bundle) {
         super.onCreate(bundle);
         cards = new ArrayList<>();
-
+        context = this;
         currentRoom = jsonLoader.getCurrentRoom();
+
+
 
         String[] LessonTitles;
         LessonTitles = currentRoom.getLssTitles();
@@ -43,17 +45,21 @@ public class RoomsActivity extends Activity {
 
         mCardScroller = new CardScrollView(this);
         CreatedCardsAdapter adapter = new CreatedCardsAdapter(cards, context);
+
         mCardScroller.setAdapter(adapter);
         mCardScroller.activate();
         setContentView(mCardScroller);
+
     }//onCreate
 
 
     public void onResume(){
         super.onResume();
+        mCardScroller.activate();
     }//onResume
 
     public void onPause(){
+        mCardScroller.deactivate();
         super.onPause();
     }//onPause
 }

@@ -33,7 +33,6 @@ import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
 import com.z.ioannis.ounbeaconv3.Adapters.CreatedCardsAdapter;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -45,12 +44,10 @@ import java.util.List;
 public class MainActivity extends Activity {
 
 
-    private CardScrollView mCardScroller;
     private CardScrollView mCardScroller1;
     private BeaconManager beaconManager;
     private Region welten;
     private Beacon[] BconArray;
-    private Rooms currentRoom;
     private List<Lessons> LessList = new ArrayList<>();
     private Context context;
     private ArrayList<CardBuilder> cards;
@@ -99,24 +96,6 @@ public class MainActivity extends Activity {
                 if ((BconArray.length )!= 0){
 
                     startActivity(intent);
-                   /** PrepareCards();
-                    mCardScroller1.deactivate();
-                    mCardScroller = new CardScrollView(MainActivity.this);
-                    CreatedCardsAdapter adapter = new CreatedCardsAdapter(cards, context);
-                    mCardScroller.setAdapter(adapter);
-                    mCardScroller.activate();
-                    mCardScroller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            // Plays disallowed sound to indicate that TAP actions are not supported.
-                            AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-                            am.playSoundEffect(Sounds.TAP);
-                            cPosition = mCardScroller.getSelectedItemPosition();
-                            Log.e("Item position", String.valueOf(cPosition));
-                            PrepareLessons();
-                        }
-                    });
-                    setContentView(mCardScroller);//*/
                 }//if
 
             }
@@ -125,24 +104,6 @@ public class MainActivity extends Activity {
 
     }//onCreate
 
-    private void PrepareCards(){
-
-        beaconManager.stopRanging(welten);
-        currentRoom = jsonLoader.getCurrentRoom();
-
-        String[] LessonTitles;
-        LessonTitles = currentRoom.getLssTitles();
-        String cardText;
-        cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
-                .setText(currentRoom.getWelcMsg())
-                .setFootnote(currentRoom.getRoomName()));
-        for (int i = 0; i < currentRoom.getNumOfLss(); i++) {
-            cardText = LessonTitles[i];
-            cards.add(new CardBuilder(context, CardBuilder.Layout.MENU)
-                    .setText(cardText)
-                    .setFootnote(currentRoom.getRoomName()));
-        }//for
-    }//PrepareCards
 
     private void PrepareLessons(){
 
