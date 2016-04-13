@@ -82,9 +82,12 @@ public class MainActivity extends Activity {
                     j++;
                 }
 
+                jsonLoader.clearLessList();
+
                 if ((BconArray.length )!= 0){
                     int maj = BconArray[0].getMajor();
                     int min = BconArray[0].getMinor();
+                    intent.putExtra("JSON", loadInfoJSON());
                     new jsonLoader(loadInfoJSON(), maj, min);
                     beaconManager.stopRanging(welten);
                     startActivity(intent);

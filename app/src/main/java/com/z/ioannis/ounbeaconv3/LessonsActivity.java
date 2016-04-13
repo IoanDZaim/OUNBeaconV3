@@ -47,7 +47,6 @@ public class LessonsActivity extends Activity {
 
         mCardScroller = new CardScrollView(this);
         CreatedCardsAdapter adapter = new CreatedCardsAdapter(cards, context);
-
         mCardScroller.setAdapter(adapter);
         mCardScroller.activate();
         setContentView(mCardScroller);

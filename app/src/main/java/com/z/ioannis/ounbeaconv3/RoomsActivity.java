@@ -25,12 +25,14 @@ public class RoomsActivity extends Activity {
     private Context context;
     private CardScrollView mCardScroller;
     private int cPossition;
+    private String jFile;
     private Intent intent;
 
     public void onCreate (Bundle bundle) {
         super.onCreate(bundle);
         cards = new ArrayList<>();
         context = this;
+        jFile = getIntent().getStringExtra(jFile);
         currentRoom = jsonLoader.getCurrentRoom();
         String[] LessonTitles;
         LessonTitles = currentRoom.getLssTitles();
@@ -71,8 +73,5 @@ public class RoomsActivity extends Activity {
         mCardScroller.deactivate();
         super.onPause();
     }//onPause
-/**
-    public static int getcPossition() {
-        return cPossition;//this whole method needs to change
-    }*/
+
 }
