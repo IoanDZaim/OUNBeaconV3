@@ -24,14 +24,16 @@ package com.z.ioannis.ounbeaconv3;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 
+import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
-import com.z.ioannis.ounbeaconv3.Adapters.CreatedCardsAdapter;
+import com.z.ioannis.ounbeaconv3.Adapters.RoomsAdapter;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
 
 import java.util.ArrayList;
@@ -43,9 +45,12 @@ public class RoomsActivity extends Activity {
     private Rooms currentRoom;
     private ArrayList<CardBuilder> cards;
     private CardScrollView mCardScroller;
+    private RoomsAdapter roomsAdapter;
     private int cPossition;
+    private String[] LessonTitles;
     private String jFile;
     private Intent intent;
+    private  AudioManager am;
 
     public void onCreate (Bundle bundle) {
         super.onCreate(bundle);
@@ -55,30 +60,42 @@ public class RoomsActivity extends Activity {
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+        am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+        intent = new Intent(this,LessonsActivity.class);
         currentRoom = jsonLoader.getCurrentRoom();
-        String[] LessonTitles;
-        LessonTitles = currentRoom.getLssTitles();
+        LessonTitles = currentRoom.getrSlides();
+        roomsAdapter = new RoomsAdapter(context, LessonTitles, currentRoom);
+/**
         String cardText;
         cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                 .setText(currentRoom.getWelcMsg())
                 .setFootnote(currentRoom.getRoomName()));
+
+
         for (int i = 0; i < currentRoom.getNumOfLss(); i++) {
             cardText = LessonTitles[i];
             cards.add(new CardBuilder(context, CardBuilder.Layout.MENU)
                     .setText(cardText)
                     .setFootnote(currentRoom.getRoomName()));
-        }
-        intent = new Intent(this,LessonsActivity.class);
+        }//*/
+
+
         mCardScroller = new CardScrollView(this);
-        CreatedCardsAdapter adapter = new CreatedCardsAdapter(cards, context);
-        mCardScroller.setAdapter(adapter);
+        //CreatedCardsAdapter adapter = new CreatedCardsAdapter(cards, context);
+        mCardScroller.setAdapter(roomsAdapter);
         mCardScroller.activate();
         mCardScroller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 cPossition = mCardScroller.getSelectedItemPosition();
-                intent.putExtra("CURRENT_CARD",cPossition);
-                startActivity(intent);
+                if (cPossition == 0){
+                    am.playSoundEffect(Sounds.DISALLOWED);
+                }else {
+                    am.playSoundEffect(Sounds.TAP);
+                    intent.putExtra("CURRENT_CARD",cPossition);
+                    startActivity(intent);
+                }
             }
         });
         setContentView(mCardScroller);

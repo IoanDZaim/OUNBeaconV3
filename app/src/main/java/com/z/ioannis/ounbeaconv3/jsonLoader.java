@@ -42,7 +42,7 @@ public class jsonLoader{
     private static Rooms currentRoom;
     private static List<Lessons> LessList = new ArrayList<>();
     private String[] SlidesTxts;
-    private String[] TtlStrings;
+    private String[] rSlides;
 
 
     public jsonLoader (String jFile, int maj, int min){
@@ -80,16 +80,14 @@ public class jsonLoader{
                    rooms.setBcName(bcname);
                    String roomName = jsonObject.getString("RoomName");
                    rooms.setRoomName(roomName);
-                   String wlcmsg = jsonObject.getString("WelcMsg");
-                   rooms.setWelcMsg(wlcmsg);
-                   int nlss = jsonObject.getInt("NumOfLss");
-                   rooms.setNumOfLss(nlss);
-                   TtlStrings = new String[nlss];
-                   for (int k = 0; k < nlss; k++) {
-                       String ltittle = jsonObject.getString("LssTitle " + k);
-                       TtlStrings[k] = ltittle;
+                   int nOSlds = jsonObject.getInt("NumOfSlides");
+                   rooms.setNumOfLss(nOSlds);
+                   rSlides = new String[nOSlds];
+                   for (int k = 0; k < nOSlds; k++) {
+                       String rslide = jsonObject.getString("Slide " + k);
+                       rSlides[k] = rslide;
                    }
-                   rooms.setLssTitles(TtlStrings);
+                   rooms.setrSlides(rSlides);
                    currentRoom = rooms;
                }
            }//for 2

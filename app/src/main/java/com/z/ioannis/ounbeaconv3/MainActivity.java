@@ -117,7 +117,7 @@ public class MainActivity extends Activity {
     public String loadInfoJSON() {
         String json;
         try {
-            InputStream is = getAssets().open("Info2.json");
+            InputStream is = getAssets().open("info3.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);

@@ -21,18 +21,15 @@
  */
 package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
-import java.util.Arrays;
-
 public class Rooms{
 
-    public Rooms(String roomID, String BcName, String roomName, String welcMsg, int numOfLss, String[] lssTitles) {
+    public Rooms(String roomID, String BcName, String roomName, int numOfLss, String[] rSlides) {
 
         this.RoomID = roomID;
         this.BcName= BcName;
         this.RoomName = roomName;
-        this.WelcMsg = welcMsg;
         this.NumOfLss = numOfLss;
-        this.LssTitles = lssTitles;
+        this.rSlides = rSlides;
     }
 
     public Rooms(){
@@ -62,14 +59,6 @@ public class Rooms{
         RoomName = roomName;
     }
 
-    public String getWelcMsg() {
-        return WelcMsg;
-    }
-
-    public void setWelcMsg(String welcMsg) {
-        WelcMsg = welcMsg;
-    }
-
     public int getNumOfLss() {
         return NumOfLss;
     }
@@ -78,30 +67,19 @@ public class Rooms{
         NumOfLss = numOfLss;
     }
 
-    public String[] getLssTitles() {
-        return LssTitles;
+    public String[] getrSlides() {
+        return rSlides;
     }
 
-    public void setLssTitles(String[] lssTitles) {
-        LssTitles = lssTitles;
+    public void setrSlides(String[] rSlides) {
+        this.rSlides = rSlides;
     }
 
     private String RoomID;
     private String BcName;
     private String RoomName;
-    private String WelcMsg;
     private int NumOfLss;
-    private String[] LssTitles;
+    private String[] rSlides;
 
-    @Override
-    public String toString() {
-        return "Rooms{" +
-                "RoomID='" + RoomID + '\'' +
-                ", BcName='" + BcName + '\'' +
-                ", RoomName='" + RoomName + '\'' +
-                ", WelcMsg='" + WelcMsg + '\'' +
-                ", NumOfLss=" + NumOfLss +
-                ", LssTitles=" + Arrays.toString(LssTitles) +
-                '}';
-    }
+
 }

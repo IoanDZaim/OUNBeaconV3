@@ -1,0 +1,190 @@
+{
+  "lessons": [
+    {
+      "num" : "1",
+      "name": "Beamer HDMI connection",
+      "roomname": "Winter",
+      "NumOfSlides": "5",
+      "Slide 0": "In this lesson we will see how to connect your laptop with the beamer, by using the HDMI cable.",
+      "ImageUrl 0": null,
+      "Slide 1": "Take the HDMI cable of the beamer, usually located there and connect it to the HDMI port of your laptop.",
+      "ImageUrl 1": null,
+      "Slide 2": "Your screen should be projected automatically on the wall",
+      "ImageUrl 2": null,
+      "Slide 3": "In case it is not, press the tade button on the remote control of the beamer, located there",
+      "ImageUrl 3": null,
+      "Slide 4": "And that's it! Congratulation!",
+      "ImageUrl 4": null
+    },
+    {
+      "num" : "2",
+      "name": "Beamer VGA connection",
+      "roomname": "Winter",
+      "NumOfSlides": "5",
+      "Slide 0": "This lesson will teach you how to connect your laptop with the beamer, by using the VGA cable.",
+      "ImageUrl 0": null,
+      "Slide 1": "Take the VGA cable, located there and connect it to your laptop",
+      "ImageUrl 1": null,
+      "Slide 2": "Your screen should be projected automatically on the wall",
+      "ImageUrl 2": null,
+      "Slide 3": "In case it is not, press the tade button on the remote control of the beamer, located there",
+      "ImageUrl 3": null,
+      "Slide 4": "And that's it! Congratulation!",
+      "ImageUrl 4": null
+    },
+    {
+      "num" : "3",
+      "name": "Multiple Input",
+      "roomname": "Winter",
+      "NumOfSlides": "3",
+      "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
+      "ImageUrl 0": null,
+      "Slide 1": "Look at this image. LOOK AT IT!",
+      "ImageUrl 1": null,
+      "Slide 2": "what about this image?",
+      "ImageUrl 2": null
+    },
+    {
+      "num" : "4",
+      "name": "Operate the lights",
+      "roomname": "Winter",
+      "NumOfSlides": "3",
+      "Slide 0": "Most of the lights throughout the Welten Institute are automatic, although there is the possibility of turning them off when you want.",
+      "ImageUrl 0": null,
+      "Slide 1": "Next to the door there is a small controller, mounted on the wall.",
+      "ImageUrl 1": null,
+      "Slide 2": "By using this you can operate the lights as you want.",
+      "ImageUrl 2": null,
+      "Slide 3": "Too much light during your presentation? Not a problem with the remote at hand!",
+      "ImageUrl 3": null
+    },
+    {
+      "num" : "1",
+      "name": "Beamer HDMI connection",
+      "roomname": "Zomer",
+      "NumOfSlides": "5",
+      "Slide 0": "In this lesson we will see how to connect your laptop with the beamer, by using the HDMI cable.",
+      "ImageUrl 0": null,
+      "Slide 1": "Take the HDMI cable of the beamer, usually located there and connect it to the HDMI port of your laptop.",
+      "ImageUrl 1": null,
+      "Slide 2": "Your screen should be projected automatically on the wall",
+      "ImageUrl 2": null,
+      "Slide 3": "In case it is not, press the tade button on the remote control of the beamer, located there",
+      "ImageUrl 3": null,
+      "Slide 4": "And that's it! Congratulation!",
+      "ImageUrl 4": null
+    },
+    {
+      "num" : "2",
+      "name": "Beamer VGA connection",
+      "roomname": "Zomer",
+      "NumOfSlides": "5",
+      "Slide 0": "This lesson will teach you how to connect your laptop with the beamer, by using the VGA cable.",
+      "ImageUrl 0": null,
+      "Slide 1": "Take the VGA cable, located there and connect it to your laptop",
+      "ImageUrl 1": null,
+      "Slide 2": "Your screen should be projected automatically on the wall",
+      "ImageUrl 2": null,
+      "Slide 3": "In case it is not, press the tade button on the remote control of the beamer, located there",
+      "ImageUrl 3": null,
+      "Slide 4": "And that's it! Congratulation!",
+      "ImageUrl 4": null
+    },
+    {
+      "num" : "3",
+      "name": "Multiple Input",
+      "roomname": "Zomer",
+      "NumOfSlides": "3",
+      "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
+      "ImageUrl 0": null,
+      "Slide 1": "Look at this image. LOOK AT IT!",
+      "ImageUrl 1": null,
+      "Slide 2": "what about this image?",
+      "ImageUrl 2": null
+    },
+    {
+      "num" : "1",
+      "name": "Operate the shutters",
+      "roomname": "Activities Room",
+      "NumOfSlides": "4",
+      "Slide 0": "Is the weather good, but the shutters are down? Is the sunlight bothering you? Don't worry!",
+      "ImageUrl 0": null,
+      "Slide 1": "Although the shutters work automatically, you can still operate them yourself, making the environment more to your liking",
+      "ImageUrl 1": null,
+      "Slide 2": "On the walls, a bit under the windows, you will find some small switches with arrows pointing up and down painted on them.",
+      "ImageUrl 2": null,
+      "Slide 3": "By pressing them, and keeping them pressed, you can put the shutters to your desired height.",
+      "ImageUrl 3": null
+    },
+    {
+      "num" : "2",
+      "name": "Operate the lights",
+      "roomname": "Activities Room",
+      "NumOfSlides": "3",
+      "Slide 0": "Most of the lights throughout the Welten Institute are automatic, although there is (?) a switch to operate them",
+      "ImageUrl 0": null,
+      "Slide 1": "Search at that place to find the switch, press it and see what happens.",
+      "ImageUrl 1": null,
+      "Slide 2": "And that's it! Well done!",
+      "ImageUrl 2": null
+    }
+  ],
+  "beacons": [
+    {
+      "name": "Winter",
+      "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+      "Major": "29740",
+      "Minor": "13061",
+      "Mac": "D7:7F:33:05:74:2C",
+      "Colour": "Blueberry Pie"
+    },
+    {
+      "name": "Zomer",
+      "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+      "Major": "42439",
+      "Minor": "55045",
+      "Mac": "C6:5B:D7:05:A5:C7",
+      "Colour": "Blueberry Pie"
+    },
+    {
+      "name": "Common",
+      "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+      "Major": "8427",
+      "Minor": "15281",
+      "Mac": "DB:52:3B:B1:20:EB",
+      "Colour": "Icy Marshmallow"
+    }
+  ],
+  "rooms": [
+    {
+      "RoomID": "1,34",
+      "BcName": "Winter",
+      "RoomName": "Winter",
+      "NumOfSlides": "4",
+      "Slide 0": "It seems you are in room Winter! Slide to the right to see the classes available here!",
+      "Slide 1": "Beamer HDMI connection",
+      "Slide 2": "Beamer VGA connection",
+      "Slide 3": "Multiple Input",
+      "Slide 4": "Operate the lights"
+    },
+    {
+      "RoomID": "1,26",
+      "BcName": "Common",
+      "RoomName": "Activities Room",
+      "NumOfSlides": "3",
+      "Slide 0": "It seems you are in the Activities Room! This room is used mainly for relaxation during the lunch break.",
+      "Slide 1": "Operate the shutters",
+      "Slide 2": "Operate the lights"
+    },
+    {
+      "RoomID": "1,43",
+      "BcName": "Zomer",
+      "RoomName": "Zomer",
+      "NumOfSlides": "4",
+      "Slide 0": "It seems you are in room Zomer! Slide to the right to see the classes available here!",
+      "Slide 1": "Beamer HDMI connection",
+      "Slide 2": "Beamer VGA connection",
+      "Slide 3": "Multiple Input"
+    }
+  ]
+}
