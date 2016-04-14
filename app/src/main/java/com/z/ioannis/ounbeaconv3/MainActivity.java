@@ -42,23 +42,21 @@ import java.util.List;
 public class MainActivity extends Activity {
 
 
-    private CardScrollView mCardScroller1;
+    private CardScrollView mCardScroller;
     private BeaconManager beaconManager;
     private Region welten;
     private Beacon[] BconArray;
-    private Context context;
-    private ArrayList<CardBuilder> cards2;
     private Intent intent;
 
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        context = this;
-        cards2 = new ArrayList<>();
+        Context context = this;
+        ArrayList<CardBuilder> cards = new ArrayList<>();
         welten = new Region("Welten Region", null, null, null);
         beaconManager = new BeaconManager(getApplicationContext());
 
-        cards2.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
+        cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                 .setText(R.string.Welcome)
                 .setFootnote(R.string.WFootnote));
 
@@ -66,11 +64,11 @@ public class MainActivity extends Activity {
 
         intent = new Intent(this,RoomsActivity.class);
 
-        mCardScroller1 = new CardScrollView(this);
-        CreatedCardsAdapter adapter1 = new CreatedCardsAdapter(cards2, context);
-        mCardScroller1.setAdapter(adapter1);
-        mCardScroller1.activate();
-        setContentView(mCardScroller1);
+        mCardScroller = new CardScrollView(this);
+        CreatedCardsAdapter adapter1 = new CreatedCardsAdapter(cards, context);
+        mCardScroller.setAdapter(adapter1);
+        mCardScroller.activate();
+        setContentView(mCardScroller);
 
         beaconManager.setRangingListener(new BeaconManager.RangingListener(){
             @Override
@@ -80,10 +78,8 @@ public class MainActivity extends Activity {
                 for (Beacon beacon : list){
                     BconArray[j]=beacon;
                     j++;
-                }
-
+                }//insert found beacons on Array
                 jsonLoader.clearLessList();
-
                 if ((BconArray.length )!= 0){
                     int maj = BconArray[0].getMajor();
                     int min = BconArray[0].getMinor();
@@ -92,11 +88,9 @@ public class MainActivity extends Activity {
                     beaconManager.stopRanging(welten);
                     startActivity(intent);
                 }//if
-
-            }
-            }
+            }//onBeaconsDiscovered
+            }//RangingListener
         );//ranginglistener
-
     }//onCreate
 
 
@@ -104,21 +98,21 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        mCardScroller1.activate();
+        mCardScroller.activate();
         beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
             @Override
             public void onServiceReady() {
                 beaconManager.startRanging(welten);
             }
         });
-    }
+    }//onResumer
 
     @Override
     protected void onPause() {
         beaconManager.stopRanging(welten);
-        mCardScroller1.deactivate();
+        mCardScroller.deactivate();
         super.onPause();
-    }
+    }//onPause
 
     public String loadInfoJSON() {
         String json;
@@ -132,7 +126,7 @@ public class MainActivity extends Activity {
         } catch (IOException ex) {
             ex.printStackTrace();
             return null;
-        }
+        }//catch
         return json;
-    }
-}
+    }//loadInfoJSON
+}//MainActivity

@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 
 import com.google.android.glass.widget.CardBuilder;
@@ -41,7 +42,6 @@ public class RoomsActivity extends Activity {
 
     private Rooms currentRoom;
     private ArrayList<CardBuilder> cards;
-    private Context context;
     private CardScrollView mCardScroller;
     private int cPossition;
     private String jFile;
@@ -50,8 +50,11 @@ public class RoomsActivity extends Activity {
     public void onCreate (Bundle bundle) {
         super.onCreate(bundle);
         cards = new ArrayList<>();
-        context = this;
+        Context context = this;
         jFile = getIntent().getStringExtra(jFile);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         currentRoom = jsonLoader.getCurrentRoom();
         String[] LessonTitles;
         LessonTitles = currentRoom.getLssTitles();

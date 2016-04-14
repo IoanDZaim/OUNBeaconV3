@@ -25,6 +25,7 @@ package com.z.ioannis.ounbeaconv3;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
@@ -40,15 +41,19 @@ public class LessonsActivity extends Activity {
     private List<Lessons> LessList;
     private ArrayList<CardBuilder> cards;
     private CardScrollView mCardScroller;
-    private Context context;
     private int cPoss;
 
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
-        context = this;
+        Context context = this;
         cards = new ArrayList<>();
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+
         LessList = jsonLoader.getLessList();
         cPoss = getIntent().getIntExtra("CURRENT_CARD",cPoss);
+
 
         for (Lessons lesson : LessList){
             int Lnum = lesson.getLesNum();
