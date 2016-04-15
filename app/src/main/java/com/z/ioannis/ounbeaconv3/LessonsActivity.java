@@ -29,7 +29,7 @@ import android.view.WindowManager;
 
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
-import com.z.ioannis.ounbeaconv3.Adapters.CreatedCardsAdapter;
+import com.z.ioannis.ounbeaconv3.Adapters.LessonsAdapter;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
 
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public class LessonsActivity extends Activity {
         LessList = jsonLoader.getLessList();
         cPoss = getIntent().getIntExtra("CURRENT_CARD",cPoss);
 
-
+/**
         for (Lessons lesson : LessList){
             int Lnum = lesson.getLesNum();
             String[] LessonSlides = lesson.getSlides();
@@ -68,11 +68,11 @@ public class LessonsActivity extends Activity {
                     );
                 }//for
             }//if
-        }//for
+        }//for//*/
 
         mCardScroller = new CardScrollView(this);
-        CreatedCardsAdapter adapter = new CreatedCardsAdapter(cards, context);
-        mCardScroller.setAdapter(adapter);
+        LessonsAdapter lessonsAdapter = new LessonsAdapter(context, LessList, cPoss);
+        mCardScroller.setAdapter(lessonsAdapter);
         mCardScroller.activate();
         setContentView(mCardScroller);
 
