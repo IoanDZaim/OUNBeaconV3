@@ -29,20 +29,16 @@ import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollAdapter;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
 
-import java.util.List;
-
 public class LessonsAdapter extends CardScrollAdapter{
 
     private final Context mContext;
-    private List<Lessons> mLesson;
-    private int lesNum;
+    private Lessons mLesson;
     private long[] mValues;
 
-    public LessonsAdapter(Context mContext, List<Lessons> mLesson, int lesNum){
+    public LessonsAdapter(Context mContext, Lessons mLesson){
         this.mContext = mContext;
-        mValues = new long[mLesson.size()];
+        mValues = new long[mLesson.getnSlides()];
         this.mLesson = mLesson;
-        this.lesNum = lesNum;
     }
 
 
@@ -62,14 +58,13 @@ public class LessonsAdapter extends CardScrollAdapter{
     @Override
     public View getView(int i, View currentView, ViewGroup viewGroup) {
         View view = null;
-        for (Lessons lesson : mLesson){
-            if ((currentView == null) && (lesson.getLesNum()==lesNum)){
+
+            if (currentView == null) {
                 view = new CardBuilder(mContext, CardBuilder.Layout.TEXT)
-                        .setText(lesson.getSlides()[i])
-                        .setFootnote(lesson.getRoomName())
+                        .setText(mLesson.getSlides()[i])
+                        .setFootnote(mLesson.getRoomName()+" : "+mLesson.getLname())
                         .getView();
             }
-        }
 
         return view;
     }

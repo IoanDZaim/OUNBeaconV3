@@ -22,35 +22,28 @@
 package com.z.ioannis.ounbeaconv3;
 
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
 
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class jsonLoader{
 
-    private JSONObject jsonInfo;
-    private Beacons bcon;
-    private Rooms rooms;
-    private Lessons lesson;
     private Beacons closestBeacon;
     private static Rooms currentRoom;
-    private static List<Lessons> LessList = new ArrayList<>();
-    private String[] SlidesTxts;
-    private String[] rSlides;
 
 
     public jsonLoader (String jFile, int maj, int min){
+        JSONObject jsonInfo;
+        Beacons bcon;
+        Rooms rooms;
+        String[] rSlides;
+
        try {
            jsonInfo = new JSONObject(jFile);
            JSONArray jsonArray = jsonInfo.optJSONArray("beacons");
            JSONArray jsonArray2 = jsonInfo.optJSONArray("rooms");
-           JSONArray jsonArray3 = jsonInfo.optJSONArray("lessons");
            for (int i = 0; i < jsonArray.length(); i++) {
                JSONObject jsonObject = jsonArray.getJSONObject(i);
                int Major = jsonObject.getInt("Major");
@@ -91,39 +84,12 @@ public class jsonLoader{
                    currentRoom = rooms;
                }
            }//for 2
-               for (int i = 0; i < jsonArray3.length(); i++) {
-                   JSONObject jsonObject = jsonArray3.getJSONObject(i);
-                   String rName = jsonObject.getString("roomname");
-                   if (rName.equals(currentRoom.getRoomName())){
-                       lesson = new Lessons();
-                       int lnum = jsonObject.getInt("num");
-                       lesson.setLesNum(lnum);
-                       String lname = jsonObject.getString("name");
-                       lesson.setLname(lname);
-                       lesson.setRoomName(rName);
-                       int nSlides = jsonObject.getInt("NumOfSlides");
-                       lesson.setnSlides(nSlides);
-                       SlidesTxts = new String[nSlides];
-                       for (int k = 0; k < nSlides; k++) {
-                           String slide = jsonObject.getString("Slide " + k);
-                           SlidesTxts[k] = slide;
-                       }//for in for3
-                       lesson.setSlides(SlidesTxts);
-                       LessList.add(lesson);
-                   }
-               }//for 3
        }catch (JSONException e) {
            e.printStackTrace();
        }
     }//jsonLoader
 
 
-    public static List<Lessons> getLessList() {
-        return LessList;
-    }
-    public static void clearLessList(){
-        LessList.clear();
-    }
     public Beacons getClosestBeacon() {
         return closestBeacon;
     }

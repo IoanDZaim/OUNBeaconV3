@@ -27,51 +27,27 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.WindowManager;
 
-import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
 import com.z.ioannis.ounbeaconv3.Adapters.LessonsAdapter;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class LessonsActivity extends Activity {
 
-    private List<Lessons> LessList;
-    private ArrayList<CardBuilder> cards;
     private CardScrollView mCardScroller;
-    private int cPoss;
 
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
         Context context = this;
-        cards = new ArrayList<>();
+        Lessons lesson;
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
-        LessList = jsonLoader.getLessList();
-        cPoss = getIntent().getIntExtra("CURRENT_CARD",cPoss);
-
-/**
-        for (Lessons lesson : LessList){
-            int Lnum = lesson.getLesNum();
-            String[] LessonSlides = lesson.getSlides();
-            String cardText;
-            if (Lnum == cPoss){
-                for (int i =0; i < lesson.getnSlides(); i++){
-                    cardText = LessonSlides[i];
-                    cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
-                            .setText(cardText)
-                            .setFootnote(lesson.getRoomName()+ ": " +lesson.getLname())
-                    );
-                }//for
-            }//if
-        }//for//*/
+        lesson = lessonLoader.getcLesson();
 
         mCardScroller = new CardScrollView(this);
-        LessonsAdapter lessonsAdapter = new LessonsAdapter(context, LessList, cPoss);
+        LessonsAdapter lessonsAdapter = new LessonsAdapter(context, lesson);
         mCardScroller.setAdapter(lessonsAdapter);
         mCardScroller.activate();
         setContentView(mCardScroller);

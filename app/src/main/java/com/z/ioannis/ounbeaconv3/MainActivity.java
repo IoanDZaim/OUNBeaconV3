@@ -79,7 +79,6 @@ public class MainActivity extends Activity {
                     BconArray[j]=beacon;
                     j++;
                 }//insert found beacons on Array
-                jsonLoader.clearLessList();
                 if ((BconArray.length )!= 0){
                     int maj = BconArray[0].getMajor();
                     int min = BconArray[0].getMinor();
