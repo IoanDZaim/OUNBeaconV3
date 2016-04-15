@@ -37,11 +37,11 @@
       "name": "Multiple Input",
       "roomname": "Winter",
       "NumOfSlides": "3",
-      "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
+      "Slide 0": "The beamer in this room supports input from multiple sources",
       "ImageUrl 0": null,
-      "Slide 1": "Look at this image. LOOK AT IT!",
+      "Slide 1": "Connect one laptop with the HDMI cable, the other with the VGA and press the right button on the remote.",
       "ImageUrl 1": null,
-      "Slide 2": "what about this image?",
+      "Slide 2": "And that is all!",
       "ImageUrl 2": null
     },
     {
@@ -94,13 +94,15 @@
       "num" : "3",
       "name": "Multiple Input",
       "roomname": "Zomer",
-      "NumOfSlides": "3",
-      "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
+      "NumOfSlides": "4",
+      "Slide 0": "Is the weather good, but the shutters are down? Is the sunlight bothering you? Don't worry!",
       "ImageUrl 0": null,
-      "Slide 1": "Look at this image. LOOK AT IT!",
+      "Slide 1": "Although the shutters work automatically, you can still operate them yourself, making the environment more to your liking",
       "ImageUrl 1": null,
-      "Slide 2": "what about this image?",
-      "ImageUrl 2": null
+      "Slide 2": "On the walls, a bit under the windows, you will find some small switches with arrows pointing up and down painted on them.",
+      "ImageUrl 2": null,
+      "Slide 3": "By pressing them, and keeping them pressed, you can put the shutters to your desired height.",
+      "ImageUrl 3": null
     },
     {
       "num" : "1",
