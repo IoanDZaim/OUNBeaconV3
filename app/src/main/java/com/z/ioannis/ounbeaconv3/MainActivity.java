@@ -41,7 +41,6 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
-
     private CardScrollView mCardScroller;
     private BeaconManager beaconManager;
     private Region welten;
