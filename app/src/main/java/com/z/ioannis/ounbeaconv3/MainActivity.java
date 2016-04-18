@@ -31,7 +31,7 @@ import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
-import com.z.ioannis.ounbeaconv3.Adapters.CreatedCardsAdapter;
+import com.z.ioannis.ounbeaconv3.Adapters.MainAdapter;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
         intent = new Intent(this,RoomsActivity.class);
 
         mCardScroller = new CardScrollView(this);
-        CreatedCardsAdapter adapter1 = new CreatedCardsAdapter(cards, context);
+        MainAdapter adapter1 = new MainAdapter(cards, context);
         mCardScroller.setAdapter(adapter1);
         mCardScroller.activate();
         setContentView(mCardScroller);

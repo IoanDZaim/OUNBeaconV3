@@ -48,20 +48,20 @@ public class LessonsAdapter extends CardScrollAdapter{
     }
 
     @Override
-    public Object getItem(int i) {
-        if (i >= 0 && i <= mValues.length){
-            return mValues[i];
+    public Object getItem(int position) {
+        if (position >= 0 && position <= mValues.length){
+            return mValues[position];
         }
         return null;
     }
 
     @Override
-    public View getView(int i, View currentView, ViewGroup viewGroup) {
+    public View getView(int position, View currentView, ViewGroup viewGroup) {
         View view = null;
 
             if (currentView == null) {
                 view = new CardBuilder(mContext, CardBuilder.Layout.TEXT)
-                        .setText(mLesson.getSlides()[i])
+                        .setText(mLesson.getSlides()[position])
                         .setFootnote(mLesson.getRoomName()+" : "+mLesson.getLname())
                         .getView();
             }

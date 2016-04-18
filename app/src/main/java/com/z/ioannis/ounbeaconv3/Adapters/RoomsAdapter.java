@@ -32,15 +32,15 @@ import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
 public class RoomsAdapter extends CardScrollAdapter{
 
     private final Context mContext;
-    private String[] mRoomTitles;
+    private String[] mRoomSlides;
     private long[] mValues;
     private Rooms cRoom;
 
-    public RoomsAdapter(Context mContext, String[] mRoomTitles, Rooms cRoom){
+    public RoomsAdapter(Context mContext, String[] mRoomSlides, Rooms cRoom){
         this.mContext = mContext;
-        this.mRoomTitles = mRoomTitles;
+        this.mRoomSlides = mRoomSlides;
         this.cRoom = cRoom;
-        mValues = new long[mRoomTitles.length];
+        mValues = new long[mRoomSlides.length];
 
     }
 
@@ -51,25 +51,25 @@ public class RoomsAdapter extends CardScrollAdapter{
     }
 
     @Override
-    public Object getItem(int i) {
-        if (i >= 0 && i <= mValues.length){
-            return mValues[i];
+    public Object getItem(int position) {
+        if (position >= 0 && position <= mValues.length){
+            return mValues[position];
         }
         return null;
     }
 
     @Override
-    public View getView(int i, View currentView, ViewGroup viewGroup) {
+    public View getView(int position, View currentView, ViewGroup viewGroup) {
         View view = null;
         if (currentView == null){
-            if (i==0){
+            if (position==0){
                 view = new CardBuilder(mContext, CardBuilder.Layout.TEXT)
-                        .setText(mRoomTitles[i])
+                        .setText(mRoomSlides[position])
                         .setFootnote(cRoom.getRoomName())
                         .getView();
             }else{
                 view = new CardBuilder(mContext, CardBuilder.Layout.MENU)
-                        .setText(mRoomTitles[i])
+                        .setText(mRoomSlides[position])
                         .setFootnote(cRoom.getRoomName())
                         .getView();
             }

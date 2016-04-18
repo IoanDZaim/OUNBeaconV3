@@ -30,16 +30,16 @@ import com.google.android.glass.widget.CardScrollAdapter;
 
 import java.util.ArrayList;
 
-public class CreatedCardsAdapter extends CardScrollAdapter {
+public class MainAdapter extends CardScrollAdapter {
 
     private ArrayList<CardBuilder> mCards;
+    private Context context;
 
-    public CreatedCardsAdapter(ArrayList<CardBuilder> mCards, Context context) {
+    public MainAdapter(ArrayList<CardBuilder> mCards, Context context) {
         this.mCards = mCards;
         this.context = context;
     }
 
-    private Context context;
 
 
     @Override
