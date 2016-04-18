@@ -21,8 +21,6 @@
  */
 package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
-import java.util.Arrays;
-
 public class Lessons {
 
     private int LesNum;
@@ -43,16 +41,6 @@ public class Lessons {
 
     }
 
-    @Override
-    public String toString() {
-        return "Lessons{" +
-                "LesNum=" + LesNum +
-                ", Lname='" + Lname + '\'' +
-                ", roomName='" + roomName + '\'' +
-                ", nSlides=" + nSlides +
-                ", slides=" + Arrays.toString(slides) +
-                '}';
-    }
 
     public int getLesNum() {
         return LesNum;

@@ -22,17 +22,6 @@
 package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
 public class Beacons {
-    @Override
-    public String toString() {
-        return "Beacons{" +
-                "BName='" + BName + '\'' +
-                ", uuid='" + uuid + '\'' +
-                ", Major=" + Major +
-                ", Minor=" + Minor +
-                ", Mac='" + Mac + '\'' +
-                ", Colour='" + Colour + '\'' +
-                '}';
-    }
 
     private String BName;
     private String uuid;
