@@ -30,7 +30,7 @@ import org.codehaus.jettison.json.JSONObject;
 
 public class jsonLoader{
 
-    private Beacons closestBeacon;
+    private static Beacons closestBeacon;
     private static Rooms currentRoom;
 
 
@@ -90,7 +90,7 @@ public class jsonLoader{
     }//jsonLoader
 
 
-    public Beacons getClosestBeacon() {
+    public static Beacons getClosestBeacon() {
         return closestBeacon;
     }
     public static Rooms getCurrentRoom() {
