@@ -11,8 +11,9 @@
         android:id="@+id/textView"
         android:textAlignment="center"
         android:textColor="@android:color/background_light"
-        android:textSize="35sp"
+        android:textSize="27sp"
         android:background="@android:color/transparent"
         android:layout_gravity="center_horizontal"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textStyle="normal" />
 </LinearLayout>
