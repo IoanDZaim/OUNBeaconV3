@@ -40,7 +40,7 @@ public class RoomsAdapter extends CardScrollAdapter{
         this.mContext = mContext;
         this.mRoomSlides = mRoomSlides;
         this.cRoom = cRoom;
-        mValues = new long[mRoomSlides.length];
+        mValues = new long[cRoom.getNumOfLss()];
 
     }
 
@@ -69,9 +69,12 @@ public class RoomsAdapter extends CardScrollAdapter{
                         .getView();
             }else{
                 view = new CardBuilder(mContext, CardBuilder.Layout.MENU)
+                        //.setEmbeddedLayout(R.layout.custom_layout)
                         .setText(mRoomSlides[position])
                         .setFootnote(cRoom.getRoomName())
                         .getView();
+               // TextView textView1 = (TextView) view.findViewById(R.id.textView);
+                //textView1.setText(mRoomSlides[position]);
             }
         }
         return view;

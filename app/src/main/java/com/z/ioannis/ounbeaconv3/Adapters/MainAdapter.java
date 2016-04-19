@@ -22,13 +22,11 @@
 package com.z.ioannis.ounbeaconv3.Adapters;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollAdapter;
-import com.z.ioannis.ounbeaconv3.R;
 
 import java.util.ArrayList;
 
@@ -56,7 +54,6 @@ public class MainAdapter extends CardScrollAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        view = LayoutInflater.from(context).inflate(R.layout.custom_layout, viewGroup);
         return mCards.get(position).getView(view, viewGroup);
     }
 
