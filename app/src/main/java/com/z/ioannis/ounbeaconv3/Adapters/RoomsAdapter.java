@@ -24,10 +24,12 @@ package com.z.ioannis.ounbeaconv3.Adapters;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollAdapter;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
+import com.z.ioannis.ounbeaconv3.R;
 
 public class RoomsAdapter extends CardScrollAdapter{
 
@@ -68,13 +70,12 @@ public class RoomsAdapter extends CardScrollAdapter{
                         .setFootnote(cRoom.getRoomName())
                         .getView();
             }else{
-                view = new CardBuilder(mContext, CardBuilder.Layout.MENU)
-                        //.setEmbeddedLayout(R.layout.custom_layout)
-                        .setText(mRoomSlides[position])
+                view = new CardBuilder(mContext, CardBuilder.Layout.EMBED_INSIDE)
+                        .setEmbeddedLayout(R.layout.custom_layout)
                         .setFootnote(cRoom.getRoomName())
                         .getView();
-               // TextView textView1 = (TextView) view.findViewById(R.id.textView);
-                //textView1.setText(mRoomSlides[position]);
+                TextView textView1 = (TextView) view.findViewById(R.id.textView);
+                textView1.setText(mRoomSlides[position]);
             }
         }
         return view;
