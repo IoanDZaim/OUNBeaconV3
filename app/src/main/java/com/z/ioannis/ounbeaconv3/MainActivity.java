@@ -46,7 +46,6 @@ public class MainActivity extends Activity {
     private Region welten;
     private Beacon[] BconArray;
     private Intent intent;
-
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -54,7 +53,7 @@ public class MainActivity extends Activity {
         ArrayList<CardBuilder> cards = new ArrayList<>();
         welten = new Region("Welten Region", null, null, null);
         beaconManager = new BeaconManager(getApplicationContext());
-
+        final String jInfo = loadInfoJSON();
         cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                 .setText(R.string.Welcome)
                 .setFootnote(R.string.WFootnote));
@@ -81,8 +80,8 @@ public class MainActivity extends Activity {
                 if ((BconArray.length )!= 0){
                     int maj = BconArray[0].getMajor();
                     int min = BconArray[0].getMinor();
-                    intent.putExtra("JSON", loadInfoJSON());
-                    new jsonLoader(loadInfoJSON(), maj, min);
+                    intent.putExtra("JSON", jInfo);
+                    new jsonLoader(jInfo, maj, min);
                     beaconManager.stopRanging(welten);
                     startActivity(intent);
                 }//if
@@ -127,4 +126,36 @@ public class MainActivity extends Activity {
         }//catch
         return json;
     }//loadInfoJSON
+
+    public String loadBeacons(){
+        String json;
+        try {
+            InputStream is = getAssets().open("Beacons.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }//catch
+        return json;
+    }
+
+    public String loadRooms() {
+        String json;
+        try {
+            InputStream is = getAssets().open("Rooms.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }//catch
+        return json;
+    }
 }//MainActivity
