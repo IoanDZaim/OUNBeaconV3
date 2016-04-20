@@ -1,0 +1,31 @@
+{
+  "beacons": [
+    {
+      "name": "Winter",
+      "room": "Winter",
+      "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+      "Major": "29740",
+      "Minor": "13061",
+      "Mac": "D7:7F:33:05:74:2C",
+      "Colour": "Blueberry Pie"
+    },
+    {
+      "name": "Zomer",
+      "room": "Zomer",
+      "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+      "Major": "42439",
+      "Minor": "55045",
+      "Mac": "C6:5B:D7:05:A5:C7",
+      "Colour": "Blueberry Pie"
+    },
+    {
+      "name": "Common",
+      "room": "Activities Room",
+      "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+      "Major": "8427",
+      "Minor": "15281",
+      "Mac": "DB:52:3B:B1:20:EB",
+      "Colour": "Icy Marshmallow"
+    }
+  ]
+}
