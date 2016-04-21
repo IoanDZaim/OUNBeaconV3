@@ -46,6 +46,7 @@ public class MainActivity extends Activity {
     private Region welten;
     private Beacon[] BconArray;
     private Intent intent;
+
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -147,7 +148,7 @@ public class MainActivity extends Activity {
             return null;
         }//catch
         return json;
-    }
+    }//loadBeacons
 
     public String loadRooms() {
         String json;
@@ -163,7 +164,7 @@ public class MainActivity extends Activity {
             return null;
         }//catch
         return json;
-    }
+    }//loadRooms
     public String loadLessons(){
         String json;
         try {
@@ -178,7 +179,7 @@ public class MainActivity extends Activity {
             return null;
         }//catch
         return json;
-    }
+    }//loadLessons
 
 
 }//MainActivity

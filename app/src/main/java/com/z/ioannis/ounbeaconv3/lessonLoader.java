@@ -32,7 +32,6 @@ public class lessonLoader {
 
     private static Lessons cLesson;
 
-
     public lessonLoader (String jFile, String roomName, int lnum){
         Lessons lesson;
         JSONObject jsonInfo;

@@ -41,7 +41,6 @@ public class Lessons2 {
 
     }
 
-
     public int getLesNum() {
         return LesNum;
     }
