@@ -54,6 +54,11 @@ public class MainActivity extends Activity {
         welten = new Region("Welten Region", null, null, null);
         beaconManager = new BeaconManager(getApplicationContext());
         final String jInfo = loadInfoJSON();
+        /**
+        String jBeacons = loadBeacons();
+        String jRooms = loadRooms();
+        String jLessons = loadLessons();
+        */
         cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                 .setText(R.string.Welcome)
                 .setFootnote(R.string.WFootnote));
@@ -147,6 +152,21 @@ public class MainActivity extends Activity {
         String json;
         try {
             InputStream is = getAssets().open("Rooms.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }//catch
+        return json;
+    }
+    public String loadLessons(){
+        String json;
+        try {
+            InputStream is = getAssets().open("Lessons.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);

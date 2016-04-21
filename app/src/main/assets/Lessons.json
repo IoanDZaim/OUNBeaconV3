@@ -1,132 +1,93 @@
 {
   "lessons": [
     {
-      "num" : "1",
+      "num": "1",
       "name": "Beamer HDMI connection",
-      "roomname": "Winter",
+      "rooms": [
+        "Winter",
+        "Zomer"
+      ],
       "NumOfSlides": "5",
-      "Slide 0": "In this lesson we will see how to connect your laptop with the beamer, by using the HDMI cable.",
-      "ImageUrl 0": null,
-      "Slide 1": "Take the HDMI cable of the beamer, usually located there and connect it to the HDMI port of your laptop.",
-      "ImageUrl 1": null,
-      "Slide 2": "Your screen should be projected automatically on the wall",
-      "ImageUrl 2": null,
-      "Slide 3": "In case it is not, press the tade button on the remote control of the beamer, located there",
-      "ImageUrl 3": null,
-      "Slide 4": "And that's it! Congratulation!",
-      "ImageUrl 4": null
+      "Slides": [
+        "In this lesson we will see how to connect your laptop with the beamer, by using the HDMI cable.",
+        "Take the HDMI cable of the beamer, usually located there and connect it to the HDMI port of your laptop.",
+        "Your screen should be projected automatically on the wall",
+        "In case it is not, press the tade button on the remote control of the beamer, located there",
+        "And that's it! Congratulation!"
+      ]
     },
     {
-      "num" : "2",
+      "num": "2",
       "name": "Beamer VGA connection",
-      "roomname": "Winter",
+      "rooms": [
+        "Winter",
+        "Zomer"
+      ],
       "NumOfSlides": "5",
-      "Slide 0": "This lesson will teach you how to connect your laptop with the beamer, by using the VGA cable.",
-      "ImageUrl 0": null,
-      "Slide 1": "Take the VGA cable, located there and connect it to your laptop",
-      "ImageUrl 1": null,
-      "Slide 2": "Your screen should be projected automatically on the wall",
-      "ImageUrl 2": null,
-      "Slide 3": "In case it is not, press the tade button on the remote control of the beamer, located there",
-      "ImageUrl 3": null,
-      "Slide 4": "And that's it! Congratulation!",
-      "ImageUrl 4": null
+      "Slides": [
+        "This lesson will teach you how to connect your laptop with the beamer, by using the VGA cable.",
+        "Take the VGA cable, located there and connect it to your laptop",
+        "Your screen should be projected automatically on the wall",
+        "In case it is not, press the tade button on the remote control of the beamer, located there",
+        "And that's it! Congratulation!"
+      ]
     },
     {
-      "num" : "3",
+      "num": "3",
       "name": "Multiple Input",
-      "roomname": "Winter",
+      "rooms": [
+        "Winter",
+        "Zomer"
+      ],
       "NumOfSlides": "3",
-      "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
-      "ImageUrl 0": null,
-      "Slide 1": "Look at this image. LOOK AT IT!",
-      "ImageUrl 1": null,
-      "Slide 2": "what about this image?",
-      "ImageUrl 2": null
+      "Slides": [
+        "The beamer in this room supports input from multiple sources",
+        "Connect one laptop with the HDMI cable, the other with the VGA and press the right button on the remote.",
+        "And that is all!"
+      ]
     },
     {
-      "num" : "4",
+      "num": "4",
       "name": "Operate the lights",
-      "roomname": "Winter",
-      "NumOfSlides": "3",
-      "Slide 0": "Most of the lights throughout the Welten Institute are automatic, although there is the possibility of turning them off when you want.",
-      "ImageUrl 0": null,
-      "Slide 1": "Next to the door there is a small controller, mounted on the wall.",
-      "ImageUrl 1": null,
-      "Slide 2": "By using this you can operate the lights as you want.",
-      "ImageUrl 2": null,
-      "Slide 3": "Too much light during your presentation? Not a problem with the remote at hand!",
-      "ImageUrl 3": null
-    },
-    {
-      "num" : "1",
-      "name": "Beamer HDMI connection",
-      "roomname": "Zomer",
-      "NumOfSlides": "5",
-      "Slide 0": "In this lesson we will see how to connect your laptop with the beamer, by using the HDMI cable.",
-      "ImageUrl 0": null,
-      "Slide 1": "Take the HDMI cable of the beamer, usually located there and connect it to the HDMI port of your laptop.",
-      "ImageUrl 1": null,
-      "Slide 2": "Your screen should be projected automatically on the wall",
-      "ImageUrl 2": null,
-      "Slide 3": "In case it is not, press the tade button on the remote control of the beamer, located there",
-      "ImageUrl 3": null,
-      "Slide 4": "And that's it! Congratulation!",
-      "ImageUrl 4": null
-    },
-    {
-      "num" : "2",
-      "name": "Beamer VGA connection",
-      "roomname": "Zomer",
-      "NumOfSlides": "5",
-      "Slide 0": "This lesson will teach you how to connect your laptop with the beamer, by using the VGA cable.",
-      "ImageUrl 0": null,
-      "Slide 1": "Take the VGA cable, located there and connect it to your laptop",
-      "ImageUrl 1": null,
-      "Slide 2": "Your screen should be projected automatically on the wall",
-      "ImageUrl 2": null,
-      "Slide 3": "In case it is not, press the tade button on the remote control of the beamer, located there",
-      "ImageUrl 3": null,
-      "Slide 4": "And that's it! Congratulation!",
-      "ImageUrl 4": null
-    },
-    {
-      "num" : "3",
-      "name": "Multiple Input",
-      "roomname": "Zomer",
-      "NumOfSlides": "3",
-      "Slide 0": "Hello there mate, let's see how to connect this thing, eh?",
-      "ImageUrl 0": null,
-      "Slide 1": "Look at this image. LOOK AT IT!",
-      "ImageUrl 1": null,
-      "Slide 2": "what about this image?",
-      "ImageUrl 2": null
-    },
-    {
-      "num" : "1",
-      "name": "Operate the shutters",
-      "roomname": "Activities Room",
+      "rooms": [
+        "Winter",
+        "Zomer"
+      ],
       "NumOfSlides": "4",
-      "Slide 0": "Is the weather good, but the shutters are down? Is the sunlight bothering you? Don't worry!",
-      "ImageUrl 0": null,
-      "Slide 1": "Although the shutters work automatically, you can still operate them yourself, making the environment more to your liking",
-      "ImageUrl 1": null,
-      "Slide 2": "On the walls, a bit under the windows, you will find some small switches with arrows pointing up and down painted on them.",
-      "ImageUrl 2": null,
-      "Slide 3": "By pressing them, and keeping them pressed, you can put the shutters to your desired height.",
-      "ImageUrl 3": null
+      "Slides": [
+        "Most of the lights throughout the Welten Institute are automatic, although there is the possibility of turning them off when you want.",
+        "Next to the door there is a small controller, mounted on the wall.",
+        "By using this you can operate the lights as you want.",
+        "Too much light during your presentation? Not a problem with the remote at hand!"
+      ]
     },
     {
-      "num" : "2",
+      "num": "5",
+      "name": "Operate the shutters",
+      "rooms": [
+        "Activities Room",
+        "Winter",
+        "Zomer"
+      ],
+      "NumOfSlides": "4",
+      "Slides": [
+        "Is the weather good, but the shutters are down? Is the sunlight bothering you? Don't worry!",
+        "Although the shutters work automatically, you can still operate them yourself, making the environment more to your liking",
+        "On the walls, a bit under the windows, you will find some small switches with arrows pointing up and down painted on them.",
+        "By pressing them, and keeping them pressed, you can put the shutters to your desired height."      ]
+    },
+    {
+      "num": "6",
       "name": "Operate the lights",
-      "roomname": "Activities Room",
+      "rooms": [
+        "Activities Room"
+      ],
       "NumOfSlides": "3",
-      "Slide 0": "Most of the lights throughout the Welten Institute are automatic, although there is (?) a switch to operate them",
-      "ImageUrl 0": null,
-      "Slide 1": "Search at that place to find the switch, press it and see what happens.",
-      "ImageUrl 1": null,
-      "Slide 2": "And that's it! Well done!",
-      "ImageUrl 2": null
+      "Slides": [
+        "Most of the lights throughout the Welten Institute are automatic, although there is (?) a switch to operate them",
+        "Search at that place to find the switch, press it and see what happens.",
+        "And that's it! Well done!"
+      ]
     }
   ]
 }
