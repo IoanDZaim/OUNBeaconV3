@@ -24,6 +24,7 @@ package com.z.ioannis.ounbeaconv3.ObjectCreators;
 public class Beacons {
 
     private String BName;
+    private String Roomname;
     private String uuid;
     private int Major;
     private int Minor;
@@ -36,6 +37,14 @@ public class Beacons {
 
     public void setBName(String BName) {
         this.BName = BName;
+    }
+
+    public String getRoomname() {
+        return Roomname;
+    }
+
+    public void setRoomname(String roomname) {
+        Roomname = roomname;
     }
 
     public String getUuid() {
@@ -80,8 +89,10 @@ public class Beacons {
 
 
 
-    public Beacons(String BName, String uuid, int major, int minor, String mac, String colour) {
+
+    public Beacons(String BName, String roomname, String uuid, int major, int minor, String mac, String colour) {
         this.BName = BName;
+        this.Roomname = roomname;
         this.uuid = uuid;
         this.Major = major;
         this.Minor = minor;

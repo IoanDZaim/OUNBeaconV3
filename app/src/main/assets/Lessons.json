@@ -3,7 +3,7 @@
     {
       "num": "1",
       "name": "Beamer HDMI connection",
-      "rooms": [
+      "toBcons": [
         "Winter",
         "Zomer"
       ],
@@ -19,7 +19,7 @@
     {
       "num": "2",
       "name": "Beamer VGA connection",
-      "rooms": [
+      "toBcons": [
         "Winter",
         "Zomer"
       ],
@@ -35,7 +35,7 @@
     {
       "num": "3",
       "name": "Multiple Input",
-      "rooms": [
+      "toBcons": [
         "Winter",
         "Zomer"
       ],
@@ -49,7 +49,7 @@
     {
       "num": "4",
       "name": "Operate the lights",
-      "rooms": [
+      "toBcons": [
         "Winter",
         "Zomer"
       ],
@@ -64,7 +64,7 @@
     {
       "num": "5",
       "name": "Operate the shutters",
-      "rooms": [
+      "toBcons": [
         "Activities Room",
         "Winter",
         "Zomer"
@@ -79,7 +79,7 @@
     {
       "num": "6",
       "name": "Operate the lights",
-      "rooms": [
+      "toBcons": [
         "Activities Room"
       ],
       "NumOfSlides": "3",

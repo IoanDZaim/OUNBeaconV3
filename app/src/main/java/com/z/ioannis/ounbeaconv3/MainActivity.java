@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
         String jRooms = loadRooms();
         String jLessons = loadLessons();
 
-        new testLoader(jRooms);
+        new testLoader(jBeacons, jRooms, jLessons);
         cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                 .setText(R.string.Welcome)
                 .setFootnote(R.string.WFootnote));
