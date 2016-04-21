@@ -54,11 +54,12 @@ public class MainActivity extends Activity {
         welten = new Region("Welten Region", null, null, null);
         beaconManager = new BeaconManager(getApplicationContext());
         final String jInfo = loadInfoJSON();
-        /**
+
         String jBeacons = loadBeacons();
         String jRooms = loadRooms();
         String jLessons = loadLessons();
-        */
+
+        new testLoader(jRooms);
         cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                 .setText(R.string.Welcome)
                 .setFootnote(R.string.WFootnote));
@@ -178,4 +179,6 @@ public class MainActivity extends Activity {
         }//catch
         return json;
     }
+
+
 }//MainActivity
