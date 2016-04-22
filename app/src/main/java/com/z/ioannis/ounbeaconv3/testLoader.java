@@ -21,7 +21,6 @@
  */
 package com.z.ioannis.ounbeaconv3;
 
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons2;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons2;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms2;
@@ -54,7 +53,7 @@ public class testLoader {
                 Lessons2 lesson = new Lessons2();
                 JSONObject jsonObject = jsonArray3.getJSONObject(i);
                 String lssID = jsonObject.getString("id");
-                lesson.setLesNum(lssID);
+                lesson.setLesID(lssID);
                 String name = jsonObject.getString("name");
                 lesson.setLname(name);
                 JSONArray bcons = jsonObject.getJSONArray("toBcons");
@@ -89,7 +88,17 @@ public class testLoader {
                 bcon.setMac(Mac);
                 String Colour = jsonObject.getString("Colour");
                 bcon.setColour(Colour);
-
+                JSONArray lss = jsonObject.getJSONArray("Lessons");
+                Lessons2[] Les = new Lessons2[lss.length()];
+                for (int j=0; j<lss.length();j++ ){
+                    for (Lessons2 lesson : LssList){
+                        String lsn = lss.getString(j);
+                        if (lesson.getLesID().equals(lsn)){
+                            Les[j]=lesson;
+                        }//if
+                    }// for each
+                }
+                bcon.setLssList(Les);
                 BconsList.add(bcon);
             }//for beacons
 
