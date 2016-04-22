@@ -23,13 +23,13 @@ package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
 public class Lessons2 {
 
-    private int LesNum;
+    private String LesNum;
     private String Lname;
     private String[] toBcnos;
     private int nSlides;
     private String[] slides;
 
-    public Lessons2(int LesNum, String Lname, String[] toBcnos, int nSlides, String[] slides) {
+    public Lessons2(String LesNum, String Lname, String[] toBcnos, int nSlides, String[] slides) {
         this.LesNum = LesNum;
         this.Lname = Lname;
         this.toBcnos = toBcnos;
@@ -41,11 +41,11 @@ public class Lessons2 {
 
     }
 
-    public int getLesNum() {
+    public String getLesNum() {
         return LesNum;
     }
 
-    public void setLesNum(int lesNum) {
+    public void setLesNum(String lesNum) {
         LesNum = lesNum;
     }
 

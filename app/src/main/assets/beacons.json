@@ -2,7 +2,6 @@
   "beacons": [
     {
       "Name": "Winter1",
-      "Room": "Winter",
       "Uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
       "Major": "29740",
       "Minor": "13061",
@@ -11,7 +10,6 @@
     },
     {
       "Name": "Zomer1",
-      "Room": "Zomer",
       "Uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
       "Major": "42439",
       "Minor": "55045",
@@ -20,7 +18,6 @@
     },
     {
       "Name": "Common1",
-      "Room": "Activities Room",
       "Uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
       "Major": "8427",
       "Minor": "15281",

@@ -1,7 +1,7 @@
 {
   "lessons": [
     {
-      "num": "1",
+      "id": "HDMI",
       "name": "Beamer HDMI connection",
       "toBcons": [
         "Winter",
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "num": "2",
+      "id": "VGA",
       "name": "Beamer VGA connection",
       "toBcons": [
         "Winter",
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "num": "3",
+      "id": "MULTI",
       "name": "Multiple Input",
       "toBcons": [
         "Winter",
@@ -47,7 +47,7 @@
       ]
     },
     {
-      "num": "4",
+      "id": "LIGHTS",
       "name": "Operate the lights",
       "toBcons": [
         "Winter",
@@ -62,7 +62,7 @@
       ]
     },
     {
-      "num": "5",
+      "id": "SHUTTERS",
       "name": "Operate the shutters",
       "toBcons": [
         "Activities Room",
@@ -77,7 +77,7 @@
         "By pressing them, and keeping them pressed, you can put the shutters to your desired height."      ]
     },
     {
-      "num": "6",
+      "id": "LIGHTS2",
       "name": "Operate the lights",
       "toBcons": [
         "Activities Room"

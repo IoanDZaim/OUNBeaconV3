@@ -1,7 +1,7 @@
 {
   "lessons": [
     {
-      "num" : "1",
+      "id": "1",
       "name": "Beamer HDMI connection",
       "roomname": "Winter",
       "NumOfSlides": "5",
@@ -17,7 +17,7 @@
       "ImageUrl 4": null
     },
     {
-      "num" : "2",
+      "id": "2",
       "name": "Beamer VGA connection",
       "roomname": "Winter",
       "NumOfSlides": "5",
@@ -33,7 +33,7 @@
       "ImageUrl 4": null
     },
     {
-      "num" : "3",
+      "id": "3",
       "name": "Multiple Input",
       "roomname": "Winter",
       "NumOfSlides": "3",
@@ -45,7 +45,7 @@
       "ImageUrl 2": null
     },
     {
-      "num" : "4",
+      "id": "4",
       "name": "Operate the lights",
       "roomname": "Winter",
       "NumOfSlides": "4",
@@ -59,7 +59,7 @@
       "ImageUrl 3": null
     },
     {
-      "num" : "1",
+      "id": "1",
       "name": "Beamer HDMI connection",
       "roomname": "Zomer",
       "NumOfSlides": "5",
@@ -75,7 +75,7 @@
       "ImageUrl 4": null
     },
     {
-      "num" : "2",
+      "id": "2",
       "name": "Beamer VGA connection",
       "roomname": "Zomer",
       "NumOfSlides": "5",
@@ -91,7 +91,7 @@
       "ImageUrl 4": null
     },
     {
-      "num" : "3",
+      "id": "3",
       "name": "Multiple Input",
       "roomname": "Zomer",
       "NumOfSlides": "3",
@@ -103,7 +103,7 @@
       "ImageUrl 2": null
     },
     {
-      "num" : "1",
+      "id": "1",
       "name": "Operate the shutters",
       "roomname": "Activities Room",
       "NumOfSlides": "4",
@@ -117,7 +117,7 @@
       "ImageUrl 3": null
     },
     {
-      "num" : "2",
+      "id": "2",
       "name": "Operate the lights",
       "roomname": "Activities Room",
       "NumOfSlides": "3",

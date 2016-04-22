@@ -97,8 +97,6 @@ public class MainActivity extends Activity {
         );//ranginglistener
     }//onCreate
 
-
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -165,6 +163,7 @@ public class MainActivity extends Activity {
         }//catch
         return json;
     }//loadRooms
+
     public String loadLessons(){
         String json;
         try {

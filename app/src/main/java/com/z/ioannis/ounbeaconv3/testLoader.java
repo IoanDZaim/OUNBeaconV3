@@ -22,6 +22,7 @@
 package com.z.ioannis.ounbeaconv3;
 
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons2;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons2;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms2;
 
@@ -35,7 +36,7 @@ public class testLoader {
 
     private List<Lessons2> LssList;
     private List<Rooms2> RoomsList;
-    private List<Beacons> BconsList;
+    private List<Beacons2> BconsList;
 
     public testLoader (String jBcons, String jRooms, String jLss){
         JSONObject jInfo1;
@@ -49,13 +50,35 @@ public class testLoader {
             JSONArray jsonArray2 = jInfo2.optJSONArray("rooms");
             JSONArray jsonArray3 = jInfo3.optJSONArray("lessons");
 
+            for (int i= 0; i<jsonArray3.length(); i++){
+                Lessons2 lesson = new Lessons2();
+                JSONObject jsonObject = jsonArray3.getJSONObject(i);
+                String lssID = jsonObject.getString("id");
+                lesson.setLesNum(lssID);
+                String name = jsonObject.getString("name");
+                lesson.setLname(name);
+                JSONArray bcons = jsonObject.getJSONArray("toBcons");
+                String[] bc = new String[bcons.length()];
+                for (int j=0; j<bcons.length();j++){
+                    bc[j] = bcons.getString(j);
+                }
+                lesson.setToBcnos(bc);
+                int nSld = jsonObject.getInt("NumOfSlides");
+                lesson.setnSlides(nSld);
+                JSONArray slides = jsonObject.getJSONArray("Slides");
+                String[] sli = new String[slides.length()];
+                for (int k=0; k<slides.length();k++){
+                    sli[k] = slides.getString(k);
+                }
+                lesson.setSlides(sli);
+                LssList.add(lesson);
+            }//for lessons
+
             for (int i=0; i<jsonArray1.length(); i++){
-                Beacons bcon = new Beacons();
+                Beacons2 bcon = new Beacons2();
                 JSONObject jsonObject = jsonArray1.getJSONObject(i);
                 String name = jsonObject.getString("name");
                 bcon.setBName(name);
-                String rName = jsonObject.getString("Room");
-                bcon.setRoomname(rName);
                 String uuid = jsonObject.getString("uuid");
                 bcon.setUuid(uuid);
                 int Major = jsonObject.getInt("Major");
@@ -66,6 +89,7 @@ public class testLoader {
                 bcon.setMac(Mac);
                 String Colour = jsonObject.getString("Colour");
                 bcon.setColour(Colour);
+
                 BconsList.add(bcon);
             }//for beacons
 
@@ -93,29 +117,6 @@ public class testLoader {
                 RoomsList.add(room);
             }//for rooms
 
-            for (int i= 0; i<jsonArray3.length(); i++){
-                Lessons2 lesson = new Lessons2();
-                JSONObject jsonObject = jsonArray3.getJSONObject(i);
-                int lssID = jsonObject.getInt("num");
-                lesson.setLesNum(lssID);
-                String name = jsonObject.getString("name");
-                lesson.setLname(name);
-                JSONArray bcons = jsonObject.getJSONArray("toBcons");
-                String[] bc = new String[bcons.length()];
-                for (int j=0; j<bcons.length();j++){
-                    bc[j] = bcons.getString(j);
-                }
-                lesson.setToBcnos(bc);
-                int nSld = jsonObject.getInt("NumOfSlides");
-                lesson.setnSlides(nSld);
-                JSONArray slides = jsonObject.getJSONArray("Slides");
-                String[] sli = new String[slides.length()];
-                for (int k=0; k<slides.length();k++){
-                    sli[k] = slides.getString(k);
-                }
-                lesson.setSlides(sli);
-                LssList.add(lesson);
-            }//for lessons
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -131,7 +132,7 @@ public class testLoader {
         return RoomsList;
     }
 
-    public List<Beacons> getBconsList() {
+    public List<Beacons2> getBconsList() {
         return BconsList;
     }
 }

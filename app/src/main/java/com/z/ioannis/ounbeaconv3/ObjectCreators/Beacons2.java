@@ -16,12 +16,13 @@
  * along with this library.  If not, see <http://www.gnu.org/licenses/>.
  *
  * Contributors: Ioannis D. Zaimidis
- * Created by Ioannis.D on 03-Mar-16.
+ * Created by Ioannis.D on 22-Apr-16.
  * ****************************************************************************
  */
+
 package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
-public class Beacons {
+public class Beacons2 {
 
     private String BName;
     private String uuid;
@@ -29,6 +30,7 @@ public class Beacons {
     private int Minor;
     private String Mac;
     private String Colour;
+    private Lessons2[] LssList;
 
     public String getBName() {
         return BName;
@@ -78,22 +80,26 @@ public class Beacons {
         Colour = colour;
     }
 
+    public Lessons2[] getLssList() {
+        return LssList;
+    }
 
+    public void setLssList(Lessons2[] lssList) {
+        LssList = lssList;
+    }
 
-
-    public Beacons(String BName, String uuid, int major, int minor, String mac, String colour) {
+    public Beacons2(String BName, String uuid, int major, int minor, String mac, String colour, Lessons2[] LssList) {
         this.BName = BName;
         this.uuid = uuid;
         this.Major = major;
         this.Minor = minor;
         this.Mac = mac;
         this.Colour = colour;
+        this.LssList = LssList;
     }
 
 
-    public Beacons() {
+    public Beacons2() {
 
     }
-
 }
-
