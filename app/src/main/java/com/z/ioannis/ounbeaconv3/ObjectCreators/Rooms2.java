@@ -23,13 +23,13 @@ package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
 public class Rooms2 {
 
-    public Rooms2(String roomID, Beacons2[] BcNames, String roomName, int numOfLss, String[] rSlides) {
+    public Rooms2(String roomID, Beacons2[] BcNames, String roomName, int numOfLss, String WelcMsg) {
 
         this.RoomID = roomID;
         this.BcNames = BcNames;
         this.RoomName = roomName;
         this.NumOfLss = numOfLss;
-        this.rSlides = rSlides;
+        this.WelcMsg = WelcMsg;
     }
 
     public Rooms2(){
@@ -68,18 +68,18 @@ public class Rooms2 {
         NumOfLss = numOfLss;
     }
 
-    public String[] getrSlides() {
-        return rSlides;
+    public String getWelcMsg() {
+        return WelcMsg;
     }
 
-    public void setrSlides(String[] rSlides) {
-        this.rSlides = rSlides;
+    public void setWelcMsg(String welcMsg) {
+        this.WelcMsg = welcMsg;
     }
 
     private String RoomID;
     private Beacons2[] BcNames;
     private String RoomName;
     private int NumOfLss;
-    private String[] rSlides;
+    private String WelcMsg;
 
 }

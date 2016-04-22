@@ -6,14 +6,7 @@
       "Beacons": [
         "Winter1"
       ],
-      "NumOfSlides": "5",
-      "Slides": [
-        "It seems you are in room Winter! Slide to the right to see the classes available here!",
-        "Beamer HDMI connection",
-        "Beamer VGA connection",
-        "Multiple Input",
-        "Operate the lights"
-      ]
+      "WelcomeMsg": "It seems you are in room Winter! Slide to the right to see the classes available here!"
     },
     {
       "RoomID": "1,26",
@@ -21,12 +14,7 @@
       "Beacons": [
         "Common1"
       ],
-      "NumOfSlides": "3",
-      "Slides": [
-        "It seems you are in the Activities Room! This room is used mainly for relaxation during the lunch break.",
-        "Operate the shutters",
-        "Operate the lights"
-      ]
+      "WelcomeMsg": "It seems you are in the Activities Room! This room is used mainly for relaxation during the lunch break."
     },
     {
       "RoomID": "1,43",
@@ -34,13 +22,7 @@
       "Beacons": [
         "Zomer1"
       ],
-      "NumOfSlides": "4",
-      "Slides": [
-        "It seems you are in room Zomer! Slide to the right to see the classes available here!",
-        "Beamer HDMI connection",
-        "Beamer VGA connection",
-        "Multiple Input"
-      ]
+      "WelcomeMsg": "It seems you are in room Zomer! Slide to the right to see the classes available here!"
     }
   ]
 }

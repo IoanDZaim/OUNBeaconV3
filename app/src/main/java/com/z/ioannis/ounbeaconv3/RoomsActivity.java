@@ -50,10 +50,13 @@ public class RoomsActivity extends Activity {
         super.onCreate(bundle);
         Context context = this;
         jFile = getIntent().getStringExtra("JSON");
-
+        int maj = getIntent().getIntExtra("MAJ", -1);
+        int min = getIntent().getIntExtra("MIN", -1);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+
 
         intent = new Intent(this,LessonsActivity.class);
         currentRoom = jsonLoader.getCurrentRoom();

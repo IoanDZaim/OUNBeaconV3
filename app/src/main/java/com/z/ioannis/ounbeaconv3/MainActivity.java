@@ -88,8 +88,10 @@ public class MainActivity extends Activity {
                 if ((BconArray.length )!= 0){
                     int maj = BconArray[0].getMajor();
                     int min = BconArray[0].getMinor();
-                    intent.putExtra("JSON", jInfo);
-                    new jsonLoader(jInfo, maj, min);
+                    intent.putExtra("JSON", jInfo); //to be removed
+                    intent.putExtra("MAJ", maj);
+                    intent.putExtra("MIN", min);
+                    new jsonLoader(jInfo, maj, min);// to be removed
                     beaconManager.stopRanging(welten);
                     startActivity(intent);
                 }//if

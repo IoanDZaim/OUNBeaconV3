@@ -122,14 +122,8 @@ public class testLoader {
                     }//for each
                 }//for
                 room.setBcNames(bc);
-                int nOSlds = jsonObject.getInt("NumOfSlides");
-                room.setNumOfLss(nOSlds);
-                JSONArray slides = jsonObject.getJSONArray("Slides");
-                String[] sli = new String[slides.length()];
-                for (int j=0; j<slides.length();j++){
-                    sli[j] = slides.getString(j);
-                }
-                room.setrSlides(sli);
+                String Msg = jsonObject.getString("WelcomeMsg");
+                room.setWelcMsg(Msg);
                 RoomsList.add(room);
             }//for rooms
 
