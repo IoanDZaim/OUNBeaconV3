@@ -51,7 +51,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Context context = this;
-        ArrayList<CardBuilder> cards = new ArrayList<>();
+        ArrayList<CardBuilder> card = new ArrayList<>();
         welten = new Region("Welten Region", null, null, null);
         beaconManager = new BeaconManager(getApplicationContext());
         final String jInfo = loadInfoJSON();
@@ -61,7 +61,8 @@ public class MainActivity extends Activity {
         String jLessons = loadLessons();
 
         new testLoader(jBeacons, jRooms, jLessons);
-        cards.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
+
+        card.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                 .setText(R.string.Welcome)
                 .setFootnote(R.string.WFootnote));
 
@@ -70,7 +71,7 @@ public class MainActivity extends Activity {
         intent = new Intent(this,RoomsActivity.class);
 
         mCardScroller = new CardScrollView(this);
-        MainAdapter adapter1 = new MainAdapter(cards, context);
+        MainAdapter adapter1 = new MainAdapter(card, context);
         mCardScroller.setAdapter(adapter1);
         mCardScroller.activate();
         setContentView(mCardScroller);

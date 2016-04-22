@@ -6,7 +6,13 @@
       "Major": "29740",
       "Minor": "13061",
       "Mac": "D7:7F:33:05:74:2C",
-      "Colour": "Blueberry Pie"
+      "Colour": "Blueberry Pie",
+      "Lessons": [
+        "HDMI",
+        "VGA",
+        "MULTI",
+        "LIGHTS"
+      ]
     },
     {
       "Name": "Zomer1",
@@ -14,7 +20,12 @@
       "Major": "42439",
       "Minor": "55045",
       "Mac": "C6:5B:D7:05:A5:C7",
-      "Colour": "Blueberry Pie"
+      "Colour": "Blueberry Pie",
+      "Lessons": [
+        "HDMI",
+        "VGA",
+        "MULTI"
+      ]
     },
     {
       "Name": "Common1",
@@ -22,7 +33,11 @@
       "Major": "8427",
       "Minor": "15281",
       "Mac": "DB:52:3B:B1:20:EB",
-      "Colour": "Icy Marshmallow"
+      "Colour": "Icy Marshmallow",
+      "Lessons": [
+        "SHUTTERS",
+        "LIGHTS2"
+      ]
     }
   ]
 }

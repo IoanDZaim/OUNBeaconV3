@@ -29,13 +29,15 @@ import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class testLoader {
 
-    private List<Lessons2> LssList;
-    private List<Rooms2> RoomsList;
-    private List<Beacons2> BconsList;
+    private List<Lessons2> LssList = new ArrayList<>();
+    private List<Rooms2> RoomsList = new ArrayList<>();
+    private List<Beacons2> BconsList = new ArrayList<>();
+
 
     public testLoader (String jBcons, String jRooms, String jLss){
         JSONObject jInfo1;
@@ -76,9 +78,9 @@ public class testLoader {
             for (int i=0; i<jsonArray1.length(); i++){
                 Beacons2 bcon = new Beacons2();
                 JSONObject jsonObject = jsonArray1.getJSONObject(i);
-                String name = jsonObject.getString("name");
+                String name = jsonObject.getString("Name");
                 bcon.setBName(name);
-                String uuid = jsonObject.getString("uuid");
+                String uuid = jsonObject.getString("Uuid");
                 bcon.setUuid(uuid);
                 int Major = jsonObject.getInt("Major");
                 bcon.setMajor(Major);
@@ -97,7 +99,7 @@ public class testLoader {
                             Les[j]=lesson;
                         }//if
                     }// for each
-                }
+                }//for
                 bcon.setLssList(Les);
                 BconsList.add(bcon);
             }//for beacons
@@ -110,10 +112,15 @@ public class testLoader {
                 String roomName = jsonObject.getString("RoomName");
                 room.setRoomName(roomName);
                 JSONArray bcons = jsonObject.getJSONArray("Beacons");
-                String[] bc = new String[bcons.length()];
+                Beacons2[] bc = new Beacons2[bcons.length()];
                 for (int k=0; k<bcons.length();k++){
-                    bc[k] = bcons.getString(k);
-                }
+                    for (Beacons2 beacon : BconsList){
+                        String bcn = bcons.getString(k);
+                        if (beacon.getBName().equals(bcn)){
+                            bc[k] = beacon;
+                        }//if
+                    }//for each
+                }//for
                 room.setBcNames(bc);
                 int nOSlds = jsonObject.getInt("NumOfSlides");
                 room.setNumOfLss(nOSlds);
