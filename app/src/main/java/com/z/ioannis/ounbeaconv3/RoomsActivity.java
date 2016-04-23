@@ -33,7 +33,11 @@ import android.widget.AdapterView;
 import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardScrollView;
 import com.z.ioannis.ounbeaconv3.Adapters.RoomsAdapter;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons2;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms2;
+
+import java.util.List;
 
 
 public class RoomsActivity extends Activity {
@@ -45,6 +49,8 @@ public class RoomsActivity extends Activity {
     private String jFile;
     private Intent intent;
     private  AudioManager am;
+    private Rooms2 cRoom;
+    private Beacons2 cBcon;
 
     public void onCreate (Bundle bundle) {
         super.onCreate(bundle);
@@ -52,9 +58,21 @@ public class RoomsActivity extends Activity {
         jFile = getIntent().getStringExtra("JSON");
         int maj = getIntent().getIntExtra("MAJ", -1);
         int min = getIntent().getIntExtra("MIN", -1);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        List<Rooms2> Rooms = testLoader.getRoomsList();
+
+        for (Rooms2 room : Rooms){
+            for(Beacons2 bcon : room.getBcNames()){
+                if ((bcon.getMajor()==maj)&&(bcon.getMinor()==min)){
+                    cBcon=bcon;
+                    cRoom=room;
+                    break;
+                }
+            }
+        }
 
         am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
 

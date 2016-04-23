@@ -35,7 +35,7 @@ import java.util.List;
 public class testLoader {
 
     private List<Lessons2> LssList = new ArrayList<>();
-    private List<Rooms2> RoomsList = new ArrayList<>();
+    private static List<Rooms2> RoomsList = new ArrayList<>();
     private List<Beacons2> BconsList = new ArrayList<>();
 
 
@@ -138,7 +138,7 @@ public class testLoader {
         return LssList;
     }
 
-    public List<Rooms2> getRoomsList() {
+    public static List<Rooms2> getRoomsList() {
         return RoomsList;
     }
 
