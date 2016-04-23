@@ -76,8 +76,6 @@ public class RoomsActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
-
-
         intent = new Intent(this,LessonsActivity.class);
         currentRoom = jsonLoader.getCurrentRoom();
         String[] LessonTitles = currentRoom.getrSlides();
