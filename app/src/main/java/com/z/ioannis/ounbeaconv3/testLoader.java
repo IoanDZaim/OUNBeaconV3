@@ -34,9 +34,9 @@ import java.util.List;
 
 public class testLoader {
 
-    private List<Lessons2> LssList = new ArrayList<>();
+    private static List<Lessons2> LssList = new ArrayList<>();
     private static List<Rooms2> RoomsList = new ArrayList<>();
-    private List<Beacons2> BconsList = new ArrayList<>();
+    private static List<Beacons2> BconsList = new ArrayList<>();
 
 
     public testLoader (String jBcons, String jRooms, String jLss){
@@ -134,7 +134,7 @@ public class testLoader {
 
     }
 
-    public List<Lessons2> getLssList() {
+    public static List<Lessons2> getLssList() {
         return LssList;
     }
 
@@ -142,7 +142,7 @@ public class testLoader {
         return RoomsList;
     }
 
-    public List<Beacons2> getBconsList() {
+    public static List<Beacons2> getBconsList() {
         return BconsList;
     }
 }

@@ -32,6 +32,7 @@ import com.estimote.sdk.Region;
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
 import com.z.ioannis.ounbeaconv3.Adapters.MainAdapter;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons2;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -46,12 +47,12 @@ public class MainActivity extends Activity {
     private Region welten;
     private Beacon[] BconArray;
     private Intent intent;
+    private ArrayList<CardBuilder> card = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        Context context = this;
-        ArrayList<CardBuilder> card = new ArrayList<>();
+        final Context context = this;
         welten = new Region("Welten Region", null, null, null);
         beaconManager = new BeaconManager(getApplicationContext());
         final String jInfo = loadInfoJSON();
@@ -71,10 +72,11 @@ public class MainActivity extends Activity {
         intent = new Intent(this,RoomsActivity.class);
 
         mCardScroller = new CardScrollView(this);
-        MainAdapter adapter1 = new MainAdapter(card, context);
+        final MainAdapter adapter1 = new MainAdapter(card, context);
         mCardScroller.setAdapter(adapter1);
         mCardScroller.activate();
         setContentView(mCardScroller);
+        final List<Beacons2> BCList =testLoader.getBconsList();
 
         beaconManager.setRangingListener(new BeaconManager.RangingListener(){
             @Override
@@ -86,8 +88,17 @@ public class MainActivity extends Activity {
                     j++;
                 }//insert found beacons on Array
                 if ((BconArray.length )!= 0){
-                    int maj = BconArray[0].getMajor();
+                    int maj = BconArray[0].getMajor();//might change this with the the mac method underneath
                     int min = BconArray[0].getMinor();
+                    String mac = BconArray[0].getMacAddress().toString();
+
+                    if(!BCList.contains(mac)){
+                        card.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
+                            .setText(R.string.Error)
+                            .setFootnote(R.string.WFootnote));
+                        adapter1.notifyDataSetChanged();
+                    }//allakse tin if opote: if exists then do underneath (intent and all) else kane auta pou ehei tora mesa i if
+
                     intent.putExtra("JSON", jInfo); //to be removed
                     intent.putExtra("MAJ", maj);
                     intent.putExtra("MIN", min);
