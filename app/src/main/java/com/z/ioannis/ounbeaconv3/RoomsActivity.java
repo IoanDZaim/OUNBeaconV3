@@ -51,6 +51,7 @@ public class RoomsActivity extends Activity {
     private  AudioManager am;
     private Rooms2 cRoom;
     private Beacons2 cBcon;
+    private String les;
 
     public void onCreate (Bundle bundle) {
         super.onCreate(bundle);
@@ -69,7 +70,7 @@ public class RoomsActivity extends Activity {
                 }
             }
         }
-
+        Bundle bun = new Bundle();
         am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -90,7 +91,9 @@ public class RoomsActivity extends Activity {
                     am.playSoundEffect(Sounds.DISALLOWED);
                 }else {
                     am.playSoundEffect(Sounds.TAP);
-                    new lessonLoader(jFile, currentRoom.getRoomName(), cPossition);
+                    les=cBcon.getLssList()[(position)-1].getLesID();
+                    intent.putExtra("Lesson",les);
+                    //new lessonLoader(jFile, currentRoom.getRoomName(), cPossition);
                     startActivity(intent);
                 }
             }

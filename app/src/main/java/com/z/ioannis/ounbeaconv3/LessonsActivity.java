@@ -29,7 +29,7 @@ import android.view.WindowManager;
 
 import com.google.android.glass.widget.CardScrollView;
 import com.z.ioannis.ounbeaconv3.Adapters.LessonsAdapter;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons2;
 
 
 public class LessonsActivity extends Activity {
@@ -39,12 +39,16 @@ public class LessonsActivity extends Activity {
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
         Context context = this;
-        Lessons lesson;
-
+        Lessons2 lesson = new Lessons2();
+        String les= getIntent().getStringExtra("Lesson");
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-
-        lesson = lessonLoader.getcLesson();
+        for (Lessons2 check : testLoader.getLssList()){
+            if (check.getLesID().equals(les)){
+                lesson=check;
+            }
+        }
+        //lesson = lessonLoader.getcLesson();
 
         mCardScroller = new CardScrollView(this);
         LessonsAdapter lessonsAdapter = new LessonsAdapter(context, lesson);
