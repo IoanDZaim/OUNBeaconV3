@@ -32,7 +32,6 @@ import android.widget.AdapterView;
 
 import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardScrollView;
-import com.z.ioannis.ounbeaconv3.Adapters.RoomsAdapter;
 import com.z.ioannis.ounbeaconv3.Adapters.RoomsAdapter2;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons2;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
@@ -77,14 +76,11 @@ public class RoomsActivity extends Activity {
 
 
         intent = new Intent(this,LessonsActivity.class);
-        currentRoom = jsonLoader.getCurrentRoom();
-        String[] LessonTitles = currentRoom.getrSlides();
         RoomsAdapter2 rAdapter = new RoomsAdapter2(context, cRoom, cBcon);
-        RoomsAdapter roomsAdapter = new RoomsAdapter(context, LessonTitles, currentRoom);
 
 
         mCardScroller = new CardScrollView(this);
-        mCardScroller.setAdapter(roomsAdapter);
+        mCardScroller.setAdapter(rAdapter);
         mCardScroller.activate();
         mCardScroller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

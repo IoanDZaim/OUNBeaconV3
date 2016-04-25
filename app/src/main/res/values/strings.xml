@@ -3,5 +3,5 @@
     <string name="title_activity_main">Where am I?</string>
     <string name="Welcome">Hello! Welcome to the Welten institute!Please wait while the glass scans for nearby beacons</string>
     <string name="WFootnote">Welten Institute</string>
-    <string name="Error">The beacon in this room is not recognized</string>
+    <string name="Error">The beacon in this room is not recognized. MAC of beacon is: </string>
 </resources>

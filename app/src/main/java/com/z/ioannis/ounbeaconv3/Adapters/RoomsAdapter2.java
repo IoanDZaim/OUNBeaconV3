@@ -28,7 +28,7 @@ public class RoomsAdapter2 extends CardScrollAdapter{
         this.mRoom = mRoom;
         this.mBcon = mBcon;
         mLesson = mBcon.getLssList();
-        mValues = new long[mBcon.getLssList().length];
+        mValues = new long[(mBcon.getLssList().length)+1];
 
     }
 
@@ -61,7 +61,7 @@ public class RoomsAdapter2 extends CardScrollAdapter{
                         .setFootnote(mRoom.getRoomName())
                         .getView();
                 TextView textView1 = (TextView) view.findViewById(R.id.textView);
-                textView1.setText(mLesson[position].getLname());
+                textView1.setText(mLesson[position-1].getLname());//MUST find a better solution to this
             }
         }
         return view;

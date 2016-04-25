@@ -91,21 +91,28 @@ public class MainActivity extends Activity {
                     int maj = BconArray[0].getMajor();//might change this with the the mac method underneath
                     int min = BconArray[0].getMinor();
                     String mac = BconArray[0].getMacAddress().toString();
+                    int flag=0;
+                    for (int i=0; i<BCList.size();i++){
+                        String check = BCList.get(i).getMac();
+                        if(check.equals(mac)){
+                            intent.putExtra("MAJ", maj);//change min and max with mac?
+                            intent.putExtra("MIN", min);
+                            beaconManager.stopRanging(welten);
+                            startActivity(intent);
+                            break;
+                        }else{
+                            flag++;
+                        }
+                        if(flag==BCList.size())
+                        {
+                            card.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
+                                    .setText((R.string.Error )+ mac)
+                                    .setFootnote(R.string.WFootnote));
+                            adapter1.notifyDataSetChanged();
 
-                    if(!BCList.contains(mac)){
-                        card.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
-                            .setText(R.string.Error)
-                            .setFootnote(R.string.WFootnote));
-                        adapter1.notifyDataSetChanged();
-                    }//allakse tin if opote: if exists then do underneath (intent and all) else kane auta pou ehei tora mesa i if
-
-                    intent.putExtra("JSON", jInfo); //to be removed
-                    intent.putExtra("MAJ", maj);
-                    intent.putExtra("MIN", min);
-                    new jsonLoader(jInfo, maj, min);// to be removed
-                    beaconManager.stopRanging(welten);
-                    startActivity(intent);
-                }//if
+                        }
+                    }//if beacon exists in the list
+                }//if there are beacons
             }//onBeaconsDiscovered
             }//RangingListener
         );//ranginglistener
