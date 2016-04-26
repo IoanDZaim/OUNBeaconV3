@@ -45,6 +45,8 @@ public class MainActivity extends Activity {
     private CardScrollView mCardScroller;
     private BeaconManager beaconManager;
     private Region welten;
+    private Context context;
+    private MainAdapter adapter1;
     private Beacon[] BconArray;
     private Intent intent;
     private ArrayList<CardBuilder> card = new ArrayList<>();
@@ -52,10 +54,9 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        final Context context = this;
+        context = this;
         welten = new Region("Welten Region", null, null, null);
         beaconManager = new BeaconManager(getApplicationContext());
-        final String jInfo = loadInfoJSON();
 
         String jBeacons = loadBeacons();
         String jRooms = loadRooms();
@@ -72,7 +73,7 @@ public class MainActivity extends Activity {
         intent = new Intent(this,RoomsActivity.class);
 
         mCardScroller = new CardScrollView(this);
-        final MainAdapter adapter1 = new MainAdapter(card, context);
+        adapter1 = new MainAdapter(card, context);
         mCardScroller.setAdapter(adapter1);
         mCardScroller.activate();
         setContentView(mCardScroller);
@@ -137,21 +138,6 @@ public class MainActivity extends Activity {
         super.onPause();
     }//onPause
 
-    public String loadInfoJSON() {
-        String json;
-        try {
-            InputStream is = getAssets().open("info3.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }//catch
-        return json;
-    }//loadInfoJSON
 
     public String loadBeacons(){
         String json;

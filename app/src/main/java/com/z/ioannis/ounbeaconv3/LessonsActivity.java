@@ -48,7 +48,6 @@ public class LessonsActivity extends Activity {
                 lesson=check;
             }
         }
-        //lesson = lessonLoader.getcLesson();
 
         mCardScroller = new CardScrollView(this);
         LessonsAdapter lessonsAdapter = new LessonsAdapter(context, lesson);

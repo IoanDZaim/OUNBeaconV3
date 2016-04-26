@@ -34,7 +34,6 @@ import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardScrollView;
 import com.z.ioannis.ounbeaconv3.Adapters.RoomsAdapter2;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons2;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms2;
 
 import java.util.List;
@@ -42,8 +41,6 @@ import java.util.List;
 
 public class RoomsActivity extends Activity {
 
-
-    private Rooms currentRoom;
     private CardScrollView mCardScroller;
     private int cPossition;
     private String jFile;
@@ -70,7 +67,7 @@ public class RoomsActivity extends Activity {
                 }
             }
         }
-        Bundle bun = new Bundle();
+
         am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -93,7 +90,6 @@ public class RoomsActivity extends Activity {
                     am.playSoundEffect(Sounds.TAP);
                     les=cBcon.getLssList()[(position)-1].getLesID();
                     intent.putExtra("Lesson",les);
-                    //new lessonLoader(jFile, currentRoom.getRoomName(), cPossition);
                     startActivity(intent);
                 }
             }
