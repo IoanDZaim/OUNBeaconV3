@@ -56,7 +56,7 @@ public class RoomsActivity extends Activity {
         jFile = getIntent().getStringExtra("JSON");
         int maj = getIntent().getIntExtra("MAJ", -1);
         int min = getIntent().getIntExtra("MIN", -1);
-        List<Rooms2> Rooms = testLoader.getRoomsList();
+        List<Rooms2> Rooms = InfoLoader.getRoomsList();
 
         for (Rooms2 room : Rooms){
             for(Beacons2 bcon : room.getBcNames()){

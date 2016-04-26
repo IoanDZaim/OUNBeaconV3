@@ -62,7 +62,7 @@ public class MainActivity extends Activity {
         String jRooms = loadRooms();
         String jLessons = loadLessons();
 
-        new testLoader(jBeacons, jRooms, jLessons);
+        new InfoLoader(jBeacons, jRooms, jLessons);
 
         card.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                 .setText(R.string.Welcome)
@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
         mCardScroller.setAdapter(adapter1);
         mCardScroller.activate();
         setContentView(mCardScroller);
-        final List<Beacons2> BCList =testLoader.getBconsList();
+        final List<Beacons2> BCList = InfoLoader.getBconsList();
 
         beaconManager.setRangingListener(new BeaconManager.RangingListener(){
             @Override

@@ -43,7 +43,7 @@ public class LessonsActivity extends Activity {
         String les= getIntent().getStringExtra("Lesson");
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        for (Lessons2 check : testLoader.getLssList()){
+        for (Lessons2 check : InfoLoader.getLssList()){
             if (check.getLesID().equals(les)){
                 lesson=check;
             }

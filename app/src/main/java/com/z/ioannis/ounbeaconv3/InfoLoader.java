@@ -32,14 +32,14 @@ import org.codehaus.jettison.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class testLoader {
+public class InfoLoader {
 
     private static List<Lessons2> LssList = new ArrayList<>();
     private static List<Rooms2> RoomsList = new ArrayList<>();
     private static List<Beacons2> BconsList = new ArrayList<>();
 
 
-    public testLoader (String jBcons, String jRooms, String jLss){
+    public InfoLoader(String jBcons, String jRooms, String jLss){
         JSONObject jInfo1;
         JSONObject jInfo2;
         JSONObject jInfo3;
