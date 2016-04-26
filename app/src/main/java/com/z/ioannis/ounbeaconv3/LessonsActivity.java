@@ -69,4 +69,4 @@ public class LessonsActivity extends Activity {
 
     }//onPause
 
-}
+}//LessonsActivity

@@ -60,10 +60,12 @@ public class LessonsAdapter extends CardScrollAdapter{
         View view = null;
 
             if (currentView == null) {
-                view = new CardBuilder(mContext, CardBuilder.Layout.TEXT)
-                        .setText(mLesson.getSlides()[position])
-                        .setFootnote(mLesson.getLname())
-                        .getView();
+
+                    view = new CardBuilder(mContext, CardBuilder.Layout.TEXT)
+                            .setText(mLesson.getSlides()[position])
+                            .setFootnote(mLesson.getLname())
+                            .getView();
+
             }
 
         return view;
@@ -73,4 +75,6 @@ public class LessonsAdapter extends CardScrollAdapter{
     public int getPosition(Object o) {
         return 0;
     }
+
+
 }

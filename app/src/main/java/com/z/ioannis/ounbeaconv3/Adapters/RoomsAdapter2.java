@@ -75,6 +75,7 @@ public class RoomsAdapter2 extends CardScrollAdapter{
                         .setFootnote(mRoom.getRoomName())
                         .getView();
             }else{
+
                 view = new CardBuilder(mContext, CardBuilder.Layout.EMBED_INSIDE)
                         .setEmbeddedLayout(R.layout.custom_layout)
                         .setFootnote(mRoom.getRoomName())
