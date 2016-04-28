@@ -54,7 +54,6 @@ public class LessonsActivity extends Activity {
         mCardScroller.setAdapter(lessonsAdapter);
         mCardScroller.activate();
         setContentView(mCardScroller);
-
     }//onCreate
 
 

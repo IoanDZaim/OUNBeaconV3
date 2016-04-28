@@ -39,13 +39,11 @@ public class RoomsAdapter2 extends CardScrollAdapter{
     private final Context mContext;
     private long[] mValues;
     private Rooms2 mRoom;
-    private Beacons2 mBcon;
     private Lessons2[] mLesson;
 
     public RoomsAdapter2(Context mContext, Rooms2 mRoom, Beacons2 mBcon){
         this.mContext = mContext;
         this.mRoom = mRoom;
-        this.mBcon = mBcon;
         mLesson = mBcon.getLssList();
         mValues = new long[(mBcon.getLssList().length)+1];
 
@@ -75,7 +73,6 @@ public class RoomsAdapter2 extends CardScrollAdapter{
                         .setFootnote(mRoom.getRoomName())
                         .getView();
             }else{
-
                 view = new CardBuilder(mContext, CardBuilder.Layout.EMBED_INSIDE)
                         .setEmbeddedLayout(R.layout.custom_layout)
                         .setFootnote(mRoom.getRoomName())

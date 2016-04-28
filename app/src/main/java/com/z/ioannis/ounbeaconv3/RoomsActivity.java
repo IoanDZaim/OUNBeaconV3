@@ -43,7 +43,6 @@ public class RoomsActivity extends Activity {
 
     private CardScrollView mCardScroller;
     private int cPossition;
-    private String jFile;
     private Intent intent;
     private  AudioManager am;
     private Rooms2 cRoom;
@@ -53,7 +52,6 @@ public class RoomsActivity extends Activity {
     public void onCreate (Bundle bundle) {
         super.onCreate(bundle);
         Context context = this;
-        jFile = getIntent().getStringExtra("JSON");
         int maj = getIntent().getIntExtra("MAJ", -1);
         int min = getIntent().getIntExtra("MIN", -1);
         List<Rooms2> Rooms = InfoLoader.getRoomsList();
@@ -71,7 +69,6 @@ public class RoomsActivity extends Activity {
         am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
 
         intent = new Intent(this,LessonsActivity.class);
         RoomsAdapter2 rAdapter = new RoomsAdapter2(context, cRoom, cBcon);
@@ -97,7 +94,6 @@ public class RoomsActivity extends Activity {
         setContentView(mCardScroller);
 
     }//onCreate
-
 
     public void onResume(){
         super.onResume();

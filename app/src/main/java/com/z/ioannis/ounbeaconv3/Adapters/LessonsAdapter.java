@@ -41,7 +41,6 @@ public class LessonsAdapter extends CardScrollAdapter{
         this.mLesson = mLesson;
     }
 
-
     @Override
     public int getCount() {
         return mValues.length;
@@ -58,7 +57,6 @@ public class LessonsAdapter extends CardScrollAdapter{
     @Override
     public View getView(int position, View currentView, ViewGroup viewGroup) {
         View view = null;
-
             if (currentView == null) {
                     view = new CardBuilder(mContext, CardBuilder.Layout.TEXT)
                             .setText(mLesson.getSlides()[position])
@@ -66,7 +64,6 @@ public class LessonsAdapter extends CardScrollAdapter{
                             .getView();
 
             }
-
         return view;
     }
 

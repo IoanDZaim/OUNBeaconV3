@@ -138,7 +138,6 @@ public class MainActivity extends Activity {
         super.onPause();
     }//onPause
 
-
     public String loadBeacons(){
         String json;
         try {
