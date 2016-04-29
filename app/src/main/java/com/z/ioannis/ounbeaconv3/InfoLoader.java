@@ -40,20 +40,20 @@ public class InfoLoader {
 
 
     public InfoLoader(String jBcons, String jRooms, String jLss){
-        JSONObject jInfo1;
-        JSONObject jInfo2;
-        JSONObject jInfo3;
+        JSONObject beaconsJInfo;
+        JSONObject roomsJInfo;
+        JSONObject lessonsJInfo;
         try {
-            jInfo1 = new JSONObject(jBcons);
-            jInfo2 = new JSONObject(jRooms);
-            jInfo3 = new JSONObject(jLss);
-            JSONArray jsonArray1 = jInfo1.optJSONArray("beacons");
-            JSONArray jsonArray2 = jInfo2.optJSONArray("rooms");
-            JSONArray jsonArray3 = jInfo3.optJSONArray("lessons");
+            beaconsJInfo = new JSONObject(jBcons);
+            roomsJInfo = new JSONObject(jRooms);
+            lessonsJInfo = new JSONObject(jLss);
+            JSONArray jBconsArray = beaconsJInfo.optJSONArray("beacons");
+            JSONArray jRoomsArray = roomsJInfo.optJSONArray("rooms");
+            JSONArray jLssArray = lessonsJInfo.optJSONArray("lessons");
 
-            for (int i= 0; i<jsonArray3.length(); i++){
+            for (int i= 0; i<jLssArray.length(); i++){
                 Lessons2 lesson = new Lessons2();
-                JSONObject jsonObject = jsonArray3.getJSONObject(i);
+                JSONObject jsonObject = jLssArray.getJSONObject(i);
                 String lssID = jsonObject.getString("id");
                 lesson.setLesID(lssID);
                 String name = jsonObject.getString("name");
@@ -75,21 +75,21 @@ public class InfoLoader {
                 LssList.add(lesson);
             }//for lessons
 
-            for (int i=0; i<jsonArray1.length(); i++){
-                Beacons2 bcon = new Beacons2();
-                JSONObject jsonObject = jsonArray1.getJSONObject(i);
+            for (int i=0; i<jBconsArray.length(); i++){
+                Beacons2 beacon = new Beacons2();
+                JSONObject jsonObject = jBconsArray.getJSONObject(i);
                 String name = jsonObject.getString("Name");
-                bcon.setBName(name);
+                beacon.setBName(name);
                 String uuid = jsonObject.getString("Uuid");
-                bcon.setUuid(uuid);
+                beacon.setUuid(uuid);
                 int Major = jsonObject.getInt("Major");
-                bcon.setMajor(Major);
+                beacon.setMajor(Major);
                 int Minor = jsonObject.getInt("Minor");
-                bcon.setMinor(Minor);
+                beacon.setMinor(Minor);
                 String Mac = jsonObject.getString("Mac");
-                bcon.setMac(Mac);
+                beacon.setMac(Mac);
                 String Colour = jsonObject.getString("Colour");
-                bcon.setColour(Colour);
+                beacon.setColour(Colour);
                 JSONArray lss = jsonObject.getJSONArray("Lessons");
                 Lessons2[] Les = new Lessons2[lss.length()];
                 for (int j=0; j<lss.length();j++ ){
@@ -100,13 +100,13 @@ public class InfoLoader {
                         }//if
                     }// for each
                 }//for
-                bcon.setLssList(Les);
-                BconsList.add(bcon);
+                beacon.setLssList(Les);
+                BconsList.add(beacon);
             }//for beacons
 
-            for (int i=0; i<jsonArray2.length();i++){
+            for (int i=0; i<jRoomsArray.length();i++){
                 Rooms2 room = new Rooms2();
-                JSONObject jsonObject = jsonArray2.getJSONObject(i);
+                JSONObject jsonObject = jRoomsArray.getJSONObject(i);
                 String roomid = jsonObject.getString("RoomID");
                 room.setRoomID(roomid);
                 String roomName = jsonObject.getString("RoomName");
