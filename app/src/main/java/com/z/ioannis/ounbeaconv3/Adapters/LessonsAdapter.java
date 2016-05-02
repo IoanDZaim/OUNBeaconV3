@@ -22,6 +22,8 @@
 package com.z.ioannis.ounbeaconv3.Adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -29,15 +31,19 @@ import android.widget.TextView;
 
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollAdapter;
-import com.z.ioannis.ounbeaconv3.DownloadImageTask;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons2;
 import com.z.ioannis.ounbeaconv3.R;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class LessonsAdapter extends CardScrollAdapter{
 
     private final Context mContext;
     private Lessons2 mLesson;
     private long[] mValues;
+    private String photo_url_str = "https://java.sogeti.nl/JavaBlog/wp-content/uploads/2009/04/android_icon_256.png";
 
     public LessonsAdapter(Context mContext, Lessons2 mLesson){
         this.mContext = mContext;
@@ -74,8 +80,20 @@ public class LessonsAdapter extends CardScrollAdapter{
                         .getView();
                 TextView mainText = (TextView) view.findViewById(R.id.MainText);
                 mainText.setText(mLesson.getSlides()[position]);
-                new DownloadImageTask((ImageView) view.findViewById(R.id.imageView))
-                        .execute("http://java.sogeti.nl/JavaBlog/wp-content/uploads/2009/04/android_icon_256.png");
+                ImageView image = (ImageView) view.findViewById(R.id.imageView);
+                URL newurl = null;
+                try {
+                    newurl = new URL(photo_url_str);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                Bitmap mIcon_val = null;
+                try {
+                    mIcon_val = BitmapFactory.decodeStream(newurl.openConnection().getInputStream());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                image.setImageBitmap(mIcon_val);
             }//if
         return view;
     }
