@@ -22,6 +22,7 @@
 package com.z.ioannis.ounbeaconv3.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -61,8 +62,8 @@ public class LessonsAdapter extends CardScrollAdapter{
     public View getView(int position, View currentView, ViewGroup viewGroup) {
         View view = null;
             if (currentView == null) {
-
-                if (mLesson.getImageURLs()[position]==null){
+                Log.e("The value of the var is ", mLesson.getImageURLs()[position]);
+                if (mLesson.getImageURLs()[position].equals("null")){
                     view = new CardBuilder(mContext, CardBuilder.Layout.TEXT)
                             .setText(mLesson.getSlides()[position])
                             .setFootnote(mLesson.getLname())
