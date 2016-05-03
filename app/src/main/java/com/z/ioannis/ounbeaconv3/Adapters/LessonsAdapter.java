@@ -24,10 +24,12 @@ package com.z.ioannis.ounbeaconv3.Adapters;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollAdapter;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons2;
+import com.z.ioannis.ounbeaconv3.R;
 
 public class LessonsAdapter extends CardScrollAdapter{
 
@@ -60,18 +62,19 @@ public class LessonsAdapter extends CardScrollAdapter{
         View view = null;
             if (currentView == null) {
 
+                if (mLesson.getImageURLs()[position]==null){
                     view = new CardBuilder(mContext, CardBuilder.Layout.TEXT)
                             .setText(mLesson.getSlides()[position])
                             .setFootnote(mLesson.getLname())
                             .getView();
-//*/
- /**               view = new CardBuilder(mContext, CardBuilder.Layout.EMBED_INSIDE)
-                        .setEmbeddedLayout(R.layout.relative_layout)
-                        .setFootnote(mLesson.getLname())
-                        .getView();
-                TextView mainText = (TextView) view.findViewById(R.id.MainText);
-                mainText.setText(mLesson.getSlides()[position]);
-*/
+                }else{
+                    view = new CardBuilder(mContext, CardBuilder.Layout.EMBED_INSIDE)
+                            .setEmbeddedLayout(R.layout.relative_layout)
+                            .setFootnote(mLesson.getLname())
+                            .getView();
+                    TextView mainText = (TextView) view.findViewById(R.id.MainText);
+                    mainText.setText(mLesson.getSlides()[position]);
+                }
             }//if
         return view;
     }
