@@ -72,6 +72,12 @@ public class InfoLoader {
                     sli[k] = slides.getString(k);
                 }
                 lesson.setSlides(sli);
+                JSONArray images = jsonObject.getJSONArray("Images");
+                String[] url = new String[images.length()];
+                for (int l=0 ; l<images.length(); l++){
+                    url[l] = images.getString(l);
+                }
+                lesson.setImageURLs(url);
                 LssList.add(lesson);
             }//for lessons
 
