@@ -42,11 +42,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/MainText"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="top|start"
-            android:textAlignment="gravity"
-            android:textSize="22sp" />
+            android:gravity="start"
+            android:textAlignment="viewStart"
+            android:textSize="20sp" />
     </RelativeLayout>
 
 </RelativeLayout>

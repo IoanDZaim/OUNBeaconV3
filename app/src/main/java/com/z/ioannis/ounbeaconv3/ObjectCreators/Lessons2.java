@@ -28,13 +28,15 @@ public class Lessons2 {
     private String[] toBcnos;
     private int nSlides;
     private String[] slides;
+    private String[] imageURLs;
 
-    public Lessons2(String LesID, String Lname, String[] toBcnos, int nSlides, String[] slides) {
+    public Lessons2(String LesID, String Lname, String[] toBcnos, int nSlides, String[] slides, String[] imageURLs) {
         this.LesID = LesID;
         this.Lname = Lname;
         this.toBcnos = toBcnos;
         this.nSlides = nSlides;
         this.slides = slides;
+        this.imageURLs = imageURLs;
     }
 
     public Lessons2() {
@@ -81,4 +83,11 @@ public class Lessons2 {
         this.slides = slides;
     }
 
+    public String[] getImageURLs() {
+        return imageURLs;
+    }
+
+    public void setImageURLs(String[] imageURLs) {
+        this.imageURLs = imageURLs;
+    }
 }

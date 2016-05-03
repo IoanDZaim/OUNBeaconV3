@@ -14,6 +14,13 @@
         "Your screen should be projected automatically on the wall",
         "In case it is not, press the tade button on the remote control of the beamer, located there",
         "And that's it! Congratulation!"
+      ],
+      "Images":[
+        null,
+        null,
+        "http://www.parkeasier.com/wp-content/uploads/2015/05/REL-Android.png",
+        null,
+        null
       ]
     },
     {
@@ -30,6 +37,13 @@
         "Your screen should be projected automatically on the wall",
         "In case it is not, press the tade button on the remote control of the beamer, located there",
         "And that's it! Congratulation!"
+      ],
+      "Images":[
+        null,
+        null,
+        "http://www.parkeasier.com/wp-content/uploads/2015/05/REL-Android.png",
+        null,
+        null
       ]
     },
     {
@@ -44,6 +58,11 @@
         "The beamer in this room supports input from multiple sources",
         "Connect one laptop with the HDMI cable, the other with the VGA and press the right button on the remote.",
         "And that is all!"
+      ],
+      "Images":[
+        null,
+        null,
+        "http://www.parkeasier.com/wp-content/uploads/2015/05/REL-Android.png"
       ]
     },
     {
@@ -59,6 +78,12 @@
         "Next to the door there is a small controller, mounted on the wall.",
         "By using this you can operate the lights as you want.",
         "Too much light during your presentation? Not a problem with the remote at hand!"
+      ],
+      "Images":[
+        null,
+        "http://www.parkeasier.com/wp-content/uploads/2015/05/REL-Android.png",
+        null,
+        null
       ]
     },
     {
@@ -75,6 +100,12 @@
         "Although the shutters work automatically, you can still operate them yourself, making the environment more to your liking",
         "On the walls, a bit under the windows, you will find some small switches with arrows pointing up and down painted on them.",
         "By pressing them, and keeping them pressed, you can put the shutters to your desired height."
+      ],
+      "Images":[
+        null,
+        null,
+        "http://www.parkeasier.com/wp-content/uploads/2015/05/REL-Android.png",
+        null
       ]
     },
     {
@@ -88,6 +119,11 @@
         "Most of the lights throughout the Welten Institute are automatic, although there is (?) a switch to operate them",
         "Search at that place to find the switch, press it and see what happens.",
         "And that's it! Well done!"
+      ],
+      "Images":[
+        "http://www.parkeasier.com/wp-content/uploads/2015/05/REL-Android.png",
+        null,
+        null
       ]
     }
   ]
