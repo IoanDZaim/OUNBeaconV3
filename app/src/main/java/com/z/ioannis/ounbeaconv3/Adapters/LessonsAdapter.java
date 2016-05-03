@@ -25,10 +25,12 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollAdapter;
+import com.z.ioannis.ounbeaconv3.DownloadImageTask;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons2;
 import com.z.ioannis.ounbeaconv3.R;
 
@@ -37,7 +39,6 @@ public class LessonsAdapter extends CardScrollAdapter{
     private final Context mContext;
     private Lessons2 mLesson;
     private long[] mValues;
-    private String photo_url_str = "https://java.sogeti.nl/JavaBlog/wp-content/uploads/2009/04/android_icon_256.png";
 
     public LessonsAdapter(Context mContext, Lessons2 mLesson){
         this.mContext = mContext;
@@ -75,6 +76,9 @@ public class LessonsAdapter extends CardScrollAdapter{
                             .getView();
                     TextView mainText = (TextView) view.findViewById(R.id.MainText);
                     mainText.setText(mLesson.getSlides()[position]);
+                    ImageView cardImage = (ImageView) view.findViewById(R.id.cardImage);
+                    new DownloadImageTask(cardImage)
+                            .execute(mLesson.getImageURLs()[position]);
                 }
             }//if
         return view;
