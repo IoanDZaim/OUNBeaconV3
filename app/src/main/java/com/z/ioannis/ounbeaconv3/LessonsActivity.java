@@ -39,15 +39,8 @@ public class LessonsActivity extends Activity {
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
         Context context = this;
-        Lessons lesson = new Lessons();
-        String les= getIntent().getStringExtra("Lesson");
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
-        for (Lessons check : InfoLoader.getLssList()){
-            if (check.getLesID().equals(les)){
-                lesson=check;
-            }
-        }
+        Lessons lesson = getIntent().getParcelableExtra("Lesson");
 
         mCardScroller = new CardScrollView(this);
         LessonsAdapter lessonsAdapter = new LessonsAdapter(context, lesson);

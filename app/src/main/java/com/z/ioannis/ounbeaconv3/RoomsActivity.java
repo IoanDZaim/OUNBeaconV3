@@ -88,8 +88,7 @@ public class RoomsActivity extends Activity {
                     am.playSoundEffect(Sounds.DISALLOWED);
                 }else {
                     am.playSoundEffect(Sounds.TAP);
-                    les=cBcon.getLssList()[(position)-1].getLesID();
-                    intent.putExtra("Lesson",les);
+                    intent.putExtra("Lesson", cBcon.getLssList()[position-1]);
                     startActivity(intent);
                 }
             }
