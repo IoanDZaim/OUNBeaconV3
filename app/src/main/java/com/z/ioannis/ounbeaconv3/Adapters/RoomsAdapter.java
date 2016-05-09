@@ -34,14 +34,14 @@ import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
 import com.z.ioannis.ounbeaconv3.R;
 
-public class RoomsAdapter2 extends CardScrollAdapter{
+public class RoomsAdapter extends CardScrollAdapter{
 
     private final Context mContext;
     private long[] mValues;
     private Rooms mRoom;
     private Lessons[] mLesson;
 
-    public RoomsAdapter2(Context mContext, Rooms mRoom, Beacons mBcon){
+    public RoomsAdapter(Context mContext, Rooms mRoom, Beacons mBcon){
         this.mContext = mContext;
         this.mRoom = mRoom;
         mLesson = mBcon.getLssList();

@@ -22,7 +22,10 @@
 
 package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
-public class Beacons {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Beacons implements Parcelable {
 
     private String BName;
     private String uuid;
@@ -31,6 +34,27 @@ public class Beacons {
     private String Mac;
     private String Colour;
     private Lessons[] LssList;
+
+    protected Beacons(Parcel in) {
+        BName = in.readString();
+        uuid = in.readString();
+        Major = in.readInt();
+        Minor = in.readInt();
+        Mac = in.readString();
+        Colour = in.readString();
+    }
+
+    public static final Creator<Beacons> CREATOR = new Creator<Beacons>() {
+        @Override
+        public Beacons createFromParcel(Parcel in) {
+            return new Beacons(in);
+        }
+
+        @Override
+        public Beacons[] newArray(int size) {
+            return new Beacons[size];
+        }
+    };
 
     public String getBName() {
         return BName;
@@ -101,5 +125,20 @@ public class Beacons {
 
     public Beacons() {
 
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(BName);
+        dest.writeString(uuid);
+        dest.writeInt(Major);
+        dest.writeInt(Minor);
+        dest.writeString(Mac);
+        dest.writeString(Colour);
     }
 }

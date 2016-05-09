@@ -93,11 +93,13 @@ public class MainActivity extends Activity {
                     int min = BconArray[0].getMinor();
                     String mac = BconArray[0].getMacAddress().toString();
                     int flag=0;
-                    for (int i=0; i<BCList.size();i++){
-                        String check = BCList.get(i).getMac();
+                    for (Beacons beacons : BCList){
+                        String check = beacons.getMac();
                         if(check.equals(mac)){
                             intent.putExtra("MAJ", maj);//change min and max with mac?
                             intent.putExtra("MIN", min);
+                            intent.putExtra("Beacon", beacons);
+                            intent.putExtra("Lessons",beacons.getLssList());
                             beaconManager.stopRanging(welten);
                             startActivity(intent);
                             break;

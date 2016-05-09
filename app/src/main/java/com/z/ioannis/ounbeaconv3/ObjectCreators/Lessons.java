@@ -21,7 +21,10 @@
  */
 package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
-public class Lessons {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Lessons implements Parcelable{
 
     private String LesID;
     private String Lname;
@@ -42,6 +45,27 @@ public class Lessons {
     public Lessons() {
 
     }
+
+    protected Lessons(Parcel in) {
+        LesID = in.readString();
+        Lname = in.readString();
+        toBcnos = in.createStringArray();
+        nSlides = in.readInt();
+        slides = in.createStringArray();
+        imageURLs = in.createStringArray();
+    }
+
+    public static final Creator<Lessons> CREATOR = new Creator<Lessons>() {
+        @Override
+        public Lessons createFromParcel(Parcel in) {
+            return new Lessons(in);
+        }
+
+        @Override
+        public Lessons[] newArray(int size) {
+            return new Lessons[size];
+        }
+    };
 
     public String getLesID() {
         return LesID;
@@ -89,5 +113,20 @@ public class Lessons {
 
     public void setImageURLs(String[] imageURLs) {
         this.imageURLs = imageURLs;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(LesID);
+        dest.writeString(Lname);
+        dest.writeStringArray(toBcnos);
+        dest.writeInt(nSlides);
+        dest.writeStringArray(slides);
+        dest.writeStringArray(imageURLs);
     }
 }

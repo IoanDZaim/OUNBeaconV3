@@ -32,7 +32,7 @@ import android.widget.AdapterView;
 
 import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardScrollView;
-import com.z.ioannis.ounbeaconv3.Adapters.RoomsAdapter2;
+import com.z.ioannis.ounbeaconv3.Adapters.RoomsAdapter;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons;
 import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
 
@@ -49,14 +49,17 @@ public class RoomsActivity extends Activity {
     private Beacons cBcon;
     private String les;
 
+
     public void onCreate (Bundle bundle) {
         super.onCreate(bundle);
         Context context = this;
         int maj = getIntent().getIntExtra("MAJ", -1);
         int min = getIntent().getIntExtra("MIN", -1);
+        Beacons autos = getIntent().getParcelableExtra("Beacon");
+
         List<Rooms> Rooms = InfoLoader.getRoomsList();
 
-        for (com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms room : Rooms){
+        for (Rooms room : Rooms){
             for(Beacons bcon : room.getBcNames()){
                 if ((bcon.getMajor()==maj)&&(bcon.getMinor()==min)){
                     cBcon=bcon;
@@ -71,7 +74,7 @@ public class RoomsActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         intent = new Intent(this,LessonsActivity.class);
-        RoomsAdapter2 rAdapter = new RoomsAdapter2(context, cRoom, cBcon);
+        RoomsAdapter rAdapter = new RoomsAdapter(context, cRoom, cBcon);
 
 
         mCardScroller = new CardScrollView(this);
