@@ -21,7 +21,7 @@
  */
 package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
-public class Lessons2 {
+public class Lessons {
 
     private String LesID;
     private String Lname;
@@ -30,7 +30,7 @@ public class Lessons2 {
     private String[] slides;
     private String[] imageURLs;
 
-    public Lessons2(String LesID, String Lname, String[] toBcnos, int nSlides, String[] slides, String[] imageURLs) {
+    public Lessons(String LesID, String Lname, String[] toBcnos, int nSlides, String[] slides, String[] imageURLs) {
         this.LesID = LesID;
         this.Lname = Lname;
         this.toBcnos = toBcnos;
@@ -39,7 +39,7 @@ public class Lessons2 {
         this.imageURLs = imageURLs;
     }
 
-    public Lessons2() {
+    public Lessons() {
 
     }
 

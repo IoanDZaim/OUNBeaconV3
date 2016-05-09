@@ -41,6 +41,4 @@ dependencies {
     compile files('libs/jettison-1.3.jar')
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.estimote:sdk:0.10.1'
-    compile 'com.koushikdutta.ion:ion:2.0.7'
-    compile 'com.koushikdutta.async:androidasync:2.0.7'
 }

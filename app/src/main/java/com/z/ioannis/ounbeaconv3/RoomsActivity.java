@@ -33,8 +33,8 @@ import android.widget.AdapterView;
 import com.google.android.glass.media.Sounds;
 import com.google.android.glass.widget.CardScrollView;
 import com.z.ioannis.ounbeaconv3.Adapters.RoomsAdapter2;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons2;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms2;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
 
 import java.util.List;
 
@@ -45,8 +45,8 @@ public class RoomsActivity extends Activity {
     private int cPossition;
     private Intent intent;
     private  AudioManager am;
-    private Rooms2 cRoom;
-    private Beacons2 cBcon;
+    private Rooms cRoom;
+    private Beacons cBcon;
     private String les;
 
     public void onCreate (Bundle bundle) {
@@ -54,10 +54,10 @@ public class RoomsActivity extends Activity {
         Context context = this;
         int maj = getIntent().getIntExtra("MAJ", -1);
         int min = getIntent().getIntExtra("MIN", -1);
-        List<Rooms2> Rooms = InfoLoader.getRoomsList();
+        List<Rooms> Rooms = InfoLoader.getRoomsList();
 
-        for (Rooms2 room : Rooms){
-            for(Beacons2 bcon : room.getBcNames()){
+        for (com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms room : Rooms){
+            for(Beacons bcon : room.getBcNames()){
                 if ((bcon.getMajor()==maj)&&(bcon.getMinor()==min)){
                     cBcon=bcon;
                     cRoom=room;

@@ -22,7 +22,7 @@
 
 package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
-public class Beacons2 {
+public class Beacons {
 
     private String BName;
     private String uuid;
@@ -30,7 +30,7 @@ public class Beacons2 {
     private int Minor;
     private String Mac;
     private String Colour;
-    private Lessons2[] LssList;
+    private Lessons[] LssList;
 
     public String getBName() {
         return BName;
@@ -80,15 +80,15 @@ public class Beacons2 {
         Colour = colour;
     }
 
-    public Lessons2[] getLssList() {
+    public Lessons[] getLssList() {
         return LssList;
     }
 
-    public void setLssList(Lessons2[] lssList) {
+    public void setLssList(Lessons[] lssList) {
         LssList = lssList;
     }
 
-    public Beacons2(String BName, String uuid, int major, int minor, String mac, String colour, Lessons2[] LssList) {
+    public Beacons(String BName, String uuid, int major, int minor, String mac, String colour, Lessons[] LssList) {
         this.BName = BName;
         this.uuid = uuid;
         this.Major = major;
@@ -99,7 +99,7 @@ public class Beacons2 {
     }
 
 
-    public Beacons2() {
+    public Beacons() {
 
     }
 }

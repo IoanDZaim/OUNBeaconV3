@@ -31,16 +31,16 @@ import android.widget.TextView;
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollAdapter;
 import com.z.ioannis.ounbeaconv3.DownloadImageTask;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons2;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
 import com.z.ioannis.ounbeaconv3.R;
 
 public class LessonsAdapter extends CardScrollAdapter{
 
     private final Context mContext;
-    private Lessons2 mLesson;
+    private Lessons mLesson;
     private long[] mValues;
 
-    public LessonsAdapter(Context mContext, Lessons2 mLesson){
+    public LessonsAdapter(Context mContext, Lessons mLesson){
         this.mContext = mContext;
         mValues = new long[mLesson.getSlides().length];
         this.mLesson = mLesson;

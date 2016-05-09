@@ -21,9 +21,9 @@
  */
 package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
-public class Rooms2 {
+public class Rooms {
 
-    public Rooms2(String roomID, Beacons2[] BcNames, String roomName, int numOfLss, String WelcMsg) {
+    public Rooms(String roomID, Beacons[] BcNames, String roomName, int numOfLss, String WelcMsg) {
 
         this.RoomID = roomID;
         this.BcNames = BcNames;
@@ -32,7 +32,7 @@ public class Rooms2 {
         this.WelcMsg = WelcMsg;
     }
 
-    public Rooms2(){
+    public Rooms(){
 
     }
 
@@ -44,11 +44,11 @@ public class Rooms2 {
         RoomID = roomID;
     }
 
-    public Beacons2[] getBcNames() {
+    public Beacons[] getBcNames() {
         return BcNames;
     }
 
-    public void setBcNames(Beacons2[] BcName) {
+    public void setBcNames(Beacons[] BcName) {
         this.BcNames = BcName;
     }
 
@@ -77,7 +77,7 @@ public class Rooms2 {
     }
 
     private String RoomID;
-    private Beacons2[] BcNames;
+    private Beacons[] BcNames;
     private String RoomName;
     private int NumOfLss;
     private String WelcMsg;

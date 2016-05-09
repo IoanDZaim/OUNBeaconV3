@@ -21,9 +21,9 @@
  */
 package com.z.ioannis.ounbeaconv3;
 
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons2;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons2;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms2;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
 
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
@@ -34,9 +34,9 @@ import java.util.List;
 
 public class InfoLoader {
 
-    private static List<Lessons2> LssList = new ArrayList<>();
-    private static List<Rooms2> RoomsList = new ArrayList<>();
-    private static List<Beacons2> BconsList = new ArrayList<>();
+    private static List<Lessons> LssList = new ArrayList<>();
+    private static List<Rooms> RoomsList = new ArrayList<>();
+    private static List<Beacons> BconsList = new ArrayList<>();
 
 
     public InfoLoader(String jBcons, String jRooms, String jLss){
@@ -52,7 +52,7 @@ public class InfoLoader {
             JSONArray jLssArray = lessonsJInfo.optJSONArray("lessons");
 
             for (int i= 0; i<jLssArray.length(); i++){
-                Lessons2 lesson = new Lessons2();
+                Lessons lesson = new Lessons();
                 JSONObject jsonObject = jLssArray.getJSONObject(i);
                 String lssID = jsonObject.getString("id");
                 lesson.setLesID(lssID);
@@ -82,7 +82,7 @@ public class InfoLoader {
             }//for lessons
 
             for (int i=0; i<jBconsArray.length(); i++){
-                Beacons2 beacon = new Beacons2();
+                Beacons beacon = new Beacons();
                 JSONObject jsonObject = jBconsArray.getJSONObject(i);
                 String name = jsonObject.getString("Name");
                 beacon.setBName(name);
@@ -97,9 +97,9 @@ public class InfoLoader {
                 String Colour = jsonObject.getString("Colour");
                 beacon.setColour(Colour);
                 JSONArray lss = jsonObject.getJSONArray("Lessons");
-                Lessons2[] Les = new Lessons2[lss.length()];
+                Lessons[] Les = new Lessons[lss.length()];
                 for (int j=0; j<lss.length();j++ ){
-                    for (Lessons2 lesson : LssList){
+                    for (Lessons lesson : LssList){
                         String lsn = lss.getString(j);
                         if (lesson.getLesID().equals(lsn)){
                             Les[j]=lesson;
@@ -111,16 +111,16 @@ public class InfoLoader {
             }//for beacons
 
             for (int i=0; i<jRoomsArray.length();i++){
-                Rooms2 room = new Rooms2();
+                Rooms room = new Rooms();
                 JSONObject jsonObject = jRoomsArray.getJSONObject(i);
                 String roomid = jsonObject.getString("RoomID");
                 room.setRoomID(roomid);
                 String roomName = jsonObject.getString("RoomName");
                 room.setRoomName(roomName);
                 JSONArray bcons = jsonObject.getJSONArray("Beacons");
-                Beacons2[] bc = new Beacons2[bcons.length()];
+                Beacons[] bc = new Beacons[bcons.length()];
                 for (int k=0; k<bcons.length();k++){
-                    for (Beacons2 beacon : BconsList){
+                    for (Beacons beacon : BconsList){
                         String bcn = bcons.getString(k);
                         if (beacon.getBName().equals(bcn)){
                             bc[k] = beacon;
@@ -140,15 +140,15 @@ public class InfoLoader {
 
     }
 
-    public static List<Lessons2> getLssList() {
+    public static List<Lessons> getLssList() {
         return LssList;
     }
 
-    public static List<Rooms2> getRoomsList() {
+    public static List<Rooms> getRoomsList() {
         return RoomsList;
     }
 
-    public static List<Beacons2> getBconsList() {
+    public static List<Beacons> getBconsList() {
         return BconsList;
     }
 }

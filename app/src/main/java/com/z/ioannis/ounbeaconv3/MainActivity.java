@@ -32,7 +32,7 @@ import com.estimote.sdk.Region;
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollView;
 import com.z.ioannis.ounbeaconv3.Adapters.MainAdapter;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons2;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
         mCardScroller.setAdapter(adapter1);
         mCardScroller.activate();
         setContentView(mCardScroller);
-        final List<Beacons2> BCList = InfoLoader.getBconsList();
+        final List<Beacons> BCList = InfoLoader.getBconsList();
 
         beaconManager.setRangingListener(new BeaconManager.RangingListener(){
             @Override

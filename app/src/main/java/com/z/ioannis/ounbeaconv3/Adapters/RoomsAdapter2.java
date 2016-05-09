@@ -29,19 +29,19 @@ import android.widget.TextView;
 
 import com.google.android.glass.widget.CardBuilder;
 import com.google.android.glass.widget.CardScrollAdapter;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons2;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons2;
-import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms2;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Beacons;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Lessons;
+import com.z.ioannis.ounbeaconv3.ObjectCreators.Rooms;
 import com.z.ioannis.ounbeaconv3.R;
 
 public class RoomsAdapter2 extends CardScrollAdapter{
 
     private final Context mContext;
     private long[] mValues;
-    private Rooms2 mRoom;
-    private Lessons2[] mLesson;
+    private Rooms mRoom;
+    private Lessons[] mLesson;
 
-    public RoomsAdapter2(Context mContext, Rooms2 mRoom, Beacons2 mBcon){
+    public RoomsAdapter2(Context mContext, Rooms mRoom, Beacons mBcon){
         this.mContext = mContext;
         this.mRoom = mRoom;
         mLesson = mBcon.getLssList();
