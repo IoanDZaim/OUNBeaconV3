@@ -51,6 +51,7 @@ public class MainActivity extends Activity {
     private Beacon[] BconArray;
     private Intent intent;
     private ArrayList<CardBuilder> card = new ArrayList<>();
+    private List<Beacons> BCList;
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -78,7 +79,7 @@ public class MainActivity extends Activity {
         mCardScroller.setAdapter(adapter1);
         mCardScroller.activate();
         setContentView(mCardScroller);
-        final List<Beacons> BCList = InfoLoader.getBconsList();
+        BCList = InfoLoader.getBconsList();
 
         beaconManager.setRangingListener(new BeaconManager.RangingListener(){
             @Override
@@ -100,8 +101,6 @@ public class MainActivity extends Activity {
                             intent.putExtra("MAJ", maj);//change min and max with mac?
                             intent.putExtra("MIN", min);
                             intent.putExtra("Beacon", beacons);
-                            Log.e("Is there text in there?   ", beacons.getLssList()[0].getLesID());
-                            intent.putExtra("Lessons",beacons.getLssList());
                             beaconManager.stopRanging(welten);
                             startActivity(intent);
                             break;
@@ -111,7 +110,7 @@ public class MainActivity extends Activity {
                         if(flag==BCList.size())
                         {
                             card.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
-                                    .setText((R.string.Error )+ mac)
+                                    .setText(R.string.Error )
                                     .setFootnote(R.string.WFootnote));
                             adapter1.notifyDataSetChanged();
 

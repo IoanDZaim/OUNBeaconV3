@@ -47,7 +47,6 @@ public class RoomsActivity extends Activity {
     private  AudioManager am;
     private Rooms cRoom;
     private Beacons cBcon;
-    private String les;
 
 
     public void onCreate (Bundle bundle) {
@@ -56,7 +55,6 @@ public class RoomsActivity extends Activity {
         int maj = getIntent().getIntExtra("MAJ", -1);
         int min = getIntent().getIntExtra("MIN", -1);
         Beacons autos = getIntent().getParcelableExtra("Beacon");
-
         List<Rooms> Rooms = InfoLoader.getRoomsList();
 
         for (Rooms room : Rooms){
