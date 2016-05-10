@@ -24,6 +24,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
 
 import com.estimote.sdk.Beacon;
@@ -99,6 +100,7 @@ public class MainActivity extends Activity {
                             intent.putExtra("MAJ", maj);//change min and max with mac?
                             intent.putExtra("MIN", min);
                             intent.putExtra("Beacon", beacons);
+                            Log.e("Is there text in there?   ", beacons.getLssList()[0].getLesID());
                             intent.putExtra("Lessons",beacons.getLssList());
                             beaconManager.stopRanging(welten);
                             startActivity(intent);

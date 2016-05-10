@@ -44,7 +44,7 @@ public class RoomsAdapter extends CardScrollAdapter{
     public RoomsAdapter(Context mContext, Rooms mRoom, Beacons mBcon){
         this.mContext = mContext;
         this.mRoom = mRoom;
-        mLesson = mBcon.getLssList();
+        this.mLesson = mBcon.getLssList();
         mValues = new long[(mBcon.getLssList().length)+1];
 
     }
