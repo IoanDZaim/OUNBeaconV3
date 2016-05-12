@@ -24,7 +24,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.WindowManager;
 
 import com.estimote.sdk.Beacon;
@@ -52,10 +51,15 @@ public class MainActivity extends Activity {
     private Intent intent;
     private ArrayList<CardBuilder> card = new ArrayList<>();
     private List<Beacons> BCList;
+    private boolean check = false;
+    private int check1;
+    private boolean check2 = false;
+
 
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        check1 = 0;
         context = this;
         welten = new Region("Welten Region", null, null, null);
         beaconManager = new BeaconManager(getApplicationContext());
@@ -86,6 +90,7 @@ public class MainActivity extends Activity {
             public void onBeaconsDiscovered(Region region, List<Beacon> list) {
                 BconArray = new Beacon[list.size()];
                 int j = 0;
+                check1++;
                 for (Beacon beacon : list){
                     BconArray[j]=beacon;
                     j++;
@@ -107,15 +112,25 @@ public class MainActivity extends Activity {
                         }else{
                             flag++;
                         }
-                        if(flag==BCList.size())
+                        if((flag==BCList.size())&&(!check2))
                         {
                             card.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                                     .setText(R.string.Error )
                                     .setFootnote(R.string.WFootnote));
                             adapter1.notifyDataSetChanged();
-
+                            mCardScroller.setSelection(1);
+                            check2=true; //make message appear only once
                         }
-                    }//if beacon exists in the list
+                    }//if current beacon exists in the list
+                }else {
+                    if ((!check)&&(check1==20)){
+                        card.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
+                                .setText(R.string.NoBeacon)
+                                .setFootnote(R.string.WFootnote));
+                        adapter1.notifyDataSetChanged();
+                        mCardScroller.setSelection(1);
+                        check=true;
+                    }//display NoBeacons message
                 }//if there are beacons
             }//onBeaconsDiscovered
             }//RangingListener
