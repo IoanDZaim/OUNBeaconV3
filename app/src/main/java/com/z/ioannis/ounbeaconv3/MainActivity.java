@@ -104,7 +104,7 @@ public class MainActivity extends Activity {
                             intent.putExtra("MAJ", maj);//change min and max with mac?
                             intent.putExtra("MIN", min);
                             intent.putExtra("Beacon", beacons);
-                            beaconManager.stopRanging(welten);
+                            beaconManager.stopRanging(welten); //stop searching for beacons
                             startActivity(intent);
                             break;
                         }//if the beacon's mac exists, then start next Activity for current beacon data, else increase flag by 1
@@ -144,14 +144,14 @@ public class MainActivity extends Activity {
         beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
             @Override
             public void onServiceReady() {
-                beaconManager.startRanging(welten);
+                beaconManager.startRanging(welten); //start searching for beacons
             }
         });
     }//onResumer
 
     @Override
     protected void onPause() {
-        beaconManager.stopRanging(welten);
+        beaconManager.stopRanging(welten); //stop searching for beacons
         mCardScroller.deactivate();
         super.onPause();
     }//onPause
