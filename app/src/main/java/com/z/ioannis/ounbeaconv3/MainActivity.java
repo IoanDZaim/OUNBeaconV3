@@ -51,7 +51,6 @@ public class MainActivity extends Activity {
     private Intent intent;
     private ArrayList<CardBuilder> card = new ArrayList<>();
     private List<Beacons> BCList;
-    private boolean check = false;
     private int check1;
     private boolean check2 = false;
 
@@ -90,7 +89,6 @@ public class MainActivity extends Activity {
             public void onBeaconsDiscovered(Region region, List<Beacon> list) {
                 BconArray = new Beacon[list.size()];
                 int j = 0;
-                check1++;
                 for (Beacon beacon : list){
                     BconArray[j]=beacon;
                     j++;
@@ -123,13 +121,13 @@ public class MainActivity extends Activity {
                         }
                     }//if current beacon exists in the list
                 }else {
-                    if ((!check)&&(check1==20)){
+                    check1++;
+                    if (check1==20){
                         card.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
                                 .setText(R.string.NoBeacon)
                                 .setFootnote(R.string.WFootnote));
                         adapter1.notifyDataSetChanged();
                         mCardScroller.setSelection(1);
-                        check=true;
                     }//display NoBeacons message
                 }//if there are beacons
             }//onBeaconsDiscovered
