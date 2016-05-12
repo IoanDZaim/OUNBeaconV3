@@ -107,9 +107,10 @@ public class MainActivity extends Activity {
                             beaconManager.stopRanging(welten);
                             startActivity(intent);
                             break;
-                        }else{
+                        }//if the beacon's mac exists, then start next Activity for current beacon data, else increase flag by 1
+                        else{
                             flag++;
-                        }
+                        }//else
                         if((flag==BCList.size())&&(!check2))
                         {
                             card.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
@@ -118,9 +119,10 @@ public class MainActivity extends Activity {
                             adapter1.notifyDataSetChanged();
                             mCardScroller.setSelection(1);
                             check2=true; //make message appear only once
-                        }
-                    }//if current beacon exists in the list
-                }else {
+                        }//if the flag variable has the same size as the List of beacons from the JSON file, then the beacon doesn't exist on the list, so display error message
+                    }//run for all the beacons of the JSON file and check if discovered beacon exists in the list
+                }//if there are any beacons on the array of the onBeaconsDiscovered, do the above, else display a NoBeacons message
+                else {
                     check1++;
                     if (check1==20){
                         card.add(new CardBuilder(context, CardBuilder.Layout.TEXT)
@@ -129,7 +131,7 @@ public class MainActivity extends Activity {
                         adapter1.notifyDataSetChanged();
                         mCardScroller.setSelection(1);
                     }//display NoBeacons message
-                }//if there are beacons
+                }//else of the "if beacons exist" part
             }//onBeaconsDiscovered
             }//RangingListener
         );//ranginglistener

@@ -79,7 +79,7 @@ public class LessonsAdapter extends CardScrollAdapter{
                     ImageView cardImage = (ImageView) view.findViewById(R.id.cardImage);
                     new DownloadImageTask(cardImage)
                             .execute(mLesson.getImageURLs()[position]);
-                }
+                }//if there is no image url at the same position as the card text, then make a simple text card, otherwise make one with a custom layout and an image in it, using an AsyncTask
             }//if
         return view;
     }

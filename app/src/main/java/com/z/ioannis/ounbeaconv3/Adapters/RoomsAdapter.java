@@ -78,8 +78,8 @@ public class RoomsAdapter extends CardScrollAdapter{
                         .setFootnote(mRoom.getRoomName())
                         .getView();
                 TextView textView1 = (TextView) view.findViewById(R.id.textView);
-                textView1.setText(mLesson[position-1].getLname());//MUST find a better solution to this
-            }
+                textView1.setText(mLesson[position-1].getLname());//MUST find a better solution to this (position-1)
+            }//if the position is 0, then it's the title card, else is a "menu" card. The position is -1 because the Lesson Titles are from a different array.
         }
         return view;
     }
