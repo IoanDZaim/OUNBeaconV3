@@ -45,7 +45,7 @@
             android:id="@+id/MainText"
             android:gravity="start"
             android:textAlignment="viewStart"
-            android:textSize="15sp" />
+            android:textSize="18sp" />
     </RelativeLayout>
 
 </RelativeLayout>

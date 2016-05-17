@@ -11,6 +11,7 @@
         "HDMI",
         "VGA",
         "MULTI",
+        "SHUTTERS",
         "LIGHTS"
       ]
     },
@@ -24,7 +25,7 @@
       "Lessons": [
         "HDMI",
         "VGA",
-        "MULTI"
+        "SHUTTERS"
       ]
     },
     {

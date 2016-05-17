@@ -9,16 +9,18 @@
       ],
       "Slides": [
         "In this lesson we will see how to connect your laptop with the beamer, by using the HDMI cable.",
-        "Take the HDMI cable of the beamer, usually located on the table.",
+        "First, start the beamer by presing the on button on the remote control, located on the table.",
+        "Then take the HDMI cable of the beamer, usually located on the table.",
         "Connect it to the HDMI port of your laptop.",
         "Your screen should be projected automatically on the wall.",
-        "In case it is not, press the sources button on the remote control of the beamer, located on the table",
+        "In case it is not, press the sources button on the remote control of the beamer.",
         "And that's it! Congratulation!"
       ],
       "Images":[
         null,
-        "https://drive.google.com/open?id=0B7PK_YQMZtAjY3pzdzkxZWtmNEk",
-        "https://drive.google.com/open?id=0B7PK_YQMZtAjMXRrZkVXWjhHNlU",
+        null,
+        "http://images.mobilefun.co.uk/graphics/productgalleries/34214/hdmi-to-micro-hdmi-cable-for-tesco-hudl-hudl-2-kindle-fire-hd-p34214-a.jpg",
+        "http://ww2.justanswer.com/uploads/pramitpanda/2010-12-22_011706_hdmi.jpg",
         null,
         null,
         "http://www.parkeasier.com/wp-content/uploads/2015/05/REL-Android.png"
@@ -33,17 +35,21 @@
       ],
       "Slides": [
         "This lesson will teach you how to connect your laptop with the beamer, by using the VGA cable.",
-        "Take the VGA cable, located there and connect it to your laptop",
-        "Your screen should be projected automatically on the wall",
-        "In case it is not, press the tade button on the remote control of the beamer, located there",
+        "First, start the beamer by presing the on button on the remote control, located on the table.",
+        "Take the VGA cable, located on top of the table.",
+        "Connect it to your laptop's VGA port.",
+        "Your screen should be projected automatically on the wall.",
+        "In case it is not, press the sources button on the remote control of the beamer, located on the table",
         "And that's it! Congratulation!"
       ],
       "Images":[
         null,
-        "https://hiringsolved.com/blog/assets/android-developer.png",
-        "http://www.parkeasier.com/wp-content/uploads/2015/05/REL-Android.png",
         null,
-        null
+        "http://cdn.makeuseof.com/wp-content/uploads/2012/08/vga-cable.jpg?e54a93",
+        "http://s3.amazonaws.com/shopperplus/uploads/article/main_image/1640/8.jpg",
+        null,
+        null,
+        "http://www.parkeasier.com/wp-content/uploads/2015/05/REL-Android.png"
       ]
     },
     {
