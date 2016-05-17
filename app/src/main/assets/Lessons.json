@@ -7,20 +7,21 @@
         "Winter",
         "Zomer"
       ],
-      "NumOfSlides": "5",
       "Slides": [
         "In this lesson we will see how to connect your laptop with the beamer, by using the HDMI cable.",
-        "Take the HDMI cable of the beamer, usually located there and connect it to the HDMI port of your laptop.",
-        "Your screen should be projected automatically on the wall",
-        "In case it is not, press the tade button on the remote control of the beamer, located there",
+        "Take the HDMI cable of the beamer, usually located on the table.",
+        "Connect it to the HDMI port of your laptop.",
+        "Your screen should be projected automatically on the wall.",
+        "In case it is not, press the sources button on the remote control of the beamer, located on the table",
         "And that's it! Congratulation!"
       ],
       "Images":[
         null,
+        "https://drive.google.com/open?id=0B7PK_YQMZtAjY3pzdzkxZWtmNEk",
+        "https://drive.google.com/open?id=0B7PK_YQMZtAjMXRrZkVXWjhHNlU",
         null,
-        "http://www.parkeasier.com/wp-content/uploads/2015/05/REL-Android.png",
-        "http://crackberry.com/sites/crackberry.com/files/styles/large/public/topic_images/2013/ANDROID.png?itok=xhm7jaxS",
-        null
+        null,
+        "http://www.parkeasier.com/wp-content/uploads/2015/05/REL-Android.png"
       ]
     },
     {
@@ -30,7 +31,6 @@
         "Winter",
         "Zomer"
       ],
-      "NumOfSlides": "5",
       "Slides": [
         "This lesson will teach you how to connect your laptop with the beamer, by using the VGA cable.",
         "Take the VGA cable, located there and connect it to your laptop",
@@ -53,7 +53,6 @@
         "Winter",
         "Zomer"
       ],
-      "NumOfSlides": "3",
       "Slides": [
         "The beamer in this room supports input from multiple sources",
         "Connect one laptop with the HDMI cable, the other with the VGA and press the right button on the remote.",
@@ -72,7 +71,6 @@
         "Winter",
         "Zomer"
       ],
-      "NumOfSlides": "4",
       "Slides": [
         "Most of the lights throughout the Welten Institute are automatic, although there is the possibility of turning them off when you want.",
         "Next to the door there is a small controller, mounted on the wall.",
@@ -94,7 +92,6 @@
         "Winter",
         "Zomer"
       ],
-      "NumOfSlides": "4",
       "Slides": [
         "Is the weather good, but the shutters are down? Is the sunlight bothering you? Don't worry!",
         "Although the shutters work automatically, you can still operate them yourself, making the environment more to your liking",
@@ -114,7 +111,6 @@
       "toBcons": [
         "Activities Room"
       ],
-      "NumOfSlides": "3",
       "Slides": [
         "Most of the lights throughout the Welten Institute are automatic, although there is (?) a switch to operate them",
         "Search at that place to find the switch, press it and see what happens.",

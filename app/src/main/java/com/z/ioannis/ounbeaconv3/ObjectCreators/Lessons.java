@@ -29,15 +29,13 @@ public class Lessons implements Parcelable{
     private String LesID;
     private String Lname;
     private String[] toBcnos;
-    private int nSlides;
     private String[] slides;
     private String[] imageURLs;
 
-    public Lessons(String LesID, String Lname, String[] toBcnos, int nSlides, String[] slides, String[] imageURLs) {
+    public Lessons(String LesID, String Lname, String[] toBcnos, String[] slides, String[] imageURLs) {
         this.LesID = LesID;
         this.Lname = Lname;
         this.toBcnos = toBcnos;
-        this.nSlides = nSlides;
         this.slides = slides;
         this.imageURLs = imageURLs;
     }
@@ -50,7 +48,6 @@ public class Lessons implements Parcelable{
         LesID = in.readString();
         Lname = in.readString();
         toBcnos = in.createStringArray();
-        nSlides = in.readInt();
         slides = in.createStringArray();
         imageURLs = in.createStringArray();
     }
@@ -91,14 +88,6 @@ public class Lessons implements Parcelable{
         this.toBcnos = toBcnos;
     }
 
-    public int getnSlides() {
-        return nSlides;
-    }
-
-    public void setnSlides(int nSlides) {
-        this.nSlides = nSlides;
-    }
-
     public String[] getSlides() {
         return slides;
     }
@@ -125,7 +114,6 @@ public class Lessons implements Parcelable{
         dest.writeString(LesID);
         dest.writeString(Lname);
         dest.writeStringArray(toBcnos);
-        dest.writeInt(nSlides);
         dest.writeStringArray(slides);
         dest.writeStringArray(imageURLs);
     }

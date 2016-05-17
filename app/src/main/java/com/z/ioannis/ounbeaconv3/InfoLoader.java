@@ -64,8 +64,6 @@ public class InfoLoader {
                     bc[j] = bcons.getString(j);
                 }
                 lesson.setToBcnos(bc);
-                int nSld = jsonObject.getInt("NumOfSlides");
-                lesson.setnSlides(nSld);
                 JSONArray slides = jsonObject.getJSONArray("Slides");
                 String[] sli = new String[slides.length()];
                 for (int k=0; k<slides.length();k++){
