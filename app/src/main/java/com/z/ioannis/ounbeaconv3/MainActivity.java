@@ -101,8 +101,6 @@ public class MainActivity extends Activity {
                     for (Beacons beacons : BCList){
                         String check = beacons.getMac();
                         if(check.equals(mac)){
-                            intent.putExtra("MAJ", maj);//change min and max with mac?
-                            intent.putExtra("MIN", min);
                             intent.putExtra("Beacon", beacons);
                             beaconManager.stopRanging(welten); //stop searching for beacons
                             startActivity(intent);

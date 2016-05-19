@@ -52,15 +52,12 @@ public class RoomsActivity extends Activity {
     public void onCreate (Bundle bundle) {
         super.onCreate(bundle);
         Context context = this;
-        int maj = getIntent().getIntExtra("MAJ", -1);
-        int min = getIntent().getIntExtra("MIN", -1);
-        Beacons autos = getIntent().getParcelableExtra("Beacon");
+        cBcon = (Beacons) getIntent().getSerializableExtra("Beacon");
         List<Rooms> Rooms = InfoLoader.getRoomsList();
 
         for (Rooms room : Rooms){
             for(Beacons bcon : room.getBcNames()){
-                if ((bcon.getMajor()==maj)&&(bcon.getMinor()==min)){
-                    cBcon=bcon;
+                if ((bcon.getBName().equals(cBcon.getBName()))&&(bcon.getBName().equals(cBcon.getBName()))){
                     cRoom=room;
                     break;
                 }

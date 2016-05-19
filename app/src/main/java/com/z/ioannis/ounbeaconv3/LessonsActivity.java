@@ -40,7 +40,7 @@ public class LessonsActivity extends Activity {
         super.onCreate(bundle);
         Context context = this;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        Lessons lesson = getIntent().getParcelableExtra("Lesson");
+        Lessons lesson = (Lessons) getIntent().getSerializableExtra("Lesson");
 
         mCardScroller = new CardScrollView(this);
         LessonsAdapter lessonsAdapter = new LessonsAdapter(context, lesson);

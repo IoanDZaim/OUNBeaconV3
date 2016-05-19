@@ -22,9 +22,10 @@
 package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
 import android.os.Parcel;
-import android.os.Parcelable;
 
-public class Lessons implements Parcelable{
+import java.io.Serializable;
+
+public class Lessons implements Serializable{
 
     private String LesID;
     private String Lname;
@@ -52,17 +53,7 @@ public class Lessons implements Parcelable{
         imageURLs = in.createStringArray();
     }
 
-    public static final Creator<Lessons> CREATOR = new Creator<Lessons>() {
-        @Override
-        public Lessons createFromParcel(Parcel in) {
-            return new Lessons(in);
-        }
 
-        @Override
-        public Lessons[] newArray(int size) {
-            return new Lessons[size];
-        }
-    };
 
     public String getLesID() {
         return LesID;
@@ -104,17 +95,5 @@ public class Lessons implements Parcelable{
         this.imageURLs = imageURLs;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(LesID);
-        dest.writeString(Lname);
-        dest.writeStringArray(toBcnos);
-        dest.writeStringArray(slides);
-        dest.writeStringArray(imageURLs);
-    }
 }
