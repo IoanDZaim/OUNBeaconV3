@@ -28,13 +28,13 @@ import java.io.Serializable;
 
 public class Beacons implements Serializable {
 
-    private String BName;
-    private String uuid;
-    private int Major;
+    private String BName; //Unique name of the Beacon
+    private String uuid; //This unique ID is set using Estimote cloud. It is preset and always the same in new Beacons
+    private int Major; //The Major and Minor values are preset in new Beacons and can be changed by using Estimote Cloud
     private int Minor;
-    private String Mac;
-    private String Colour;
-    private Lessons[] LssList;
+    private String Mac; //MAC address of the Beacon
+    private String Colour; //Colour of the Beacon, as indicated on the package of the Beacons
+    private Lessons[] LssList; //List of Lessons that are associated with the Beacon
 
     protected Beacons(Parcel in) {
         BName = in.readString();

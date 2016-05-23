@@ -23,12 +23,11 @@ package com.z.ioannis.ounbeaconv3.ObjectCreators;
 
 public class Rooms {
 
-    public Rooms(String roomID, Beacons[] BcNames, String roomName, int numOfLss, String WelcMsg) {
+    public Rooms(String roomID, Beacons[] BcNames, String roomName, String WelcMsg) {
 
         this.RoomID = roomID;
         this.BcNames = BcNames;
         this.RoomName = roomName;
-        this.NumOfLss = numOfLss;
         this.WelcMsg = WelcMsg;
     }
 
@@ -60,13 +59,6 @@ public class Rooms {
         RoomName = roomName;
     }
 
-    public int getNumOfLss() {
-        return NumOfLss;
-    }
-
-    public void setNumOfLss(int numOfLss) {
-        NumOfLss = numOfLss;
-    }
 
     public String getWelcMsg() {
         return WelcMsg;
@@ -76,10 +68,9 @@ public class Rooms {
         this.WelcMsg = welcMsg;
     }
 
-    private String RoomID;
-    private Beacons[] BcNames;
-    private String RoomName;
-    private int NumOfLss;
-    private String WelcMsg;
+    private String RoomID; //Unique ID of the Room
+    private Beacons[] BcNames; //Array of Beacons associated with this Room
+    private String RoomName; //Name of the Room
+    private String WelcMsg; //Welcome message that is projected when the user enters a Room and the Glass identifies it
 
 }

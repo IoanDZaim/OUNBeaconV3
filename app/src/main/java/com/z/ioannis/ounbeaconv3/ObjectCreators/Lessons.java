@@ -27,11 +27,11 @@ import java.io.Serializable;
 
 public class Lessons implements Serializable{
 
-    private String LesID;
-    private String Lname;
-    private String[] toBcnos;
-    private String[] slides;
-    private String[] imageURLs;
+    private String LesID; //The ID of every Lesson. Unique of everyone
+    private String Lname; //The title of the Lesson, used as menu title in the RoomsAdapter and as a footnote in the LessonsAdapter
+    private String[] toBcnos; //No real use for it, used mostly for reference and testing
+    private String[] slides; //The text of the cards that are being projected. Should be small
+    private String[] imageURLs; //It has either null value, or an image URL. Must be the same size as slides array
 
     public Lessons(String LesID, String Lname, String[] toBcnos, String[] slides, String[] imageURLs) {
         this.LesID = LesID;
