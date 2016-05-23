@@ -74,12 +74,12 @@ public class RoomsAdapter extends CardScrollAdapter{
                         .getView();
             }else{
                 view = new CardBuilder(mContext, CardBuilder.Layout.EMBED_INSIDE)
-                        .setEmbeddedLayout(R.layout.custom_layout)
+                        .setEmbeddedLayout(R.layout.custom_layout) //The menu cards use a custom Layout so as to fit the whole name of the Lesson title to the screen
                         .setFootnote(mRoom.getRoomName())
                         .getView();
                 TextView textView1 = (TextView) view.findViewById(R.id.textView);
-                textView1.setText(mLesson[position-1].getLname());//MUST find a better solution to this (position-1)
-            }//if the position is 0, then it's the title card, else is a "menu" card. The position is -1 because the Lesson Titles are from a different array.
+                textView1.setText(mLesson[position-1].getLname());//MUST find a better solution to this (position-1) {if it's stupid but it works, it works}
+            }//if the position is 0, then it's the Welcome Message card, else is a "menu" card. The position is -1 because the Lesson Titles are from a different array.
         }
         return view;
     }

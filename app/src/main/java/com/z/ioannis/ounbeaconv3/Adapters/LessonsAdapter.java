@@ -71,7 +71,7 @@ public class LessonsAdapter extends CardScrollAdapter{
                             .getView();
                 }else{
                     view = new CardBuilder(mContext, CardBuilder.Layout.EMBED_INSIDE)
-                            .setEmbeddedLayout(R.layout.relative_layout)
+                            .setEmbeddedLayout(R.layout.relative_layout) //Using custom Layout because the images are downloaded and not being retrieved locally.
                             .setFootnote(mLesson.getLname())
                             .getView();
                     TextView mainText = (TextView) view.findViewById(R.id.MainText);
