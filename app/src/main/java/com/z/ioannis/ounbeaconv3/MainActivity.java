@@ -94,14 +94,12 @@ public class MainActivity extends Activity {
                     j++;
                 }//insert found beacons on Array
                 if ((BconArray.length )!= 0){
-                    int maj = BconArray[0].getMajor();//might change this with the the mac method underneath
-                    int min = BconArray[0].getMinor();
                     String mac = BconArray[0].getMacAddress().toString();
                     int flag=0;
                     for (Beacons beacons : BCList){
                         String check = beacons.getMac();
                         if(check.equals(mac)){
-                            intent.putExtra("Beacon", beacons);
+                            intent.putExtra("Beacon", beacons); //this is the right beacon, pass it to the next Activity
                             beaconManager.stopRanging(welten); //stop searching for beacons
                             startActivity(intent);
                             break;

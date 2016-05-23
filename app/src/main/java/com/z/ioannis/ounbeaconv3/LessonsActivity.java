@@ -40,10 +40,10 @@ public class LessonsActivity extends Activity {
         super.onCreate(bundle);
         Context context = this;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        Lessons lesson = (Lessons) getIntent().getSerializableExtra("Lesson");
+        Lessons lesson = (Lessons) getIntent().getSerializableExtra("Lesson"); //Take the Lesson that the user selected
 
         mCardScroller = new CardScrollView(this);
-        LessonsAdapter lessonsAdapter = new LessonsAdapter(context, lesson);
+        LessonsAdapter lessonsAdapter = new LessonsAdapter(context, lesson); //Pass the Lesson to the adapter  so as to be projected to the user
         mCardScroller.setAdapter(lessonsAdapter);
         mCardScroller.activate();
         setContentView(mCardScroller);

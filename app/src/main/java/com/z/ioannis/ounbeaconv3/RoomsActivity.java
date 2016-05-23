@@ -42,7 +42,6 @@ import java.util.List;
 public class RoomsActivity extends Activity {
 
     private CardScrollView mCardScroller;
-    private int cPossition;
     private Intent intent;
     private  AudioManager am;
     private Rooms cRoom;
@@ -52,13 +51,13 @@ public class RoomsActivity extends Activity {
     public void onCreate (Bundle bundle) {
         super.onCreate(bundle);
         Context context = this;
-        cBcon = (Beacons) getIntent().getSerializableExtra("Beacon");
+        cBcon = (Beacons) getIntent().getSerializableExtra("Beacon"); //Retrieve the current closest beacon from the precious Activity
         List<Rooms> Rooms = InfoLoader.getRoomsList();
 
-        for (Rooms room : Rooms){
-            for(Beacons bcon : room.getBcNames()){
-                if ((bcon.getBName().equals(cBcon.getBName()))&&(bcon.getBName().equals(cBcon.getBName()))){
-                    cRoom=room;
+        for (Rooms room : Rooms){ //Check all the Rooms, one Room at a time
+            for(Beacons bcon : room.getBcNames()){ //Check the Beacons associated with the current Room that the app is checking
+                if (bcon.getBName().equals(cBcon.getBName())){ //if the name of the Beacon that is being checked, matches the name of the Beacon that was retrieved from the previous Activity
+                    cRoom=room; //then the current Room is the Room we want to pass to the adapter.
                     break;
                 }
             }
@@ -78,13 +77,12 @@ public class RoomsActivity extends Activity {
         mCardScroller.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                cPossition = mCardScroller.getSelectedItemPosition();
-                if (cPossition == 0){
+                if (position == 0){
                     am.playSoundEffect(Sounds.DISALLOWED);
                 }else {
                     am.playSoundEffect(Sounds.TAP);
-                    intent.putExtra("Lesson", cBcon.getLssList()[position-1]);
-                    startActivity(intent);
+                    intent.putExtra("Lesson", cBcon.getLssList()[position-1]); //it projects the title of the position-1 because if the position of the AdapterView is 1 then it tis the 0 object of the Lessons List
+                    startActivity(intent); //Pass the appropriate Lesson to the next Activity and start it
                 }
             }
         });
